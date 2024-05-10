@@ -1,17 +1,15 @@
-import './index.css';
-
 import { Global, ThemeProvider } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import App from './App.tsx';
-import reset from './styles/Reset.ts';
-import theme from './styles/Theme.ts';
+import resetStyle from './styles/reset.ts';
+import theme from './styles/theme.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <Global styles={reset} />
+      <Global styles={resetStyle} />
       <App />
     </ThemeProvider>
   </React.StrictMode>
