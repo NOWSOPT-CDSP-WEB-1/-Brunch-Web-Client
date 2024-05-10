@@ -11,6 +11,7 @@ function App() {
 
   return (
     <>
+      <div>테스트!</div>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
