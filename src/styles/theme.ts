@@ -227,4 +227,7 @@ const theme = {
   },
 };
 
+export type ColorType = typeof theme.color;
+export type FontType = typeof theme.font;
+
 export default theme;
