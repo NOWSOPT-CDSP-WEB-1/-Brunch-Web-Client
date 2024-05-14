@@ -9,6 +9,7 @@
         "ignore": ["after-comment", "after-declaration", "inside-single-line-block"]
       }
     ],
+    "font-family-name-quotes": null,
 
     "order/order": ["custom-properties", "declarations"],
 
