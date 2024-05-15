@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 
 const theme = {
   color: {
+    black: '#000000',
     white01: '#FFFFFF',
     white02: 'rgba(255, 255, 255, 0.56)',
     gray01: '#F8F8F8',

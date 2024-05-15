@@ -1,4 +1,6 @@
+import { Icon } from '@components/index';
 import styled from '@emotion/styled';
+import { icons } from '@styles/icons';
 import React from 'react';
 
 const Home = () => {
@@ -8,6 +10,8 @@ const Home = () => {
         <BannerImg src="banner.svg" alt="banner" />
         <BannerCloseImg src="banner-close.svg" alt="banner-close" />
       </BannerWrapper>
+
+      <Icon icon={icons.search} />
     </Homecontainer>
   );
 };
