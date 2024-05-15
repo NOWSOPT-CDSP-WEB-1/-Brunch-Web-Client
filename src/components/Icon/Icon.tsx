@@ -21,7 +21,7 @@ interface IconContainerProps {
 
 const Icon = ({ icon, size = '2.4rem', color = theme.color.black, onClick, ...props }: IconProps) => {
   return (
-    <IconContainer size={size} color={color} onClick={onClick} {...props}>
+    <IconContainer size={size} color={color} onClick={onClick} className={icon.className} {...props}>
       {icon.name}
     </IconContainer>
   );
@@ -29,7 +29,7 @@ const Icon = ({ icon, size = '2.4rem', color = theme.color.black, onClick, ...pr
 
 export default Icon;
 
-const IconContainer = styled.div<IconContainerProps>`
+const IconContainer = styled.span<IconContainerProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
