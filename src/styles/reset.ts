@@ -134,10 +134,6 @@ video {
     border-spacing: 0;
   }
 
-  :root {
-    min-height: 100vh;
-  }
-
   html {
     scroll-behavior: smooth;
 
@@ -175,6 +171,11 @@ video {
 
   * {
     box-sizing: border-box;
+  }
+
+  :root {
+    width: 136.6rem;
+    min-height: 100vh;
   }
 `;
 
