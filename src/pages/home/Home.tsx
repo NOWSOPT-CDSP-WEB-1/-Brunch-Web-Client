@@ -146,7 +146,7 @@ const BannerCloseImg = styled.img`
 `;
 
 const MainContainer = styled.main`
-  padding-left: 34.1rem;
+  padding: 0 34rem;
 `;
 
 const BrunchWrapper = styled.div`
