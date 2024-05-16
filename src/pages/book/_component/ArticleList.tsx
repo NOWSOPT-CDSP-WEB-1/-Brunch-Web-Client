@@ -1,9 +1,9 @@
-import { BookProps } from '@components/ArticleCard';
+import { ArticleProps } from '@components/ArticleCard';
 import { ArticleCard } from '@components/index';
 import styled from '@emotion/styled';
 import { useState } from 'react';
 
-const articleInitialData: BookProps[] = [
+const articleInitialData: ArticleProps[] = [
   {
     chapterId: '1',
     chapterTitle: '무인도의 부자 노인',
@@ -36,16 +36,21 @@ const ArticleList = () => {
 
   return (
     <Container>
-      {articles.map((article, i) => (
-        <ArticleCard
-          key={`article-${i}`}
-          chapterId={article.chapterId}
-          chapterTitle={article.chapterTitle}
-          content={article.content}
-          chapterImage={article.chapterImage}
-          chapterRuntime={article.chapterRuntime}
-        />
-      ))}
+      <Wrapper>
+        {articles.map((article, i) => (
+          <>
+            <ArticleCard
+              key={`article-${i}`}
+              chapterId={article.chapterId}
+              chapterTitle={article.chapterTitle}
+              content={article.content}
+              chapterImage={article.chapterImage}
+              chapterRuntime={article.chapterRuntime}
+            />
+            <Divider />
+          </>
+        ))}
+      </Wrapper>
     </Container>
   );
 };
@@ -54,6 +59,21 @@ export default ArticleList;
 
 const Container = styled.div`
   display: flex;
+  justify-content: center;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const Divider = styled.div`
+  width: 100%;
+  margin: 2.2rem 0;
+
+  &:last-child {
+    display: none;
+  }
+  border: 0.8px solid ${({ theme }) => theme.color.gray03};
 `;

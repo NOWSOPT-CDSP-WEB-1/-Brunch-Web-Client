@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 import { Icon } from '..';
 
-export interface BookProps {
+export interface ArticleProps {
   chapterId: string;
   chapterTitle: string;
   content: string;
@@ -15,7 +15,7 @@ export interface BookProps {
   chapterRuntime: string;
 }
 
-const index = ({ chapterId, chapterTitle, content, chapterImage, chapterRuntime }: BookProps) => {
+const index = ({ chapterId, chapterTitle, content, chapterImage, chapterRuntime }: ArticleProps) => {
   const theme = useContext(ThemeContext) as ThemeType;
 
   return (
@@ -41,21 +41,14 @@ export default index;
 
 const Container = styled.div`
   display: flex;
-  gap: 1.4rem;
+  gap: 1.9rem;
   width: 49.5rem;
-  padding: 2.2rem 0;
 
   &:first-child {
     padding-top: 0;
   }
-
-  &:last-child {
-    border-bottom: 0;
-  }
   cursor: pointer;
-  border-bottom: 1px solid ${({ theme }) => theme.color.gray03};
 `;
-
 const ListNum = styled.span`
   ${({ theme }) => theme.font.body4_regular};
 `;
