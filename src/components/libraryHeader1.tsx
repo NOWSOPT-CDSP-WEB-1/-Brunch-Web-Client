@@ -7,7 +7,7 @@ export default function LibraryHeader1() {
       <LeftContainer>
         <Link to={'/'} style={{ textDecoration: 'none' }}>
           <LogoContainer>
-            <LogobarIcon src="long_Black_bar.svg" alt="logo_blackbar"></LogobarIcon>
+            <LogobarIcon src="long Black bar.svg" alt="logo_blackbar"></LogobarIcon>
             <LogoTitle>brunch story</LogoTitle>
           </LogoContainer>
         </Link>
@@ -22,7 +22,7 @@ export default function LibraryHeader1() {
           <WriteContent>글쓰기</WriteContent>
         </WriteButton>
         <ProfileImg />
-        <SearchIcon src="search_icon.svg" alt="searchIcon"></SearchIcon>
+        <SearchIcon src="icn_search.png" alt="searchIcon"></SearchIcon>
       </RightContainer>
     </Header>
   );
