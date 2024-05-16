@@ -1,7 +1,7 @@
 import { ArticleProps } from '@components/ArticleCard';
 import { ArticleCard } from '@components/index';
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const articleInitialData: ArticleProps[] = [
   {
@@ -38,7 +38,7 @@ const ArticleList = () => {
     <Container>
       <Wrapper>
         {articles.map((article, i) => (
-          <>
+          <React.Fragment key={`article-fragment-${i}`}>
             <ArticleCard
               key={`article-${i}`}
               chapterId={article.chapterId}
@@ -48,7 +48,7 @@ const ArticleList = () => {
               chapterRuntime={article.chapterRuntime}
             />
             <Divider />
-          </>
+          </React.Fragment>
         ))}
       </Wrapper>
     </Container>
@@ -62,7 +62,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
