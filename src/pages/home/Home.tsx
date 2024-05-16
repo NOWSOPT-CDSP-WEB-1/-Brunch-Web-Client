@@ -1,8 +1,7 @@
-import { Icon } from '@components/index';
 import styled from '@emotion/styled';
-import { icons } from '@styles/icons';
 
-import MainCarousel from './components/MainCarousel';
+import MainCarousel from './_components/MainCarousel';
+import MainIntro from './_components/MainIntro';
 
 const Home = () => {
   return (
@@ -12,10 +11,10 @@ const Home = () => {
         <BannerCloseImg src="banner-close.svg" alt="banner-close" />
       </BannerWrapper>
 
-      <Icon icon={icons.search} />
-
-      <MainCarousel />
-
+        <MainContainer>
+            <MainIntro />
+            <MainCarousel />
+        </MainContainer>
       <BrunchGap>
         <div>
           <BrunchWrapper>
@@ -144,6 +143,10 @@ const BannerCloseImg = styled.img`
   display: flex;
 
   cursor: pointer;
+`;
+
+const MainContainer = styled.main`
+  padding-left: 34.1rem;
 `;
 
 const BrunchWrapper = styled.div`
