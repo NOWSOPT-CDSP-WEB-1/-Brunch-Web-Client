@@ -1,3 +1,4 @@
 import Icon from './Icon/Icon';
+import Logo from './Logo';
 
-export { Icon };
+export { Icon, Logo };

@@ -48,8 +48,11 @@ const Index = () => {
 export default Index;
 
 const CarouselContainer = styled.div`
+  position: absolute;
+  left: 0;
   gap: 1rem;
   width: 100%;
+  max-width: 136.6rem;
   height: 43.7rem;
 
   .my-swiper {
