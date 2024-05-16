@@ -43,10 +43,17 @@ const Container = styled.div`
   display: flex;
   gap: 1.4rem;
   width: 49.5rem;
-  height: 8.5rem;
-  margin-bottom: 2.2rem;
+  padding: 2.2rem 0;
 
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
   cursor: pointer;
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray03};
 `;
 
 const ListNum = styled.span`
@@ -56,6 +63,7 @@ const ListNum = styled.span`
 const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  height: 8.5rem;
 `;
 
 const Title = styled.h3`
@@ -91,5 +99,6 @@ const RuntimeText = styled.span`
 
 const BookThumbnail = styled.img`
   height: 100%;
+  height: 8.5rem;
   object-fit: cover;
 `;
