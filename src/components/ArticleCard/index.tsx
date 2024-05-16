@@ -39,7 +39,7 @@ const index = ({ chapterId, chapterTitle, content, chapterImage, chapterRuntime 
 
 export default index;
 
-const Container = styled.div`
+const Container = styled.article`
   display: flex;
   gap: 1.9rem;
   width: 49.5rem;
