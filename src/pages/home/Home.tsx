@@ -1,7 +1,8 @@
 import { Icon } from '@components/index';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
-import React from 'react';
+
+import MainCarousel from './components/MainCarousel';
 
 const Home = () => {
   return (
@@ -12,6 +13,8 @@ const Home = () => {
       </BannerWrapper>
 
       <Icon icon={icons.search} />
+
+      <MainCarousel />
     </Homecontainer>
   );
 };
