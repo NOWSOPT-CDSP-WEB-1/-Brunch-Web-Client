@@ -57,7 +57,6 @@ const CarouselContainer = styled.div`
 
   .my-swiper {
     position: relative;
-    padding-top: 3rem;
     padding-bottom: 3.6rem;
 
     .swiper-pagination {
