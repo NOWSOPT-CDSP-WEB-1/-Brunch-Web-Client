@@ -1,3 +1,4 @@
+import Apply from '@pages/apply/Apply';
 import Home from '@pages/home/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -6,6 +7,10 @@ const Router = () => {
     {
       path: '/',
       element: <Home />,
+    },
+    {
+      path: '/apply',
+      element: <Apply />,
     },
   ];
 
