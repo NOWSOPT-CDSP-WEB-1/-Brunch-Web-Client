@@ -1,3 +1,4 @@
+import Book from '@pages/book/Book';
 import Home from '@pages/home/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -7,6 +8,7 @@ const Router = () => {
       path: '/',
       element: <Home />,
     },
+    { path: '/book', element: <Book /> },
   ];
 
   return (
