@@ -1,3 +1,5 @@
-import Icon from './Icon/Icon';
+import ArticleCard from './ArticleCard';
+import Icon from './Icon';
+import BookImgForm from './libraryPage/BookImgForm';
 
-export { Icon };
+export { ArticleCard, Icon, BookImgForm };

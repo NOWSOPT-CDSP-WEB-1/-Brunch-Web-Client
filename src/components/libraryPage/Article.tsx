@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
+import { icons } from '@styles/icons';
 
 import EachAritleComponent from './eachArticle';
+
+import { Icon } from '..';
 
 //여기서 api 받아오고 props로 받은 liked나 recent구분하기
 
@@ -54,7 +57,7 @@ export default function Article(sort: Sort) {
     <Container>
       <ArticleIndexWrapper>
         <ArticleIndex>{sortText}</ArticleIndex>
-        <img src="icn_next_small.svg" alt="nextSmall" />
+        <Icon icon={icons.arrow_forward_ios} size="1.2rem" color="#3D3D3D" />
       </ArticleIndexWrapper>
 
       <ArticleContainer>
@@ -82,6 +85,7 @@ const Container = styled.div`
 `;
 const ArticleIndexWrapper = styled.div`
   display: flex;
+  align-items: center;
   padding-right: 61.5rem;
 `;
 const ArticleIndex = styled.p`

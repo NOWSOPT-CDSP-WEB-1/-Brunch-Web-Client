@@ -19,7 +19,7 @@ interface IconContainerProps {
   color?: string;
 }
 
-const Icon = ({ icon, size = '2.4rem', color = theme.color.black, onClick, ...props }: IconProps) => {
+const index = ({ icon, size = '2.4rem', color = theme.color.black, onClick, ...props }: IconProps) => {
   return (
     <IconContainer size={size} color={color} onClick={onClick} className={icon.className} {...props}>
       {icon.name}
@@ -27,7 +27,7 @@ const Icon = ({ icon, size = '2.4rem', color = theme.color.black, onClick, ...pr
   );
 };
 
-export default Icon;
+export default index;
 
 const IconContainer = styled.span<IconContainerProps>`
   display: inline-flex;
