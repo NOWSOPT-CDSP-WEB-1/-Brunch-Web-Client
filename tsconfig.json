@@ -29,8 +29,9 @@
       "@typings/*": ["src/typings/*"],
       "@utils/*": ["src/utils/*"],
       "@apis/*": ["src/apis/*"]
-    }
+    },
+    "types": ["vite-plugin-svgr/client"]
   },
-  "include": ["src", "src/styles/custom.d.ts"],
+  "include": ["src", "svg.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
