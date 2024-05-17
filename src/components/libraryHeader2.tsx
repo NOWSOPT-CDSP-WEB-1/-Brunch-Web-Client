@@ -17,11 +17,12 @@ export default function LibraryHeader2() {
   const navRefList = [navBookRef, navArticleRef, navLikedBookRef, navLikedArticleRef];
 
   function handleRefClick(navIndex: number) {
+    console.log('나눌림:' + navIndex); //왜눌리지도 않을까
     navRefList[navIndex].current?.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (
-    <Div>
+    <>
       <LightImg src="light.svg" alt="lightimg" />
       <Container>
         <IntroFrame>
@@ -38,23 +39,26 @@ export default function LibraryHeader2() {
           })}
         </NavButtons>
       </Container>
-    </Div>
+    </>
   );
 }
-const Div = styled.div``;
 const LightImg = styled.img`
   position: absolute;
   top: 0rem;
-  left: 25%;
+  left: 33rem;
   display: flex;
-  width: 3rem;
-  height: 10rem;
+  width: 3.1rem;
+  height: 12rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
 `;
 const Container = styled.div`
+  z-index: 10;
+  position: relative;
+  top: 0rem;
+  left: 3rem;
   display: inline-flex;
   justify-content: center;
   align-items: flex-end;
