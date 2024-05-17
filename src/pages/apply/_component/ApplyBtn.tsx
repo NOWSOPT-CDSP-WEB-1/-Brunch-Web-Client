@@ -1,4 +1,4 @@
-import Arrow from '@assets/arrow.svg';
+import Arrow from '@assets/arrow.svg?react';
 import styled from '@emotion/styled';
 
 const ScrollFollowButton = () => {
