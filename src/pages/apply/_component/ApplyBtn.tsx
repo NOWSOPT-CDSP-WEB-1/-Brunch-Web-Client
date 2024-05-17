@@ -34,7 +34,6 @@ const BtnContainer = styled.button`
   transition: transform 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.white02};
     transform: translateY(-10px) scale(1.05);
   }
 `;
