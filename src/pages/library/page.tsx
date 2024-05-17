@@ -10,16 +10,16 @@ export default function LibraryPage() {
     <>
       <LibraryHeader1 />
       <LibraryHeader2 />
-      <div id="최근 본 브런치북">
+      <div id="recentBook">
         <RecentBook />
       </div>
-      <div id="최근 본 글">
+      <div id="recentArticle">
         <RecentArticle />
       </div>
-      <div id="라이킷한 브런치북">
+      <div id="likedBook">
         <LikedBook />
       </div>
-      <div id="라이킷한 글">
+      <div id="likedArticle">
         <LikedArticle />
       </div>
     </>

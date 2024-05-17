@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export default function LibraryHeader2() {
   const navList = ['최근 본 브런치북', '최근 본 글', '라이킷한 브런치북', '라이킷한 글'];
-
+  const navId = ['recentBook', 'recentArticle', 'likedBook', 'likedArticle'];
   return (
     <>
       <LightImg src="light.svg" alt="lightimg" />
@@ -12,10 +12,10 @@ export default function LibraryHeader2() {
           <Intro2>언제든 이어 읽을 수 있어요!</Intro2>
         </IntroFrame>
         <NavButtons>
-          {navList.map((each, index) => (
-            <a href={`#${each}`} key={index + 1}>
-              <EachNavButton>{each}</EachNavButton>
-            </a>
+          {navId.map((each, index) => (
+            <EachNavButton href={`#${each}`} key={index + 1}>
+              {navList[index]}
+            </EachNavButton>
           ))}
         </NavButtons>
       </Container>
@@ -62,8 +62,7 @@ const NavButtons = styled.div`
   display: flex;
   align-items: flex-start;
 `;
-const EachNavButton = styled.button`
-  z-index: 10;
+const EachNavButton = styled.a`
   display: flex;
   width: 8rem;
   height: 1.5rem;
