@@ -24,31 +24,31 @@ export default function LibraryHeader2() {
 }
 const LightImg = styled.img`
   position: absolute;
-  top: 0rem;
+  top: 0;
   left: 33rem;
   display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   width: 3.1rem;
   height: 12rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
 `;
 const Container = styled.div`
   position: relative;
-  top: 0rem;
+  top: 0;
   left: 3rem;
   display: inline-flex;
-  justify-content: center;
-  align-items: flex-end;
-  width: 100%;
   gap: 15rem;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
 `;
 const IntroFrame = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 7px;
+  align-items: flex-start;
 `;
 const Intro1 = styled.p`
   ${({ theme }) => theme.font.head4}
@@ -64,12 +64,13 @@ const NavButtons = styled.div`
 `;
 const EachNavButton = styled.a`
   display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   width: 8rem;
   height: 1.5rem;
-  padding: 0rem 1.9rem 0rem 2rem;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
+  padding: 0 1.9rem 0 2rem;
+
   ${({ theme }) => theme.font.detail2};
   color: ${({ theme }) => theme.color.gray08};
   white-space: nowrap;
