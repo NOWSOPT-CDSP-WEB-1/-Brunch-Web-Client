@@ -41,27 +41,29 @@ const Index = () => {
                   <SlideWrapper key={item.id}>
                     <SlideImage src={item.bannerImage} alt={`Slide ${item.id}`} />
                     <SlideOverlay className="overlay">
-                      <div>
-                        <OverlayHeader>
-                          <OverlayTitle>{item.title}</OverlayTitle>
-                          <OverLayLike src="icon/heart.svg" />
-                        </OverlayHeader>
-                        <OverlayBookData>
-                          <OverlayBookEpisode>
-                            <Icon icon={icons.segment} />
-                            <span>{`총 ${item.bookEpisode}화`}</span>
-                          </OverlayBookEpisode>
-                          <OverlayBookRuntime>
-                            <Icon icon={icons.schedule} />
-                            <span>{`${item.bookRuntime}분`}</span>
-                          </OverlayBookRuntime>
-                        </OverlayBookData>
-                        <OverlayDescription>{item.bookDescription}</OverlayDescription>
-                      </div>
-                      <OverlayRecommendation>
-                        <RecommendationTitle>이런분께 추천드려요!</RecommendationTitle>
-                        <RecommendationContent>{item.bookRecommendation}</RecommendationContent>
-                      </OverlayRecommendation>
+                      <OverLayText>
+                        <div>
+                          <OverlayHeader>
+                            <OverlayTitle>{item.title}</OverlayTitle>
+                            <img src="icon/heart.svg" alt="like" />
+                          </OverlayHeader>
+                          <OverlayBookData>
+                            <OverlayBookEpisode>
+                              <Icon icon={icons.segment} size="1rem" />
+                              <span>{`총 ${item.bookEpisode}화`}</span>
+                            </OverlayBookEpisode>
+                            <OverlayBookRuntime>
+                              <Icon icon={icons.schedule} size="1rem" />
+                              <span>{`${item.bookRuntime}분`}</span>
+                            </OverlayBookRuntime>
+                          </OverlayBookData>
+                          <OverlayDescription>{item.bookDescription}</OverlayDescription>
+                        </div>
+                        <OverlayRecommendation>
+                          <RecommendationTitle>이런분께 추천드려요!</RecommendationTitle>
+                          <RecommendationContent>{item.bookRecommendation}</RecommendationContent>
+                        </OverlayRecommendation>
+                      </OverLayText>
                     </SlideOverlay>
                   </SlideWrapper>
                 );
@@ -171,9 +173,11 @@ const SlideOverlay = styled.div`
   top: 0;
   left: 0;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 1rem;
 
   background: ${({ theme }) => theme.color.black};
   visibility: hidden;
@@ -184,6 +188,15 @@ const SlideOverlay = styled.div`
     visibility 0.3s ease;
 `;
 
+const OverLayText = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18.4rem;
+  height: 25.6rem;
+  padding: 1rem;
+`;
+
 const OverlayHeader = styled.header`
   display: flex;
   align-items: center;
@@ -191,22 +204,91 @@ const OverlayHeader = styled.header`
 `;
 
 const OverlayTitle = styled.h2`
+  display: -webkit-box;
+  max-width: 12.6rem;
+  max-height: 7.5rem;
+  overflow: hidden;
+
   ${({ theme }) => theme.font.body1}
+  color: ${({ theme }) => theme.color.white01};
   font-size: 1.8rem;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  line-height: 136.241%;
+  text-overflow: ellipsis;
 `;
 
-const OverLayLike = styled.img``;
+const OverlayBookData = styled.div`
+  display: flex;
+  gap: 1.1rem;
+  padding-bottom: 1rem;
 
-const OverlayBookData = styled.div``;
+  & span {
+    color: ${({ theme }) => theme.color.white01};
+  }
+`;
 
-const OverlayBookEpisode = styled.div``;
+const OverlayBookEpisode = styled.div`
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
 
-const OverlayBookRuntime = styled.div``;
+  ${({ theme }) => theme.font.detail4_3}
+  color: ${({ theme }) => theme.color.white01};
 
-const OverlayDescription = styled.div``;
+  & > span.material-symbols-outlined {
+    transform: rotateY(180deg);
+  }
+`;
 
-const OverlayRecommendation = styled.div``;
+const OverlayBookRuntime = styled.div`
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
 
-const RecommendationTitle = styled.h6``;
+  ${({ theme }) => theme.font.detail4_3}
+  color: ${({ theme }) => theme.color.white01};
+`;
 
-const RecommendationContent = styled.p``;
+const OverlayDescription = styled.div`
+  display: -webkit-box;
+  max-width: 15rem;
+  height: 5.6em;
+  overflow: hidden;
+
+  ${({ theme }) => theme.font.detail2}
+  color: ${({ theme }) => theme.color.white01};
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+
+  text-overflow: ellipsis;
+`;
+
+const OverlayRecommendation = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+const RecommendationTitle = styled.h6`
+  ${({ theme }) => theme.font.detail2}
+  color: ${({ theme }) => theme.color.white01};
+`;
+
+const RecommendationContent = styled.p`
+  display: -webkit-box;
+  max-width: 15rem;
+  height: 3.2;
+  overflow: hidden;
+
+  ${({ theme }) => theme.font.detail4_183_0}
+  color: ${({ theme }) => theme.color.white01};
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  text-overflow: ellipsis;
+`;

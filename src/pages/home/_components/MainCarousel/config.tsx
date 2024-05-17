@@ -4,13 +4,15 @@ import { BannerImage } from './types';
 export const data: BannerImage[] = [
   {
     id: 1,
-    title: '최근 읽은 책 1',
+    title: '최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1',
     authorName: '홍길동',
     bannerImage: 'https://via.placeholder.com/184x256',
     bookEpisode: 9,
     bookRuntime: 20,
-    bookDescription: '책 내용 1',
-    bookRecommendation: '농담처럼 가볍게 읽히지만, 한참을 곱씹게 만드는 매력이 있는 짧은 소설들',
+    bookDescription:
+      '최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1최근 읽은 책 1',
+    bookRecommendation:
+      '농담처럼 가볍게 읽히지만, 한참을 곱씹게 만드는 매력이 있는 짧은 소설들농담처럼 가볍게 읽히지만, 한참을 곱씹게 만드는 매력이 있는 짧은 소설들',
   },
   {
     id: 2,
@@ -20,7 +22,7 @@ export const data: BannerImage[] = [
     bookEpisode: 10,
     bookRuntime: 25,
     bookDescription: '책 내용 2',
-    bookRecommendation: '깊이 있는 주제와 매력적인 캐릭터가 돋보이는 소설입니다.',
+    bookRecommendation: '깊이 있는 주제와 ',
   },
   {
     id: 3,
