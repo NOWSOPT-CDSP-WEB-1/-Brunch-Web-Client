@@ -11,10 +11,10 @@ const Home = () => {
         <BannerCloseImg src="banner-close.svg" alt="banner-close" />
       </BannerWrapper>
 
-        <MainContainer>
-            <MainIntro />
-            <MainCarousel />
-        </MainContainer>
+      <MainContainer>
+        <MainIntro />
+        <MainCarousel />
+      </MainContainer>
       <BrunchGap>
         <div>
           <BrunchWrapper>
