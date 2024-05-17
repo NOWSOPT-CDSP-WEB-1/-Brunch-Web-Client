@@ -1,4 +1,5 @@
 import Apply from '@pages/apply/Apply';
+import Book from '@pages/book/Book';
 import Home from '@pages/home/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ const Router = () => {
       path: '/apply',
       element: <Apply />,
     },
+    { path: '/book', element: <Book /> },
   ];
 
   return (
