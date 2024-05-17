@@ -1,4 +1,6 @@
+import { Icon } from '@components';
 import styled from '@emotion/styled';
+import { icons } from '@styles/icons';
 import { Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -34,9 +36,36 @@ const Index = () => {
         {groupedImages.slice(0, 10).map((group, index) => {
           return (
             <SwiperSlideWrapper key={index}>
-              {group.map((item) => (
-                <img key={item.id} src={item.bannerImage} alt={`Slide ${item.id}`} />
-              ))}
+              {group.map((item) => {
+                return (
+                  <SlideWrapper key={item.id}>
+                    <SlideImage src={item.bannerImage} alt={`Slide ${item.id}`} />
+                    <SlideOverlay className="overlay">
+                      <div>
+                        <OverlayHeader>
+                          <OverlayTitle>{item.title}</OverlayTitle>
+                          <OverLayLike src="icon/heart.svg" />
+                        </OverlayHeader>
+                        <OverlayBookData>
+                          <OverlayBookEpisode>
+                            <Icon icon={icons.segment} />
+                            <span>{`총 ${item.bookEpisode}화`}</span>
+                          </OverlayBookEpisode>
+                          <OverlayBookRuntime>
+                            <Icon icon={icons.schedule} />
+                            <span>{`${item.bookRuntime}분`}</span>
+                          </OverlayBookRuntime>
+                        </OverlayBookData>
+                        <OverlayDescription>{item.bookDescription}</OverlayDescription>
+                      </div>
+                      <OverlayRecommendation>
+                        <RecommendationTitle>이런분께 추천드려요!</RecommendationTitle>
+                        <RecommendationContent>{item.bookRecommendation}</RecommendationContent>
+                      </OverlayRecommendation>
+                    </SlideOverlay>
+                  </SlideWrapper>
+                );
+              })}
             </SwiperSlideWrapper>
           );
         })}
@@ -110,16 +139,74 @@ const CarouselContainer = styled.div`
 
 const SwiperSlideWrapper = styled(SwiperSlide)`
   display: flex;
-  gap: 15.8rem;
   align-items: center;
   justify-content: center;
   width: 34.2rem;
   height: 37.1rem;
 
   background: linear-gradient(180deg, #f1f1f1 0%, #b9b9b9 71.99%, #d0d0d0 72%, #b7b7b7 100%);
+`;
 
-  & > img {
-    width: 18.4rem;
-    height: 25.6rem;
+const SlideWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  &:hover .overlay {
+    visibility: visible;
+    opacity: 0.5;
   }
 `;
+
+const SlideImage = styled.img`
+  width: 18.4rem;
+  height: 25.6rem;
+`;
+
+const SlideOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+
+  background: ${({ theme }) => theme.color.black};
+  visibility: hidden;
+  opacity: 0;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+`;
+
+const OverlayHeader = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const OverlayTitle = styled.h2`
+  ${({ theme }) => theme.font.body1}
+  font-size: 1.8rem;
+`;
+
+const OverLayLike = styled.img``;
+
+const OverlayBookData = styled.div``;
+
+const OverlayBookEpisode = styled.div``;
+
+const OverlayBookRuntime = styled.div``;
+
+const OverlayDescription = styled.div``;
+
+const OverlayRecommendation = styled.div``;
+
+const RecommendationTitle = styled.h6``;
+
+const RecommendationContent = styled.p``;
