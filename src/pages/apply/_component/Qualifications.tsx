@@ -46,7 +46,7 @@ const Container = styled.div`
 
 const Head5Text = styled.pre`
   position: relative;
-  top: 8rem;
+  top: 10rem;
   left: 4rem;
   display: inline;
   ${({ theme }) => theme.font.head5};
@@ -61,7 +61,7 @@ const Divider = styled.div`
 
 const Rotate = styled.div`
   position: absolute;
-  top: 18rem;
+  top: 21rem;
   left: -5rem;
   display: flex;
   gap: 1.7rem;
@@ -90,7 +90,7 @@ const DisplayWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 56.5rem;
-  margin-top: 8rem;
+  margin-top: 11.5rem;
 `;
 
 // const DisplayText = styled.pre`
