@@ -30,6 +30,13 @@ const BtnContainer = styled.button`
   background-color: ${({ theme }) => theme.color.white01};
   box-shadow: 0 4px 30.1px 7px rgb(0 0 0 / 16%);
   cursor: pointer;
+
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.color.white02};
+    transform: translateY(-10px) scale(1.05);
+  }
 `;
 
 const BtnText = styled.p`
