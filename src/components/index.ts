@@ -1,3 +1,4 @@
-import Icon from './Icon/Icon';
+import ArticleCard from './ArticleCard';
+import Icon from './Icon';
 
-export { Icon };
+export { ArticleCard, Icon };
