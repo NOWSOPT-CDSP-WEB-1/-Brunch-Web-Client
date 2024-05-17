@@ -73,4 +73,5 @@ const EachNavButton = styled.a`
   ${({ theme }) => theme.font.detail2};
   color: ${({ theme }) => theme.color.gray08};
   white-space: nowrap;
+  text-decoration-line: none;
 `;
