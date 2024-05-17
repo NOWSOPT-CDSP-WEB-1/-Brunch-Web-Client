@@ -48,5 +48,5 @@ const BannerCloseImg = styled.img`
 `;
 
 const MainContainer = styled.main`
-  padding: 0 34rem;
+  padding: 0 33.9rem;
 `;
