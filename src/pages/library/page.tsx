@@ -1,8 +1,4 @@
-import LibraryHeader2 from '@components/libraryPage/libraryHeader2';
-import LikedArticle from '@components/libraryPage/likedArticle';
-import LikedBook from '@components/libraryPage/likedBook';
-import RecentArticle from '@components/libraryPage/recentArticle';
-import RecentBook from '@components/libraryPage/recentBook';
+import { LibraryHeader2, LikedArticle, LikedBook, RecentArticle, RecentBook } from '@components';
 import LibraryHeader1 from 'src/components/libraryHeader1';
 
 export default function LibraryPage() {
