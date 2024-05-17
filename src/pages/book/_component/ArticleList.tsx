@@ -1,7 +1,7 @@
 import { ArticleProps } from '@components/ArticleCard';
 import { ArticleCard } from '@components/index';
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const articleInitialData: ArticleProps[] = [
   {
@@ -33,6 +33,10 @@ const articleInitialData: ArticleProps[] = [
 const ArticleList = () => {
   const [articles, setArticles] = useState(articleInitialData);
   // TODO: API 연동 후 데이터 받아오기
+
+  useEffect(() => {
+    setArticles(articleInitialData);
+  }, []);
 
   return (
     <Container>
