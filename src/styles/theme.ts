@@ -23,7 +23,7 @@ const theme = {
   font: {
     display1: css`
       font-weight: 600;
-      font-size: 25px;
+      font-size: 75px;
       font-family: 'Nanum Myeongjo', serif;
       font-style: normal;
       line-height: 125.037%; /* 93.778px */
