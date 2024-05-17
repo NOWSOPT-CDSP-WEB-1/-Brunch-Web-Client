@@ -1,25 +1,7 @@
 import styled from '@emotion/styled';
-import { RefObject, useRef } from 'react';
-
-export let navBookRef: RefObject<HTMLDivElement>;
-export let navArticleRef: RefObject<HTMLDivElement>;
-export let navLikedBookRef: RefObject<HTMLDivElement>;
-export let navLikedArticleRef: RefObject<HTMLDivElement>;
 
 export default function LibraryHeader2() {
   const navList = ['최근 본 브런치북', '최근 본 글', '라이킷한 브런치북', '라이킷한 글'];
-
-  navBookRef = useRef<HTMLDivElement>(null);
-  navArticleRef = useRef<HTMLDivElement>(null);
-  navLikedBookRef = useRef<HTMLDivElement>(null);
-  navLikedArticleRef = useRef<HTMLDivElement>(null);
-
-  const navRefList = [navBookRef, navArticleRef, navLikedBookRef, navLikedArticleRef];
-
-  function handleRefClick(navIndex: number) {
-    console.log('나눌림:' + navIndex); //왜눌리지도 않을까
-    navRefList[navIndex].current?.scrollIntoView({ behavior: 'smooth' });
-  }
 
   return (
     <>
@@ -30,13 +12,11 @@ export default function LibraryHeader2() {
           <Intro2>언제든 이어 읽을 수 있어요!</Intro2>
         </IntroFrame>
         <NavButtons>
-          {navList.map((each, index) => {
-            return (
-              <EachNavButton key={index + 1} onClick={handleRefClick(index)!}>
-                {each}
-              </EachNavButton>
-            );
-          })}
+          {navList.map((each, index) => (
+            <a href={`#${each}`} key={index + 1}>
+              <EachNavButton>{each}</EachNavButton>
+            </a>
+          ))}
         </NavButtons>
       </Container>
     </>
@@ -55,7 +35,6 @@ const LightImg = styled.img`
   flex-shrink: 0;
 `;
 const Container = styled.div`
-  z-index: 10;
   position: relative;
   top: 0rem;
   left: 3rem;
@@ -84,6 +63,7 @@ const NavButtons = styled.div`
   align-items: flex-start;
 `;
 const EachNavButton = styled.button`
+  z-index: 10;
   display: flex;
   width: 8rem;
   height: 1.5rem;

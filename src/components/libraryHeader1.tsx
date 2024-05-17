@@ -1,4 +1,6 @@
+import { Icon } from '@components/index';
 import styled from '@emotion/styled';
+import { icons } from '@styles/icons';
 import { Link } from 'react-router-dom';
 
 export default function LibraryHeader1() {
@@ -21,22 +23,24 @@ export default function LibraryHeader1() {
         <WriteButton>
           <WriteContent>글쓰기</WriteContent>
         </WriteButton>
-        <ProfileImg />
-        <SearchIcon src="icn_search.png" alt="searchIcon"></SearchIcon>
+        <ProfileImg src="img_profile.png" alt="profileImg" />
+        <IconWrapper>
+          <Icon icon={icons.search} />
+        </IconWrapper>
       </RightContainer>
     </Header>
   );
 }
 
 const Header = styled.header`
-  position: absolute;
+  position: relative;
   left: 0rem;
   top: 0rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 14px;
-  width: 100%;
+  padding: 1.5rem 1.4rem;
+  width: full;
 `;
 
 const LeftContainer = styled.div`
@@ -53,66 +57,69 @@ const LogoContainer = styled.div`
 `;
 const LogobarIcon = styled.img`
   position: relative;
-  left: 48px;
+  left: 4.8rem;
   top: 6px;
   width: 50%;
   height: 3px;
 `;
 
 const LogoTitle = styled.p`
-  font: ${({ theme }) => theme.font.body2};
+  ${({ theme }) => theme.font.body2};
 `;
 
-const PageLinker = styled.div`
+const PageLinker = styled.button`
   display: flex;
-  width: 69px;
-  height: 14px;
+  width: 6.9rem;
+  height: 1.4rem;
   justify-content: center;
   align-items: center;
-  font: ${({ theme }) => theme.font.detail2};
+  ${({ theme }) => theme.font.detail2};
   color: ${({ theme }) => theme.color.gray09};
+  white-space: nowrap;
 `;
 
-const ClickedPageLinker = styled.div`
+const ClickedPageLinker = styled.button`
   display: flex;
-  width: 69px;
-  height: 14px;
+  width: 7rem;
+  height: 1.4rem;
   justify-content: center;
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  font: ${({ theme }) => theme.font.detail2};
+  ${({ theme }) => theme.font.detail2};
   color: ${({ theme }) => theme.color.gray12};
   border-bottom: 1px solid ${({ theme }) => theme.color.gray09};
+  white-space: nowrap;
 `;
 const RightContainer = styled.div`
   display: flex;
   align-items: flex-end;
-  gap: 10px;
+  gap: 1rem;
 `;
-const WriteButton = styled.div`
+const WriteButton = styled.button`
   display: flex;
-  height: 23px;
+  height: 2.3rem;
   padding: 8px;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  border-radius: 30px;
+  border-radius: 3rem;
   border: 1px solid ${({ theme }) => theme.color.gray04};
 `;
 const WriteContent = styled.p`
-  font: ${({ theme }) => theme.font.detail4_3};
+  ${({ theme }) => theme.font.detail4_3};
   color: ${({ theme }) => theme.color.gray08};
 `;
-const ProfileImg = styled.div`
-  width: 24px;
-  height: 24px;
+const ProfileImg = styled.img`
+  width: 2.4rem;
+  height: 2.4rem;
   flex-shrink: 0;
-  border-radius: 30px;
-  background: url(${`img_profile.png`}) lightgray 50% / cover no-repeat;
+  border-radius: 3rem;
+  cursor: pointer;
 `;
-const SearchIcon = styled.img`
-  width: 24px;
-  height: 24px;
+
+const IconWrapper = styled.button`
+  width: 2.4rem;
+  height: 2.4rem;
   flex-shrink: 0;
 `;
