@@ -24,13 +24,13 @@
     "paths": {
       "@assets/*": ["src/assets/*"],
       "@pages/*": ["src/pages/*"],
-      "@components/*": ["src/components/*"],
+      "@components": ["src/components"],
       "@styles/*": ["src/styles/*"],
       "@typings/*": ["src/typings/*"],
       "@utils/*": ["src/utils/*"],
       "@apis/*": ["src/apis/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "src/styles/custom.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,4 +1,4 @@
-import { Icon } from '@components/index';
+import { Icon } from '@components';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
 import { Link } from 'react-router-dom';
@@ -87,9 +87,14 @@ const ClickedPageLinker = styled.button`
   width: 7rem;
   height: 1.4rem;
   place-content: center center;
+  align-items: center;
+  flex-wrap: wrap;
 
   ${({ theme }) => theme.font.detail2};
   color: ${({ theme }) => theme.color.gray12};
+
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray09};
+
   white-space: nowrap;
 
   border-bottom: 1px solid ${({ theme }) => theme.color.gray09};
