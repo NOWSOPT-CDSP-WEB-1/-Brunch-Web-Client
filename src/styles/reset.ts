@@ -174,7 +174,7 @@ video {
   }
 
   :root {
-    max-width: 136.6rem;
+    width: 136.6rem;
     min-height: 100vh;
   }
 `;

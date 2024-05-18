@@ -40,6 +40,7 @@ const Container = styled.div`
   left: 3rem;
   display: inline-flex;
   gap: 15rem;
+  align-items: flex-end;
   justify-content: center;
   width: 100%;
 `;
