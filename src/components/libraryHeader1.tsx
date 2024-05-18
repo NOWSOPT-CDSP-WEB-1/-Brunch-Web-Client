@@ -70,10 +70,10 @@ const LogoTitle = styled.p`
 
 const PageLinker = styled.button`
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 6.9rem;
   height: 1.4rem;
-  justify-content: center;
-  align-items: center;
 
   ${({ theme }) => theme.font.detail2};
   color: ${({ theme }) => theme.color.gray09};
@@ -82,6 +82,8 @@ const PageLinker = styled.button`
 
 const ClickedPageLinker = styled.button`
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   width: 7rem;
   height: 1.4rem;
   place-content: center center;
@@ -94,6 +96,8 @@ const ClickedPageLinker = styled.button`
   border-bottom: 1px solid ${({ theme }) => theme.color.gray09};
 
   white-space: nowrap;
+
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray09};
 `;
 const RightContainer = styled.div`
   display: flex;
