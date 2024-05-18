@@ -24,6 +24,7 @@ export default function LibraryPage() {
     </>
   );
 }
+
 const Main = styled.div`
   display: flex;
   flex-direction: column;
