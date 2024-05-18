@@ -34,31 +34,32 @@ export default function LibraryHeader1() {
 
 const Header = styled.header`
   position: relative;
-  left: 0rem;
-  top: 0rem;
+  top: 0;
+  left: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 1.4rem;
+  justify-content: space-between;
   width: full;
+  padding: 1.5rem 1.4rem;
 `;
 
 const LeftContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
   gap: 8px;
+  align-items: flex-end;
+  justify-content: flex-end;
 `;
 
 const LogoContainer = styled.div`
   display: flex;
   flex-direction: column;
+
   color: ${({ theme }) => theme.color.gray11};
 `;
 const LogobarIcon = styled.img`
   position: relative;
-  left: 4.8rem;
   top: 6px;
+  left: 4.8rem;
   width: 50%;
   height: 3px;
 `;
@@ -69,10 +70,11 @@ const LogoTitle = styled.p`
 
 const PageLinker = styled.button`
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 6.9rem;
   height: 1.4rem;
-  justify-content: center;
-  align-items: center;
+
   ${({ theme }) => theme.font.detail2};
   color: ${({ theme }) => theme.color.gray09};
   white-space: nowrap;
@@ -80,46 +82,49 @@ const PageLinker = styled.button`
 
 const ClickedPageLinker = styled.button`
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   width: 7rem;
   height: 1.4rem;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
+  place-content: center center;
+
   ${({ theme }) => theme.font.detail2};
   color: ${({ theme }) => theme.color.gray12};
-  border-bottom: 1px solid ${({ theme }) => theme.color.gray09};
   white-space: nowrap;
+
+  border-bottom: 1px solid ${({ theme }) => theme.color.gray09};
 `;
 const RightContainer = styled.div`
   display: flex;
-  align-items: flex-end;
   gap: 1rem;
+  align-items: flex-end;
 `;
 const WriteButton = styled.button`
   display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
   height: 2.3rem;
   padding: 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border-radius: 3rem;
+
   border: 1px solid ${({ theme }) => theme.color.gray04};
+  border-radius: 3rem;
 `;
 const WriteContent = styled.p`
   ${({ theme }) => theme.font.detail4_3};
   color: ${({ theme }) => theme.color.gray08};
 `;
 const ProfileImg = styled.img`
+  flex-shrink: 0;
   width: 2.4rem;
   height: 2.4rem;
-  flex-shrink: 0;
-  border-radius: 3rem;
+
   cursor: pointer;
+  border-radius: 3rem;
 `;
 
 const IconWrapper = styled.button`
+  flex-shrink: 0;
   width: 2.4rem;
   height: 2.4rem;
-  flex-shrink: 0;
 `;

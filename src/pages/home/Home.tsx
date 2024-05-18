@@ -1,7 +1,6 @@
 import { Icon } from '@components/index';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
-import React from 'react';
 
 const Home = () => {
   return (
