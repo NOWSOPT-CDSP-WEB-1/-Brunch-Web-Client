@@ -1,4 +1,5 @@
-import { LibraryHeader2, LikedArticle, LikedBook, RecentArticle, RecentBook } from '@components';
+import { Article, LibraryHeader2, LikedBook, RecentBook } from '@components';
+import styled from '@emotion/styled';
 import LibraryHeader1 from 'src/components/libraryHeader1';
 
 export default function LibraryPage() {
@@ -6,18 +7,27 @@ export default function LibraryPage() {
     <>
       <LibraryHeader1 />
       <LibraryHeader2 />
-      <div id="recentBook">
-        <RecentBook />
-      </div>
-      <div id="recentArticle">
-        <RecentArticle />
-      </div>
-      <div id="likedBook">
-        <LikedBook />
-      </div>
-      <div id="likedArticle">
-        <LikedArticle />
-      </div>
+      <Main>
+        <div id="recentBook">
+          <RecentBook />
+        </div>
+        <div id="recentArticle">
+          <Article sort={'recent'} />
+        </div>
+        <div id="likedBook">
+          <LikedBook />
+        </div>
+        <div id="likedArticle">
+          <Article sort={'liked'} />
+        </div>
+      </Main>
     </>
   );
 }
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
