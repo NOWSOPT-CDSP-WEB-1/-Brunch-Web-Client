@@ -1,9 +1,16 @@
 import { Icon } from '@components/index';
 import styled from '@emotion/styled';
+import { WeekdaysData } from '@pages/home/HomeDay';
+import { ARTICLES } from '@pages/home/HomeStyle';
 import { icons } from '@styles/icons';
-import React from 'react';
+import { useState } from 'react';
 
 const Home = () => {
+  const [selectedDay, setSelectedDay] = useState(null);
+
+  const handleDayClick = (day: string) => {
+    setSelectedDay(day);
+  };
   return (
     <Homecontainer>
       <BannerWrapper>
@@ -19,35 +26,16 @@ const Home = () => {
           <DayHeader2>브런치북 요일별 연재를 만나보세요</DayHeader2>
 
           <div>
-            <DayButton>
-              <DayText>월</DayText>
-            </DayButton>
-            <DayButton2></DayButton2>
-            <DayButton>
-              <DayText>화</DayText>
-            </DayButton>
-            <DayButton2></DayButton2>
-
-            <DayButton>
-              <DayText>수</DayText>
-            </DayButton>
-            <DayButton2></DayButton2>
-            <DayButton>
-              <DayText>목</DayText>
-            </DayButton>
-            <DayButton2></DayButton2>
-            <DayButton>
-              <DayText>금</DayText>
-            </DayButton>
-            <DayButton2></DayButton2>
-            <DayButton>
-              <DayText>토</DayText>
-            </DayButton>
-            <DayButton2></DayButton2>
-            <DayButton>
-              <DayText>일</DayText>
-            </DayButton>
+            {Object.keys(WeekdaysData).map((day: string) => (
+              <>
+                <DayButton key={day} onClick={() => handleDayClick(day)}>
+                  <DayText>{day}</DayText>
+                </DayButton>
+                <DayButton2></DayButton2>
+              </>
+            ))}
           </div>
+
           <Hr></Hr>
         </DayHeaderWrapper>
         <SpanDiv>
@@ -66,167 +54,28 @@ const Home = () => {
         </SpanDiv>
         <DayHeaderWrapper>
           <WrapperUl>
-            <WrapperFont>
-              <WrapDiv className="wrapper">
-                <span className="font">
-                  <div>
-                    <WrapH1>나의 우울조각을 찾을 수 왔수다</WrapH1>
-                    <WrapH2>
-                      홀로 선다는 건 한 번에 한 가지 일을 하는 ･･･<N>N</N>
-                      <Green src="Ellipse 9.svg" alt="Ellipse 9" />
-                    </WrapH2>
-                  </div>
-                  <H3Gap>
-                    <WrapH3>by</WrapH3>
-                    <WrapH4>레몬숲</WrapH4>
-                  </H3Gap>
-                </span>
-                <span>
-                  <WrpperImg src="" alt=""></WrpperImg>
-                </span>
-              </WrapDiv>
-            </WrapperFont>
-
-            <WrapperFont>
-              <WrapDiv className="wrapper">
-                <span className="font">
-                  <div>
-                    <WrapH1>나의 우울조각을 찾을 수 왔수다</WrapH1>
-                    <WrapH2>
-                      홀로 선다는 건 한 번에 한 가지 일을 하는 ･･･<N>N</N>
-                      <Green src="Ellipse 9.svg" alt="Ellipse 9" />
-                    </WrapH2>
-                  </div>
-                  <H3Gap>
-                    <WrapH3>by</WrapH3>
-                    <WrapH4>레몬숲</WrapH4>
-                  </H3Gap>
-                </span>
-                <span>
-                  <WrpperImg src="" alt=""></WrpperImg>
-                </span>
-              </WrapDiv>
-            </WrapperFont>
-            <WrapperFont>
-              <WrapDiv className="wrapper">
-                <span className="font">
-                  <div>
-                    <WrapH1>나의 우울조각을 찾을 수 왔수다</WrapH1>
-                    <WrapH2>
-                      홀로 선다는 건 한 번에 한 가지 일을 하는 ･･･<N>N</N>
-                      <Green src="Ellipse 9.svg" alt="Ellipse 9" />
-                    </WrapH2>
-                  </div>
-                  <H3Gap>
-                    <WrapH3>by</WrapH3>
-                    <WrapH4>레몬숲</WrapH4>
-                  </H3Gap>
-                </span>
-                <span>
-                  <WrpperImg src="" alt=""></WrpperImg>
-                </span>
-              </WrapDiv>
-            </WrapperFont>
-            <WrapperFont>
-              <WrapDiv className="wrapper">
-                <span className="font">
-                  <div>
-                    <WrapH1>나의 우울조각을 찾을 수 왔수다</WrapH1>
-                    <WrapH2>
-                      홀로 선다는 건 한 번에 한 가지 일을 하는 ･･･<N>N</N>
-                      <Green src="Ellipse 9.svg" alt="Ellipse 9" />
-                    </WrapH2>
-                  </div>
-                  <H3Gap>
-                    <WrapH3>by</WrapH3>
-                    <WrapH4>레몬숲</WrapH4>
-                  </H3Gap>
-                </span>
-                <span>
-                  <WrpperImg src="" alt=""></WrpperImg>
-                </span>
-              </WrapDiv>
-            </WrapperFont>
-            <WrapperFont>
-              <WrapDiv className="wrapper">
-                <span className="font">
-                  <div>
-                    <WrapH1>나의 우울조각을 찾을 수 왔수다</WrapH1>
-                    <WrapH2>
-                      홀로 선다는 건 한 번에 한 가지 일을 하는 ･･･<N>N</N>
-                      <Green src="Ellipse 9.svg" alt="Ellipse 9" />
-                    </WrapH2>
-                  </div>
-                  <H3Gap>
-                    <WrapH3>by</WrapH3>
-                    <WrapH4>레몬숲</WrapH4>
-                  </H3Gap>
-                </span>
-                <span>
-                  <WrpperImg src="" alt=""></WrpperImg>
-                </span>
-              </WrapDiv>
-            </WrapperFont>
-            <WrapperFont>
-              <WrapDiv className="wrapper">
-                <span className="font">
-                  <div>
-                    <WrapH1>나의 우울조각을 찾을 수 왔수다</WrapH1>
-                    <WrapH2>
-                      홀로 선다는 건 한 번에 한 가지 일을 하는 ･･･<N>N</N>
-                      <Green src="Ellipse 9.svg" alt="Ellipse 9" />
-                    </WrapH2>
-                  </div>
-                  <H3Gap>
-                    <WrapH3>by</WrapH3>
-                    <WrapH4>레몬숲</WrapH4>
-                  </H3Gap>
-                </span>
-                <span>
-                  <WrpperImg src="" alt=""></WrpperImg>
-                </span>
-              </WrapDiv>
-            </WrapperFont>
-            <WrapperFont>
-              <WrapDiv className="wrapper">
-                <span className="font">
-                  <div>
-                    <WrapH1>나의 우울조각을 찾을 수 왔수다</WrapH1>
-                    <WrapH2>
-                      홀로 선다는 건 한 번에 한 가지 일을 하는 ･･･<N>N</N>
-                      <Green src="Ellipse 9.svg" alt="Ellipse 9" />
-                    </WrapH2>
-                  </div>
-                  <H3Gap>
-                    <WrapH3>by</WrapH3>
-                    <WrapH4>레몬숲</WrapH4>
-                  </H3Gap>
-                </span>
-                <span>
-                  <WrpperImg src="" alt=""></WrpperImg>
-                </span>
-              </WrapDiv>
-            </WrapperFont>
-            <WrapperFont>
-              <WrapDiv className="wrapper">
-                <span className="font">
-                  <div>
-                    <WrapH1>나의 우울조각을 찾을 수 왔수다</WrapH1>
-                    <WrapH2>
-                      홀로 선다는 건 한 번에 한 가지 일을 하는 ･･･<N>N</N>
-                      <Green src="Ellipse 9.svg" alt="Ellipse 9" />
-                    </WrapH2>
-                  </div>
-                  <H3Gap>
-                    <WrapH3>by</WrapH3>
-                    <WrapH4>레몬숲</WrapH4>
-                  </H3Gap>
-                </span>
-                <span>
-                  <WrpperImg src="" alt=""></WrpperImg>
-                </span>
-              </WrapDiv>
-            </WrapperFont>
+            {ARTICLES.map((article) => (
+              <WrapperFont key={article.id}>
+                <WrapDiv className="wrapper">
+                  <span className="font">
+                    <div>
+                      <WrapH1>{article.title}</WrapH1>
+                      <WrapH2>
+                        {article.subtitle}･･･<N>N</N>
+                        <Green src="Ellipse 9.svg" alt="Ellipse 9" />
+                      </WrapH2>
+                    </div>
+                    <H3Gap>
+                      <WrapH3>by</WrapH3>
+                      <WrapH4>{article.author}</WrapH4>
+                    </H3Gap>
+                  </span>
+                  <span>
+                    <WrpperImg src={article.imageSrc} alt="" />
+                  </span>
+                </WrapDiv>
+              </WrapperFont>
+            ))}
           </WrapperUl>
           <Hr></Hr>
 
@@ -356,11 +205,12 @@ const WrapperFont = styled.div`
 
   border: 1px solid #eee;
 `;
+
 const Hr = styled.hr`
   width: 685px;
   height: 1px;
 
-  border: 1px solid #eee;
+  background: 1px solid red;
 `;
 
 const WrpperImg = styled.img`
@@ -448,7 +298,7 @@ const SpanDiv = styled.div`
 
 const N = styled.span`
   position: absolute; /* N을 절대 위치로 설정 */
-  top: 0; /* 상위 컨테이너의 위쪽 경계에 맞춤 */
+  top: 0;
   z-index: 2; /* 이미지 위에 오도록 z-index 설정 */
 
   color: ${({ theme }) => theme.color.white01};
