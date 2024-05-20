@@ -65,11 +65,14 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   height: 28.4rem;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
 `;
 
 const LeftBody = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1.2rem;
   width: 41.4rem;
   height: 100%;
 `;
