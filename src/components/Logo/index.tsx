@@ -1,9 +1,13 @@
 import styled from '@emotion/styled';
 
-const index = () => {
+interface logoType {
+  color?: 'black' | 'white';
+}
+
+const index = ({ color = 'black' }: logoType) => {
   return (
     <LogoWrapper className="brunch-logo">
-      <LogoImg src="brunch-logo.svg" />
+      {color === 'black' ? <LogoImg src="brunch-logo.svg" /> : <LogoImg src="brunch-logo-white.svg" />}
     </LogoWrapper>
   );
 };
