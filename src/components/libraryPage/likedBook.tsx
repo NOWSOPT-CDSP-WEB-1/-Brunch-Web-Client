@@ -1,8 +1,9 @@
-import Icon from '@components/Icon';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
 
 import EachLikedBook from './eachLikedBook';
+
+import Icon from '../Icon';
 //api -> get likedBooks id title authorName bookImage
 const likeBooks = [
   {
@@ -77,8 +78,8 @@ const TitleWrapper = styled.div`
   margin-bottom: 3.6rem;
 `;
 const LikedTitle1 = styled.p`
-  ${({ theme }) => theme.font.head4};
   color: ${({ theme }) => theme.color.gray11};
+  ${({ theme }) => theme.font.head4};
 `;
 const LikedTitle2 = styled.p`
   ${({ theme }) => theme.font.head4};

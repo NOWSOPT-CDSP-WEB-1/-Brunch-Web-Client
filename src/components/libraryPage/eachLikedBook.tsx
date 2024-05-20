@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Liked_book_type } from 'src/interface/Liked_book_type';
 
-import { BookImgForm } from '..';
+import BookImgForm from './BookImgForm';
 
 export default function EachLikedBook(likedBook: Liked_book_type) {
   return (

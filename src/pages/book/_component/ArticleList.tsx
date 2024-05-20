@@ -1,8 +1,14 @@
-import { ArticleProps } from '@components/ArticleCard';
-import { ArticleCard } from '@components/index';
+import { ArticleCard } from '@components';
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
+export interface ArticleProps {
+  chapterId: string;
+  chapterTitle: string;
+  content: string;
+  chapterImage: string;
+  chapterRuntime: string;
+}
 const articleInitialData: ArticleProps[] = [
   {
     chapterId: '1',
@@ -33,6 +39,10 @@ const articleInitialData: ArticleProps[] = [
 const ArticleList = () => {
   const [articles, setArticles] = useState(articleInitialData);
   // TODO: API 연동 후 데이터 받아오기
+
+  useEffect(() => {
+    setArticles(articleInitialData);
+  }, []);
 
   return (
     <Container>

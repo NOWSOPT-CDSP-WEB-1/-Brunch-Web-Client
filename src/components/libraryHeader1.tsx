@@ -1,4 +1,4 @@
-import { Icon } from '@components/index';
+import { Icon } from '@components';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
 import { Link } from 'react-router-dom';

@@ -49,6 +49,8 @@ const IntroFrame = styled.div`
   flex-direction: column;
   gap: 7px;
   align-items: flex-start;
+
+  white-space: nowrap;
 `;
 const Intro1 = styled.p`
   ${({ theme }) => theme.font.head4}

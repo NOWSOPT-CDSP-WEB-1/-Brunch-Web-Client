@@ -4,7 +4,6 @@ import { icons } from '@styles/icons';
 import EachAritleComponent from './eachArticle';
 
 import { Icon } from '..';
-
 //여기서 api 받아오고 props로 받은 liked나 recent구분하기
 
 //받은 글들 배열 저장
@@ -79,6 +78,7 @@ const Container = styled.div`
   flex-direction: column;
   gap: 2rem;
   align-items: center;
+  width: 100%;
   padding-top: 3rem;
   padding-bottom: 3rem;
   padding-left: 3rem;
