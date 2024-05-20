@@ -19,7 +19,6 @@ const Home = () => {
         <MainCarousel />
         <KeywordTable />
         <MainWriter />
-        
         <Aricle />
       </MainContainer>
       <Footer />
