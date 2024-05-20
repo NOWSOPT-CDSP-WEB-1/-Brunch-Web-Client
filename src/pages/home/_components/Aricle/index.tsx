@@ -153,6 +153,8 @@ const BigWrapperCard = styled.div`
 `;
 
 const BBigWrapperCard = styled.section`
+  position: relative;
+  left: -33.9rem;
   display: inline-flex;
   gap: 1.2rem;
   align-items: flex-start;
