@@ -18,7 +18,7 @@ const Home = () => {
         <MainCarousel />
         <KeywordTable />
       </MainContainer>
-      <Aricle></Aricle>
+      <Aricle />
     </Homecontainer>
   );
 };
