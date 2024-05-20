@@ -28,7 +28,7 @@ const index = () => {
         <WrapperCard>
           <WrapperImg>
             <div>
-              <Img src="" alt=""></Img>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
             </div>
             <WrapperWriter>
               <div>
@@ -61,7 +61,7 @@ const index = () => {
         <WrapperCard>
           <WrapperImg>
             <div>
-              <Img src="" alt=""></Img>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
             </div>
             <WrapperWriter>
               <div>
@@ -94,7 +94,7 @@ const index = () => {
         <WrapperCard>
           <WrapperImg>
             <div>
-              <Img src="" alt=""></Img>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
             </div>
             <WrapperWriter>
               <div>
@@ -127,7 +127,7 @@ const index = () => {
         <WrapperCard>
           <WrapperImg>
             <div>
-              <Img src="" alt=""></Img>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
             </div>
             <WrapperWriter>
               <div>
@@ -160,7 +160,7 @@ const index = () => {
         <WrapperCard>
           <WrapperImg>
             <div>
-              <Img src="" alt=""></Img>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
             </div>
             <WrapperWriter>
               <div>
@@ -193,7 +193,7 @@ const index = () => {
         <WrapperCard>
           <WrapperImg>
             <div>
-              <Img src="" alt=""></Img>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
             </div>
             <WrapperWriter>
               <div>
@@ -363,6 +363,10 @@ const WrapperWriter = styled.div`
   align-items: center;
 `;
 const WrapperImg = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   width: 17.3rem;
   height: 20.5rem;
 `;
@@ -371,8 +375,7 @@ const Img = styled.img`
   width: 5.8rem;
   height: 5.8rem;
 
-  background: url('<path-to-image>') lightgray 50% / cover no-repeat;
-  border-radius: 82.857px;
+  border-radius: 50%;
 `;
 
 const WrapperContent = styled.div`
