@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 import KeywordTable from './_components/KeywordTable';
 import MainCarousel from './_components/MainCarousel';
 import MainIntro from './_components/MainIntro';
