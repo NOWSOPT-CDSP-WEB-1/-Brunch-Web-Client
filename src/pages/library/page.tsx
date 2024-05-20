@@ -1,7 +1,4 @@
-import Article from '@components/libraryPage/Article';
-import LibraryHeader2 from '@components/libraryPage/libraryHeader2';
-import LikedBook from '@components/libraryPage/likedBook';
-import RecentBook from '@components/libraryPage/recentBook';
+import { Article, LibraryHeader2, LikedBook, RecentBook } from '@components';
 import styled from '@emotion/styled';
 import LibraryHeader1 from 'src/components/libraryHeader1';
 

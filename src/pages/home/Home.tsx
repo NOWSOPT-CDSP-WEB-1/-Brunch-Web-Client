@@ -1,118 +1,100 @@
-import { Icon } from '@components/index';
+import { Footer } from '@components';
 import styled from '@emotion/styled';
-import { icons } from '@styles/icons';
-import React from 'react';
+import { WeekdaysData } from '@pages/home/HomeDay';
+import { ARTICLES } from '@pages/home/HomeStyle';
+import { useState } from 'react';
+
+import KeywordTable from './_components/KeywordTable';
+import MainCarousel from './_components/MainCarousel';
+import MainIntro from './_components/MainIntro';
+import MainWriter from './_components/MainWriter';
 
 const Home = () => {
+  const [selectedDay, setSelectedDay] = useState('월');
+
+  const handleDayClick = (day: string) => {
+    setSelectedDay(day);
+  };
   return (
     <Homecontainer>
       <BannerWrapper>
         <BannerImg src="banner.svg" alt="banner" />
         <BannerCloseImg src="banner-close.svg" alt="banner-close" />
       </BannerWrapper>
+      <MainContainer>
+        <MainIntro />
+        <MainCarousel />
+        <KeywordTable />
+        <section>
+          <DayHeaderWrapper>
+            <DayHeader>요일별 연재</DayHeader>
+            <DayHeader2>브런치북 요일별 연재를 만나보세요</DayHeader2>
 
-      <Icon icon={icons.search} />
+            <div>
+              {Object.keys(WeekdaysData).map((day: string) => (
+                <>
+                  <DayButton key={day} onClick={() => handleDayClick(day)}>
+                    <DayText>{day}</DayText>
+                  </DayButton>
+                  <DayButton2></DayButton2>
+                </>
+              ))}
+            </div>
 
-      <BrunchGap>
-        <div>
-          <BrunchWrapper>
-            <BrunchHeader>BRUNCH KEYWORLD</BrunchHeader>
-            <BrunchHeadBelow>키워드로 분류된 다양한 글 모음</BrunchHeadBelow>
-          </BrunchWrapper>
-        </div>
+            <Hr></Hr>
+          </DayHeaderWrapper>
+          <SpanDiv>
+            <SpanWrapper>
+              <DaySpan>
+                <Span>
+                  <span>
+                    <SpanImg src="Ellipse 10.svg" alt="점" />
+                  </span>
+                  <DaySpan>최신순</DaySpan>
+                </Span>
+              </DaySpan>
+              <DaySpan>응원순</DaySpan>
+              <DaySpan>라이킷순</DaySpan>
+            </SpanWrapper>
+          </SpanDiv>
+          <DayHeaderWrapper>
+            <WrapperUl>
+              {ARTICLES.map((article) => (
+                <WrapperFont key={article.id}>
+                  <WrapDiv className="wrapper">
+                    <span className="font">
+                      <div>
+                        <WrapH1>{article.title}</WrapH1>
+                        <WrapH2>
+                          {article.subtitle}･･･<N>N</N>
+                          <Green src="Ellipse 9.svg" alt="Ellipse 9" />
+                        </WrapH2>
+                      </div>
+                      <H3Gap>
+                        <WrapH3>by</WrapH3>
+                        <WrapH4>{article.author}</WrapH4>
+                      </H3Gap>
+                    </span>
+                    <span>
+                      <WrpperImg src={article.imageSrc} alt="" />
+                    </span>
+                  </WrapDiv>
+                </WrapperFont>
+              ))}
+            </WrapperUl>
+            <Hr></Hr>
 
-        <KeywordGap>
-          <KeywordWrapper>
-            <Rectanguler> </Rectanguler>
-            <SelectKeyword>관심있는 키워드</SelectKeyword>
-          </KeywordWrapper>
-          <TableWrapper>
-            <table>
-              <tr>
-                <TableGap>
-                  <TableText>지구한바퀴 세계여행</TableText>
-                </TableGap>
-
-                <TableGap>
-                  <TableText>그림･웹툰</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>알수록 좋은 경제</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>IT 트렌드</TableText>
-                </TableGap>
-
-                <TableGap>
-                  <TableText>사진･촬영</TableText>
-                </TableGap>
-
-                <TableGap>
-                  <TableText>취향저격 영화 리뷰</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>오늘은 이런 책</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>뮤직 인사이드</TableText>
-                </TableGap>
-              </tr>
-              <tr>
-                <TableGap>
-                  <TableText>글쓰기 코치</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>직장인 현실 조언</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>스타트업 경험담</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>육아 이야기</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>요리･레시피</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>건강･운동</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>멘탈 관리 심리 탐구</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>디자인 스토리</TableText>
-                </TableGap>
-              </tr>
-              <tr>
-                <TableGap>
-                  <TableText>문화･예술</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>건축･설계</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>인문학･철학</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>쉽게 읽는 역사</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>우리집 반려동물</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>멋진 캘리그래피</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>사랑･이별</TableText>
-                </TableGap>
-                <TableGap>
-                  <TableText>감성 에세이</TableText>
-                </TableGap>
-              </tr>
-            </table>
-          </TableWrapper>
-        </KeywordGap>
-      </BrunchGap>
+            <WrapperDiv>
+              <FooterText>연재 작품 전체 보기</FooterText>
+              <span>
+                <FooterImg src="Frame 160.svg" alt="화살표" />
+              </span>
+            </WrapperDiv>
+          </DayHeaderWrapper>
+        </section>
+        <MainWriter />
+      </MainContainer>
+      <Footer />
     </Homecontainer>
   );
 };
@@ -143,79 +125,203 @@ const BannerCloseImg = styled.img`
   cursor: pointer;
 `;
 
-const BrunchWrapper = styled.div`
+const DayHeaderWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 7px;
   align-items: center;
 `;
 
-const BrunchGap = styled.div`
-  display: inline-flex;
-  flex-direction: column;
-  gap: 36px;
-  align-items: center;
-  justify-content: center;
-`;
-
-const KeywordGap = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: flex-end;
-`;
-
-const KeywordWrapper = styled.div`
-  display: flex;
-  gap: 7px;
-  align-items: center;
-`;
-
-const BrunchHeader = styled.div`
-  color: var(--gray10, #3d3d3d);
+const DayHeader = styled.div`
+  color: ${({ theme }) => theme.color.gray10};
   text-align: center;
-  ${({ theme }) => theme.font.head6};
+
+  ${({ theme }) => theme.font.body4_regular};
 `;
 
-const BrunchHeadBelow = styled.div`
+const DayHeader2 = styled.div`
   color: var(--gray08, #909090);
   text-align: center;
+
   ${({ theme }) => theme.font.detail4_3};
 `;
 
-const Rectanguler = styled.span`
-  width: 10px;
-  height: 10px;
-
-  background: var(--mint01, #00c6be);
-  border: 1px solid var(--mint01, #00c6be);
+const SpanWrapper = styled.div`
+  display: inline-flex;
+  gap: 15px;
+  justify-content: flex-end;
+  width: 68.8rem;
 `;
 
-const SelectKeyword = styled.span`
-  color: var(--mint01, #00c6be);
-
-  ${({ theme }) => theme.font.detail3_12};
-`;
-
-const TableWrapper = styled.div`
-  width: 689px;
-  height: 255px;
-`;
-
-const TableText = styled.td`
+const DayText = styled.div`
   color: var(--gray09, #666);
   text-align: center;
 
   ${({ theme }) => theme.font.detail2};
 `;
 
-const TableGap = styled.td`
+const DayButton = styled.button`
   gap: 8px;
   align-items: center;
   justify-content: center;
-  width: 7.5rem;
-  height: 8.5rem;
-  padding: 2rem 0.8rem;
+  width: 40.117px;
+  height: 35px;
+  padding: 8px;
+`;
+
+const DayButton2 = styled.button`
+  width: 40.117px;
+  height: 35px;
+`;
+
+const DaySpan = styled.span`
+  color: var(--gray09, #666);
+  font-weight: 400;
+  font-size: 9px;
+
+  ${({ theme }) => theme.font.detail4_3};
+`;
+
+const Span = styled.div`
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+`;
+
+const SpanImg = styled.img`
+  width: 4px;
+  height: 4px;
+`;
+
+const WrapperUl = styled.span`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+  align-content: center;
+  align-items: center;
+  width: 688px;
+  margin-top: 4px;
+
+  border-bottom: 1px solid #eee;
+`;
+
+const WrapperFont = styled.div`
+  width: 335px;
+  height: 86px;
+  padding: 18px 14px;
 
   border: 1px solid #eee;
+`;
+
+const Hr = styled.hr`
+  width: 685px;
+  height: 1px;
+
+  background: 1px solid red;
+`;
+
+const WrpperImg = styled.img`
+  width: 56px;
+  height: 58px;
+`;
+
+const WrapDiv = styled.div`
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+`;
+
+const WrapH1 = styled.div`
+  color: ${({ theme }) => theme.color.gray08};
+  font-weight: 400;
+  font-size: 9px;
+
+  ${({ theme }) => theme.font.detail4_3};
+`;
+
+const WrapH2 = styled.div`
+  position: relative;
+
+  margin-top: 2px;
+
+  color: ${({ theme }) => theme.color.gray09};
+
+  ${({ theme }) => theme.font.detail1};
+`;
+
+const WrapH3 = styled.span`
+  margin-top: 9px;
+
+  color: ${({ theme }) => theme.color.gray05};
+  font-weight: 400;
+  font-size: 9px;
+
+  ${({ theme }) => theme.font.caption2};
+`;
+
+const WrapH4 = styled.span`
+  margin-top: 9px;
+
+  color: ${({ theme }) => theme.color.gray05};
+  ${({ theme }) => theme.font.detail4_3};
+`;
+
+const H3Gap = styled.div`
+  display: flex;
+  gap: 2px;
+`;
+
+const FooterText = styled.span`
+  color: ${({ theme }) => theme.color.gray09};
+  font-weight: 400;
+  font-size: 9px;
+  ${({ theme }) => theme.font.detail4_3};
+`;
+
+const FooterImg = styled.img`
+  width: 12px;
+  height: 12px;
+`;
+
+const WrapperDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 129px;
+  height: 28px;
+  padding-left: 10px;
+
+  border: 1px solid var(--gray04, #d5d5d3);
+  border-radius: 30px;
+`;
+
+const SpanDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+`;
+
+const N = styled.span`
+  position: absolute; /* N을 절대 위치로 설정 */
+  top: 0;
+  z-index: 2; /* 이미지 위에 오도록 z-index 설정 */
+
+  color: ${({ theme }) => theme.color.white01};
+  text-align: center;
+  ${({ theme }) => theme.font.detail6};
+`;
+
+const Green = styled.img`
+  position: absolute; /* 이미지를 절대 위치로 설정 */
+  top: 0;
+  z-index: 1;
+  width: 10px;
+  height: 10px;
+`;
+
+const MainContainer = styled.main`
+  padding: 0 33.9rem;
 `;

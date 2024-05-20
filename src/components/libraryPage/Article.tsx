@@ -58,6 +58,7 @@ export default function Article(sort: Sort) {
       <ArticleIndexWrapper>
         <ArticleIndex>{sortText}</ArticleIndex>
         <Icon icon={icons.arrow_forward_ios} size="1.2rem" color="#3D3D3D" />
+        {/* <img src="icn_next_small.svg" alt="nextSmall" /> */}
       </ArticleIndexWrapper>
 
       <ArticleContainer>
