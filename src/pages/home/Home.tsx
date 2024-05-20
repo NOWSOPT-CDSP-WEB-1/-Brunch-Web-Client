@@ -7,9 +7,10 @@ import { useState } from 'react';
 import KeywordTable from './_components/KeywordTable';
 import MainCarousel from './_components/MainCarousel';
 import MainIntro from './_components/MainIntro';
+import MainWriter from './_components/MainWriter';
 
 const Home = () => {
-  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedDay, setSelectedDay] = useState('월');
 
   const handleDayClick = (day: string) => {
     setSelectedDay(day);
@@ -91,6 +92,7 @@ const Home = () => {
             </WrapperDiv>
           </DayHeaderWrapper>
         </section>
+        <MainWriter />
       </MainContainer>
       <Footer />
     </Homecontainer>
