@@ -1,9 +1,12 @@
-import { Icon } from '@components/index';
+import { Footer } from '@components';
 import styled from '@emotion/styled';
 import { WeekdaysData } from '@pages/home/HomeDay';
 import { ARTICLES } from '@pages/home/HomeStyle';
-import { icons } from '@styles/icons';
 import { useState } from 'react';
+
+import KeywordTable from './_components/KeywordTable';
+import MainCarousel from './_components/MainCarousel';
+import MainIntro from './_components/MainIntro';
 
 const Home = () => {
   const [selectedDay, setSelectedDay] = useState(null);
@@ -17,76 +20,79 @@ const Home = () => {
         <BannerImg src="banner.svg" alt="banner" />
         <BannerCloseImg src="banner-close.svg" alt="banner-close" />
       </BannerWrapper>
+      <MainContainer>
+        <MainIntro />
+        <MainCarousel />
+        <KeywordTable />
+        <section>
+          <DayHeaderWrapper>
+            <DayHeader>요일별 연재</DayHeader>
+            <DayHeader2>브런치북 요일별 연재를 만나보세요</DayHeader2>
 
-      <Icon icon={icons.search} />
+            <div>
+              {Object.keys(WeekdaysData).map((day: string) => (
+                <>
+                  <DayButton key={day} onClick={() => handleDayClick(day)}>
+                    <DayText>{day}</DayText>
+                  </DayButton>
+                  <DayButton2></DayButton2>
+                </>
+              ))}
+            </div>
 
-      <section>
-        <DayHeaderWrapper>
-          <DayHeader>요일별 연재</DayHeader>
-          <DayHeader2>브런치북 요일별 연재를 만나보세요</DayHeader2>
-
-          <div>
-            {Object.keys(WeekdaysData).map((day: string) => (
-              <>
-                <DayButton key={day} onClick={() => handleDayClick(day)}>
-                  <DayText>{day}</DayText>
-                </DayButton>
-                <DayButton2></DayButton2>
-              </>
-            ))}
-          </div>
-
-          <Hr></Hr>
-        </DayHeaderWrapper>
-        <SpanDiv>
-          <SpanWrapper>
-            <DaySpan>
-              <Span>
-                <span>
-                  <SpanImg src="Ellipse 10.svg" alt="점" />
-                </span>
-                <DaySpan>최신순</DaySpan>
-              </Span>
-            </DaySpan>
-            <DaySpan>응원순</DaySpan>
-            <DaySpan>라이킷순</DaySpan>
-          </SpanWrapper>
-        </SpanDiv>
-        <DayHeaderWrapper>
-          <WrapperUl>
-            {ARTICLES.map((article) => (
-              <WrapperFont key={article.id}>
-                <WrapDiv className="wrapper">
-                  <span className="font">
-                    <div>
-                      <WrapH1>{article.title}</WrapH1>
-                      <WrapH2>
-                        {article.subtitle}･･･<N>N</N>
-                        <Green src="Ellipse 9.svg" alt="Ellipse 9" />
-                      </WrapH2>
-                    </div>
-                    <H3Gap>
-                      <WrapH3>by</WrapH3>
-                      <WrapH4>{article.author}</WrapH4>
-                    </H3Gap>
-                  </span>
+            <Hr></Hr>
+          </DayHeaderWrapper>
+          <SpanDiv>
+            <SpanWrapper>
+              <DaySpan>
+                <Span>
                   <span>
-                    <WrpperImg src={article.imageSrc} alt="" />
+                    <SpanImg src="Ellipse 10.svg" alt="점" />
                   </span>
-                </WrapDiv>
-              </WrapperFont>
-            ))}
-          </WrapperUl>
-          <Hr></Hr>
+                  <DaySpan>최신순</DaySpan>
+                </Span>
+              </DaySpan>
+              <DaySpan>응원순</DaySpan>
+              <DaySpan>라이킷순</DaySpan>
+            </SpanWrapper>
+          </SpanDiv>
+          <DayHeaderWrapper>
+            <WrapperUl>
+              {ARTICLES.map((article) => (
+                <WrapperFont key={article.id}>
+                  <WrapDiv className="wrapper">
+                    <span className="font">
+                      <div>
+                        <WrapH1>{article.title}</WrapH1>
+                        <WrapH2>
+                          {article.subtitle}･･･<N>N</N>
+                          <Green src="Ellipse 9.svg" alt="Ellipse 9" />
+                        </WrapH2>
+                      </div>
+                      <H3Gap>
+                        <WrapH3>by</WrapH3>
+                        <WrapH4>{article.author}</WrapH4>
+                      </H3Gap>
+                    </span>
+                    <span>
+                      <WrpperImg src={article.imageSrc} alt="" />
+                    </span>
+                  </WrapDiv>
+                </WrapperFont>
+              ))}
+            </WrapperUl>
+            <Hr></Hr>
 
-          <WrapperDiv>
-            <FooterText>연재 작품 전체 보기</FooterText>
-            <span>
-              <FooterImg src="Frame 160.svg" alt="화살표" />
-            </span>
-          </WrapperDiv>
-        </DayHeaderWrapper>
-      </section>
+            <WrapperDiv>
+              <FooterText>연재 작품 전체 보기</FooterText>
+              <span>
+                <FooterImg src="Frame 160.svg" alt="화살표" />
+              </span>
+            </WrapperDiv>
+          </DayHeaderWrapper>
+        </section>
+      </MainContainer>
+      <Footer />
     </Homecontainer>
   );
 };
@@ -312,4 +318,8 @@ const Green = styled.img`
   z-index: 1;
   width: 10px;
   height: 10px;
+`;
+
+const MainContainer = styled.main`
+  padding: 0 33.9rem;
 `;
