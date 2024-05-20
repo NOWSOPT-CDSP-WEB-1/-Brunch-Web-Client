@@ -158,12 +158,12 @@ const BBigWrapperCard = styled.section`
   display: inline-flex;
   gap: 1.2rem;
   align-items: flex-start;
+  width: 136.6rem;
   margin-bottom: 12rem;
 `;
 
 const WrapperArticle = styled.div`
   width: 100%;
-  width: 136.6rem;
   height: auto;
 
   .swiper-wrapper {
