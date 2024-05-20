@@ -51,6 +51,8 @@ const Content = styled.p`
 `;
 //white-space는 공백이나 엔터있을 때 줄바꿈하도록
 //flex-wrap은 줄넘어갔을때 띄워쓰기에 따라 밑으로 넘어옴
+//어라라 둘이 뭐가 다르지??
+
 const AuthorWrapper = styled.div`
   display: flex;
   gap: 2px;
