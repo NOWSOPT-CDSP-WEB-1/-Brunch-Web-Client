@@ -72,6 +72,7 @@ const HeaderText2 = styled.div`
   ${({ theme }) => theme.font.detail4_3};
 `;
 
+
 const WrapperHeader = styled.div`
   display: flex;
   flex-direction: column;
@@ -164,6 +165,7 @@ const BBigWrapperCard = styled.section`
 
 const WrapperArticle = styled.div`
   width: 100%;
+  width: 136.6rem;
   height: auto;
 
   .swiper-wrapper {
