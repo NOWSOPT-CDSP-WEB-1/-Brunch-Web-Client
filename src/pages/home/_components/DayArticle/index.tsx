@@ -5,11 +5,19 @@ import { ARTICLES } from '@pages/home/HomeStyle';
 import { icons } from '@styles/icons';
 import { useState } from 'react';
 
-const index = () => {
-  const [selectedDay, setSelectedDay] = useState('월');
+type dayType = '월' | '화' | '수' | '목' | '금' | '토' | '일' | string;
+type sortType = '최신순' | '라이킷순';
 
-  const handleDayClick = (day: string) => {
+const index = () => {
+  const [selectedDay, setSelectedDay] = useState<dayType>('월');
+  const [selectedSort, setSelectedSort] = useState<sortType>('최신순');
+
+  const handleDayClick = (day: dayType) => {
     setSelectedDay(day);
+  };
+
+  const handleSortClick = (sort: sortType) => {
+    setSelectedSort(sort);
   };
   return (
     <DayArticleContainer>
@@ -17,19 +25,22 @@ const index = () => {
         <DayHeader>요일별 연재</DayHeader>
         <DayHeader2>브런치북 요일별 연재를 만나보세요</DayHeader2>
         <DayButtonWrapper>
-          {Object.keys(WeekdaysData).map((day: string) => (
-            <DayButton key={day} onClick={() => handleDayClick(day)}>
-              <DayText>{day}</DayText>
+          {WeekdaysData.map((day: string) => (
+            <DayButton className={day === selectedDay ? 'selected' : ''} key={day} onClick={() => handleDayClick(day)}>
+              {day}
             </DayButton>
           ))}
         </DayButtonWrapper>
       </DayHeaderWrapper>
       <SpanWrapper>
-        <DayDiv>
-          <SpanImg src="Ellipse 10.svg" alt="점" />
+        <DayDiv onClick={() => handleSortClick('최신순')}>
+          {selectedSort === '최신순' && <SpanImg src="Ellipse 10.svg" alt="점" />}
           <DaySpan>최신순</DaySpan>
         </DayDiv>
-        <DaySpan>라이킷순</DaySpan>
+        <DayDiv onClick={() => handleSortClick('라이킷순')}>
+          {selectedSort === '라이킷순' && <SpanImg src="Ellipse 10.svg" alt="점" />}
+          <DaySpan>라이킷순</DaySpan>
+        </DayDiv>
       </SpanWrapper>
       <DayArticleWrapper>
         <WrapperUl>
@@ -110,26 +121,31 @@ const SpanWrapper = styled.div`
   margin-bottom: 1.4rem;
 `;
 
-const DayText = styled.div`
-  color: var(--gray09, #666);
-  text-align: center;
-
-  ${({ theme }) => theme.font.detail2};
-`;
-
 const DayButton = styled.button`
   gap: 8px;
   align-items: center;
   justify-content: center;
   width: 40.117px;
   height: 35px;
+  margin-bottom: -0.1rem;
   padding: 8px;
+
+  color: ${({ theme }) => theme.color.gray09};
+  ${({ theme }) => theme.font.detail2};
+
+  &.selected {
+    border-bottom: 0.1rem solid ${({ theme }) => theme.color.mint01};
+  }
 `;
 
 const DayDiv = styled.div`
   display: flex;
   gap: 0.4rem;
   align-items: center;
+  justify-content: flex-end;
+  width: 4rem;
+
+  cursor: pointer;
 `;
 
 const DaySpan = styled.span`

@@ -14,13 +14,16 @@ const index = () => {
         </WrapperMainHeader>
         <WrapperButton>
           <KeywordButton>
-            <Keyword>교육</Keyword>
+            <Keyword>기획</Keyword>
           </KeywordButton>
           <KeywordButton2>
-            <Keyword2>에세이</Keyword2>
+            <Keyword2>디자인</Keyword2>
           </KeywordButton2>
           <KeywordButton2>
-            <Keyword2>자기계발</Keyword2>
+            <Keyword2>웹</Keyword2>
+          </KeywordButton2>
+          <KeywordButton2>
+            <Keyword2>서버</Keyword2>
           </KeywordButton2>
         </WrapperButton>
       </WrapperHeader>
