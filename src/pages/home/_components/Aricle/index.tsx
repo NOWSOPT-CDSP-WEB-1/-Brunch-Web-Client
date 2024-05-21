@@ -72,7 +72,6 @@ const HeaderText2 = styled.div`
   ${({ theme }) => theme.font.detail4_3};
 `;
 
-
 const WrapperHeader = styled.div`
   display: flex;
   flex-direction: column;
