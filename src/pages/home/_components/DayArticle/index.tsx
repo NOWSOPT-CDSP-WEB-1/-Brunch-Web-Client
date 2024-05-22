@@ -1,16 +1,54 @@
 import { Icon, NTag } from '@components';
 import styled from '@emotion/styled';
 import { WeekdaysData } from '@pages/home/HomeDay';
-import { ARTICLES } from '@pages/home/HomeStyle';
 import { icons } from '@styles/icons';
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-type dayType = '월' | '화' | '수' | '목' | '금' | '토' | '일' | string;
+type dayType = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY' | string;
 type sortType = '최신순' | '라이킷순';
+type Article = {
+  bookTitle: string;
+  postingTitle: string;
+  authorName: string;
+  imageUrl: string;
+};
 
 const index = () => {
-  const [selectedDay, setSelectedDay] = useState<dayType>('월');
+  const [selectedDay, setSelectedDay] = useState<dayType>('TUESDAY');
   const [selectedSort, setSelectedSort] = useState<sortType>('최신순');
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [articles2, setArticles2] = useState<Article[]>([]);
+
+  // eslint-disable-next-line no-unused-vars
+  const DayMapping: { [key in dayType]: string } = {
+    MONDAY: '월',
+    TUESDAY: '화',
+    WEDNESDAY: '수',
+    THURSDAY: '목',
+    FRIDAY: '금',
+    SATURDAY: '토',
+    SUNDAY: '일',
+  };
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await axios.get(
+          `https://www.sopt-brunch.p-e.kr/api/v1/postings/serialized?day=${selectedDay}`
+        );
+
+        const data = response.data.data.recentPostings;
+        const data2 = response.data.data.likePostings;
+
+        setArticles(data);
+        setArticles2(data2);
+      } catch (error) {
+        console.error('에러메세지', error);
+      }
+    };
+    fetchArticles();
+  }, [selectedDay]);
 
   const handleDayClick = (day: dayType) => {
     setSelectedDay(day);
@@ -25,9 +63,9 @@ const index = () => {
         <DayHeader>요일별 연재</DayHeader>
         <DayHeader2>브런치북 요일별 연재를 만나보세요</DayHeader2>
         <DayButtonWrapper>
-          {WeekdaysData.map((day: string) => (
+          {WeekdaysData.map((day: dayType) => (
             <DayButton className={day === selectedDay ? 'selected' : ''} key={day} onClick={() => handleDayClick(day)}>
-              {day}
+              {DayMapping[day]}
             </DayButton>
           ))}
         </DayButtonWrapper>
@@ -44,23 +82,23 @@ const index = () => {
       </SpanWrapper>
       <DayArticleWrapper>
         <WrapperUl>
-          {ARTICLES.map((article) => (
-            <WrapperFont key={article.id}>
+          {(selectedSort === '최신순' ? articles : articles2).map((article, index) => (
+            <WrapperFont key={index}>
               <WrapDiv className="wrapper">
                 <span className="font">
                   <div>
-                    <WrapH1>{article.title}</WrapH1>
+                    <WrapH1>{article.bookTitle}</WrapH1>
                     <TitleWrapper>
-                      <WrapH2>{article.subtitle}</WrapH2>
+                      <WrapH2>{article.postingTitle}</WrapH2>
                       <NTag />
                     </TitleWrapper>
                   </div>
                   <H3Gap>
                     <WrapH3>by</WrapH3>
-                    <WrapH4>{article.author}</WrapH4>
+                    <WrapH4>{article.authorName}</WrapH4>
                   </H3Gap>
                 </span>
-                <WrpperImg src={article.imageSrc} alt="article thumbnail" />
+                <WrpperImg src={article.imageUrl} alt="article thumbnail" />
               </WrapDiv>
             </WrapperFont>
           ))}
