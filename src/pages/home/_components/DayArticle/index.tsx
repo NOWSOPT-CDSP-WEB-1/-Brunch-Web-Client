@@ -181,7 +181,7 @@ const DayDiv = styled.div`
   gap: 0.4rem;
   align-items: center;
   justify-content: flex-end;
-  width: 4rem;
+  width: 4.5rem;
 
   cursor: pointer;
 `;
