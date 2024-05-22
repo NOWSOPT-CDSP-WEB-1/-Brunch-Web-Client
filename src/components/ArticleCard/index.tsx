@@ -1,5 +1,6 @@
 import { ThemeContext } from '@emotion/react';
 import styled from '@emotion/styled';
+import { ArticleProps } from '@pages/book/_component/ArticleList';
 import { icons } from '@styles/icons';
 import { ThemeType } from '@styles/theme';
 import { convertTwoDigit } from '@utils/convertTwoDigit';
@@ -7,32 +8,30 @@ import { useContext } from 'react';
 
 import { Icon } from '..';
 
-export interface ArticleProps {
-  chapterId: string;
-  chapterTitle: string;
-  content: string;
-  chapterImage: string;
-  chapterRuntime: string;
+interface ArticleCardProps extends ArticleProps {
+  chapterNum: number;
 }
 
-const index = ({ chapterId, chapterTitle, content, chapterImage, chapterRuntime }: ArticleProps) => {
+const index = ({ chapterNum, title, content, imageUrl, requiredTime, commentCount }: ArticleCardProps) => {
   const theme = useContext(ThemeContext) as ThemeType;
 
   return (
     <Container>
-      <ListNum>{convertTwoDigit(chapterId)}</ListNum>
+      <ListNum>{convertTwoDigit(chapterNum)}</ListNum>
 
       <TextWrapper>
-        <Title>{chapterTitle}</Title>
+        <Title>{title}</Title>
         <Content>{content}</Content>
 
         <RuntimeWrapper>
           <Icon icon={icons.clock} size="1rem" color={theme.color.gray04} />
-          <RuntimeText>{chapterRuntime}</RuntimeText>
+          <RuntimeText>{requiredTime}분</RuntimeText>
+          <Dot />
+          <CommentText>댓글 {commentCount}</CommentText>
         </RuntimeWrapper>
       </TextWrapper>
 
-      <BookThumbnail src={chapterImage} alt={chapterTitle} />
+      <BookThumbnail src={imageUrl} alt={title} />
     </Container>
   );
 };
@@ -79,12 +78,25 @@ const Content = styled.p`
 
 const RuntimeWrapper = styled.div`
   display: flex;
-  gap: 0.3rem;
   align-items: center;
   margin-top: 1.4rem;
 `;
 
 const RuntimeText = styled.span`
+  margin-left: 0.3rem;
+  color: ${({ theme }) => theme.color.gray04};
+
+  ${({ theme }) => theme.font.detail4_3};
+`;
+
+const Dot = styled.span`
+  width: 1px;
+  height: 1px;
+  margin: 0 0.7rem;
+  background: var(--gray07, #a8a8a8);
+`;
+
+const CommentText = styled.span`
   color: ${({ theme }) => theme.color.gray04};
 
   ${({ theme }) => theme.font.detail4_3};

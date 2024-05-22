@@ -1,62 +1,27 @@
 import { ArticleCard } from '@components';
 import styled from '@emotion/styled';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 export interface ArticleProps {
-  chapterId: string;
-  chapterTitle: string;
+  id: number;
+  title: string;
   content: string;
-  chapterImage: string;
-  chapterRuntime: string;
+  imageUrl: string;
+  requiredTime: number;
+  commentCount: number;
 }
-const articleInitialData: ArticleProps[] = [
-  {
-    chapterId: '1',
-    chapterTitle: '무인도의 부자 노인',
-    content:
-      '바다 한가운데에서 배가 침몰했다. 운이 좋아 살아남은 사람들은 한 무인도의 해변에서 깨어났다.이미 죽어 시신이 된 사람들을 제외하면, 살아 있는 사람들은 10여명. 어떤 사람은 멍하니 주저않았다. 그러나 나는 살아 남앗다.',
-    chapterImage: 'public/assets/images/book.jpeg',
-    chapterRuntime: '1분',
-  },
-  {
-    chapterId: '1',
-    chapterTitle: '무인도의 부자 노인',
-    content:
-      '바다 한가운데에서 배가 침몰했다. 운이 좋아 살아남은 사람들은 한 무인도의 해변에서 깨어났다.이미 죽어 시신이 된 사람들을 제외하면, 살아 있는 사람들은 10여명. 어떤 사람은 멍하니 주저않았다. 그러나 나는 살아 남앗다.',
-    chapterImage: 'public/assets/images/book.jpeg',
-    chapterRuntime: '1분',
-  },
-  {
-    chapterId: '1',
-    chapterTitle: '무인도의 부자 노인',
-    content:
-      '바다 한가운데에서 배가 침몰했다. 운이 좋아 살아남은 사람들은 한 무인도의 해변에서 깨어났다.이미 죽어 시신이 된 사람들을 제외하면, 살아 있는 사람들은 10여명. 어떤 사람은 멍하니 주저않았다. 그러나 나는 살아 남앗다.',
-    chapterImage: 'public/assets/images/book.jpeg',
-    chapterRuntime: '1분',
-  },
-];
 
-const ArticleList = () => {
-  const [articles, setArticles] = useState(articleInitialData);
-  // TODO: API 연동 후 데이터 받아오기
+interface ArticleListProps {
+  article: ArticleProps[];
+}
 
-  useEffect(() => {
-    setArticles(articleInitialData);
-  }, []);
-
+const ArticleList = ({ article }: ArticleListProps) => {
   return (
     <Container>
       <Wrapper>
-        {articles.map((article, i) => (
+        {article?.map((_article, i) => (
           <React.Fragment key={`article-fragment-${i}`}>
-            <ArticleCard
-              key={`article-${i}`}
-              chapterId={article.chapterId}
-              chapterTitle={article.chapterTitle}
-              content={article.content}
-              chapterImage={article.chapterImage}
-              chapterRuntime={article.chapterRuntime}
-            />
+            <ArticleCard key={`article-${i}`} chapterNum={i + 1} {..._article} />
             <Divider />
           </React.Fragment>
         ))}
@@ -67,7 +32,8 @@ const ArticleList = () => {
 
 export default ArticleList;
 
-const Container = styled.div`
+const Container = styled.section`
+  margin-top: 6rem;
   display: flex;
   justify-content: center;
 `;
