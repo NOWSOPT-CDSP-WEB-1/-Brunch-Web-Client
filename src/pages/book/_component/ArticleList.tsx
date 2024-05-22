@@ -1,8 +1,14 @@
 import { ArticleCard } from '@components';
 import styled from '@emotion/styled';
 import React, { useEffect, useState } from 'react';
-import { ArticleProps } from 'src/components/ArticleCard';
 
+export interface ArticleProps {
+  chapterId: string;
+  chapterTitle: string;
+  content: string;
+  chapterImage: string;
+  chapterRuntime: string;
+}
 const articleInitialData: ArticleProps[] = [
   {
     chapterId: '1',

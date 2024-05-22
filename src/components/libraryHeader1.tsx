@@ -88,9 +88,9 @@ const ClickedPageLinker = styled.button`
   height: 1.4rem;
   place-content: center center;
 
-  ${({ theme }) => theme.font.detail2};
   color: ${({ theme }) => theme.color.gray12};
   white-space: nowrap;
+  ${({ theme }) => theme.font.detail2};
 
   border-bottom: 1px solid ${({ theme }) => theme.color.gray09};
 `;

@@ -46,11 +46,7 @@ const Container = styled.div`
 
 const Head5Text = styled.pre`
   position: relative;
-<<<<<<< HEAD
-  top: 10rem;
-=======
   top: 8rem;
->>>>>>> befef851344b7f1fbaa9651471e816deea8cef3a
   left: 4rem;
   display: inline;
   ${({ theme }) => theme.font.head5};
@@ -65,11 +61,7 @@ const Divider = styled.div`
 
 const Rotate = styled.div`
   position: absolute;
-<<<<<<< HEAD
-  top: 21rem;
-=======
   top: 18rem;
->>>>>>> befef851344b7f1fbaa9651471e816deea8cef3a
   left: -5rem;
   display: flex;
   gap: 1.7rem;
@@ -98,11 +90,7 @@ const DisplayWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 56.5rem;
-<<<<<<< HEAD
-  margin-top: 11.5rem;
-=======
   margin-top: 8rem;
->>>>>>> befef851344b7f1fbaa9651471e816deea8cef3a
 `;
 
 // const DisplayText = styled.pre`

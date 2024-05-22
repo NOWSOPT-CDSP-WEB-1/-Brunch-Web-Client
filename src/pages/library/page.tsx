@@ -36,7 +36,6 @@ const HeartImg = styled.img`
   top: 2rem;
   left: 33.5rem;
 `;
-
 const GrayBg = styled.div`
   display: flex;
   flex-direction: column;
