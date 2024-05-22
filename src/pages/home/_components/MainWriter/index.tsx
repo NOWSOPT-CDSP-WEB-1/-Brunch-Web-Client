@@ -1,239 +1,241 @@
 import styled from '@emotion/styled';
-import React from 'react';
 
 const index = () => {
   return (
-    <section>
-      <FullWrapper>
-        <WrapperHeader>
-          <WrapperMainHeader>
+    <FullWrapper>
+      <WrapperHeader>
+        <WrapperMainHeader>
+          <div>
+            <WriterMainHeader>BRUNCH WRITERS</WriterMainHeader>
+          </div>
+          <div>
+            <WriterMainHeader2>브런치 추천작가</WriterMainHeader2>
+          </div>
+        </WrapperMainHeader>
+        <WrapperButton>
+          <KeywordButton>
+            <Keyword>기획</Keyword>
+          </KeywordButton>
+          <KeywordButton2>
+            <Keyword2>디자인</Keyword2>
+          </KeywordButton2>
+          <KeywordButton2>
+            <Keyword2>웹</Keyword2>
+          </KeywordButton2>
+          <KeywordButton2>
+            <Keyword2>서버</Keyword2>
+          </KeywordButton2>
+        </WrapperButton>
+      </WrapperHeader>
+      <Wrapper>
+        <WrapperCard>
+          <WrapperImg>
             <div>
-              <WriterMainHeader>BRUNCH WRITERS</WriterMainHeader>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
             </div>
+            <WrapperWriter>
+              <div>
+                <Writer>진아</Writer>
+              </div>
+              <div>
+                <Job>교사</Job>
+              </div>
+            </WrapperWriter>
+            <WrapperContent>
+              <Text>
+                학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
+                엄마이자 고등학교 국어 교사
+              </Text>
+              <WrapperCategory>
+                <CategoryButton>
+                  <Category>교육</Category>
+                </CategoryButton>
+                <CategoryButton>
+                  <Category>육아</Category>
+                </CategoryButton>
+
+                <CategoryButton>
+                  <Category>･･･</Category>
+                </CategoryButton>
+              </WrapperCategory>
+            </WrapperContent>
+          </WrapperImg>
+        </WrapperCard>
+        <WrapperCard>
+          <WrapperImg>
             <div>
-              <WriterMainHeader2>브런치 추천작가</WriterMainHeader2>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
             </div>
-          </WrapperMainHeader>
-          <WrapperButton>
-            <KeywordButton>
-              <Keyword>교육</Keyword>
-            </KeywordButton>
-            <KeywordButton2>
-              <Keyword2>에세이</Keyword2>
-            </KeywordButton2>
-            <KeywordButton2>
-              <Keyword2>자기계발</Keyword2>
-            </KeywordButton2>
-          </WrapperButton>
-        </WrapperHeader>
-        <Wrapper>
-          <WrapperCard>
-            <WrapperImg>
+            <WrapperWriter>
               <div>
-                <Img src="" alt=""></Img>
+                <Writer>진아</Writer>
               </div>
-              <WrapperWriter>
-                <div>
-                  <Writer>진아</Writer>
-                </div>
-                <div>
-                  <Job>교사</Job>
-                </div>
-              </WrapperWriter>
-              <WrapperContent>
-                <Text>
-                  학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
-                  엄마이자 고등학교 국어 교사
-                </Text>
-                <WrapperCategory>
-                  <CategoryButton>
-                    <Category>교육</Category>
-                  </CategoryButton>
-                  <CategoryButton>
-                    <Category>육아</Category>
-                  </CategoryButton>
-
-                  <CategoryButton>
-                    <Category>･･･</Category>
-                  </CategoryButton>
-                </WrapperCategory>
-              </WrapperContent>
-            </WrapperImg>
-          </WrapperCard>
-          <WrapperCard>
-            <WrapperImg>
               <div>
-                <Img src="" alt=""></Img>
+                <Job>교사</Job>
               </div>
-              <WrapperWriter>
-                <div>
-                  <Writer>진아</Writer>
-                </div>
-                <div>
-                  <Job>교사</Job>
-                </div>
-              </WrapperWriter>
-              <WrapperContent>
-                <Text>
-                  학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
-                  엄마이자 고등학교 국어 교사
-                </Text>
-                <WrapperCategory>
-                  <CategoryButton>
-                    <Category>교육</Category>
-                  </CategoryButton>
-                  <CategoryButton>
-                    <Category>육아</Category>
-                  </CategoryButton>
+            </WrapperWriter>
+            <WrapperContent>
+              <Text>
+                학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
+                엄마이자 고등학교 국어 교사
+              </Text>
+              <WrapperCategory>
+                <CategoryButton>
+                  <Category>교육</Category>
+                </CategoryButton>
+                <CategoryButton>
+                  <Category>육아</Category>
+                </CategoryButton>
 
-                  <CategoryButton>
-                    <Category>･･･</Category>
-                  </CategoryButton>
-                </WrapperCategory>
-              </WrapperContent>
-            </WrapperImg>
-          </WrapperCard>
-          <WrapperCard>
-            <WrapperImg>
+                <CategoryButton>
+                  <Category>･･･</Category>
+                </CategoryButton>
+              </WrapperCategory>
+            </WrapperContent>
+          </WrapperImg>
+        </WrapperCard>
+        <WrapperCard>
+          <WrapperImg>
+            <div>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
+            </div>
+            <WrapperWriter>
               <div>
-                <Img src="" alt=""></Img>
+                <Writer>진아</Writer>
               </div>
-              <WrapperWriter>
-                <div>
-                  <Writer>진아</Writer>
-                </div>
-                <div>
-                  <Job>교사</Job>
-                </div>
-              </WrapperWriter>
-              <WrapperContent>
-                <Text>
-                  학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
-                  엄마이자 고등학교 국어 교사
-                </Text>
-                <WrapperCategory>
-                  <CategoryButton>
-                    <Category>교육</Category>
-                  </CategoryButton>
-                  <CategoryButton>
-                    <Category>육아</Category>
-                  </CategoryButton>
-
-                  <CategoryButton>
-                    <Category>･･･</Category>
-                  </CategoryButton>
-                </WrapperCategory>
-              </WrapperContent>
-            </WrapperImg>
-          </WrapperCard>
-          <WrapperCard>
-            <WrapperImg>
               <div>
-                <Img src="" alt=""></Img>
+                <Job>교사</Job>
               </div>
-              <WrapperWriter>
-                <div>
-                  <Writer>진아</Writer>
-                </div>
-                <div>
-                  <Job>교사</Job>
-                </div>
-              </WrapperWriter>
-              <WrapperContent>
-                <Text>
-                  학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
-                  엄마이자 고등학교 국어 교사
-                </Text>
-                <WrapperCategory>
-                  <CategoryButton>
-                    <Category>교육</Category>
-                  </CategoryButton>
-                  <CategoryButton>
-                    <Category>육아</Category>
-                  </CategoryButton>
+            </WrapperWriter>
+            <WrapperContent>
+              <Text>
+                학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
+                엄마이자 고등학교 국어 교사
+              </Text>
+              <WrapperCategory>
+                <CategoryButton>
+                  <Category>교육</Category>
+                </CategoryButton>
+                <CategoryButton>
+                  <Category>육아</Category>
+                </CategoryButton>
 
-                  <CategoryButton>
-                    <Category>･･･</Category>
-                  </CategoryButton>
-                </WrapperCategory>
-              </WrapperContent>
-            </WrapperImg>
-          </WrapperCard>
-          <WrapperCard>
-            <WrapperImg>
+                <CategoryButton>
+                  <Category>･･･</Category>
+                </CategoryButton>
+              </WrapperCategory>
+            </WrapperContent>
+          </WrapperImg>
+        </WrapperCard>
+        <WrapperCard>
+          <WrapperImg>
+            <div>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
+            </div>
+            <WrapperWriter>
               <div>
-                <Img src="" alt=""></Img>
+                <Writer>진아</Writer>
               </div>
-              <WrapperWriter>
-                <div>
-                  <Writer>진아</Writer>
-                </div>
-                <div>
-                  <Job>교사</Job>
-                </div>
-              </WrapperWriter>
-              <WrapperContent>
-                <Text>
-                  학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
-                  엄마이자 고등학교 국어 교사
-                </Text>
-                <WrapperCategory>
-                  <CategoryButton>
-                    <Category>교육</Category>
-                  </CategoryButton>
-                  <CategoryButton>
-                    <Category>육아</Category>
-                  </CategoryButton>
-
-                  <CategoryButton>
-                    <Category>･･･</Category>
-                  </CategoryButton>
-                </WrapperCategory>
-              </WrapperContent>
-            </WrapperImg>
-          </WrapperCard>
-          <WrapperCard>
-            <WrapperImg>
               <div>
-                <Img src="" alt=""></Img>
+                <Job>교사</Job>
               </div>
-              <WrapperWriter>
-                <div>
-                  <Writer>진아</Writer>
-                </div>
-                <div>
-                  <Job>교사</Job>
-                </div>
-              </WrapperWriter>
-              <WrapperContent>
-                <Text>
-                  학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
-                  엄마이자 고등학교 국어 교사
-                </Text>
-                <WrapperCategory>
-                  <CategoryButton>
-                    <Category>교육</Category>
-                  </CategoryButton>
-                  <CategoryButton>
-                    <Category>육아</Category>
-                  </CategoryButton>
+            </WrapperWriter>
+            <WrapperContent>
+              <Text>
+                학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
+                엄마이자 고등학교 국어 교사
+              </Text>
+              <WrapperCategory>
+                <CategoryButton>
+                  <Category>교육</Category>
+                </CategoryButton>
+                <CategoryButton>
+                  <Category>육아</Category>
+                </CategoryButton>
 
-                  <CategoryButton>
-                    <Category>･･･</Category>
-                  </CategoryButton>
-                </WrapperCategory>
-              </WrapperContent>
-            </WrapperImg>
-          </WrapperCard>
-        </Wrapper>
-      </FullWrapper>
-    </section>
+                <CategoryButton>
+                  <Category>･･･</Category>
+                </CategoryButton>
+              </WrapperCategory>
+            </WrapperContent>
+          </WrapperImg>
+        </WrapperCard>
+        <WrapperCard>
+          <WrapperImg>
+            <div>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
+            </div>
+            <WrapperWriter>
+              <div>
+                <Writer>진아</Writer>
+              </div>
+              <div>
+                <Job>교사</Job>
+              </div>
+            </WrapperWriter>
+            <WrapperContent>
+              <Text>
+                학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
+                엄마이자 고등학교 국어 교사
+              </Text>
+              <WrapperCategory>
+                <CategoryButton>
+                  <Category>교육</Category>
+                </CategoryButton>
+                <CategoryButton>
+                  <Category>육아</Category>
+                </CategoryButton>
+
+                <CategoryButton>
+                  <Category>･･･</Category>
+                </CategoryButton>
+              </WrapperCategory>
+            </WrapperContent>
+          </WrapperImg>
+        </WrapperCard>
+        <WrapperCard>
+          <WrapperImg>
+            <div>
+              <Img src="https://via.placeholder.com/58" alt=""></Img>
+            </div>
+            <WrapperWriter>
+              <div>
+                <Writer>진아</Writer>
+              </div>
+              <div>
+                <Job>교사</Job>
+              </div>
+            </WrapperWriter>
+            <WrapperContent>
+              <Text>
+                학교와 수업 이야기, 책 리뷰와 육아에세이를 주로 씁니다. 궁극적으로는 작가의 삶을 살고 싶은, 두 아이의
+                엄마이자 고등학교 국어 교사
+              </Text>
+              <WrapperCategory>
+                <CategoryButton>
+                  <Category>교육</Category>
+                </CategoryButton>
+                <CategoryButton>
+                  <Category>육아</Category>
+                </CategoryButton>
+
+                <CategoryButton>
+                  <Category>･･･</Category>
+                </CategoryButton>
+              </WrapperCategory>
+            </WrapperContent>
+          </WrapperImg>
+        </WrapperCard>
+      </Wrapper>
+    </FullWrapper>
   );
 };
 
 export default index;
 
-const FullWrapper = styled.div`
+const FullWrapper = styled.section`
+  position: relative;
+  left: -33.9rem;
   display: flex;
   flex-direction: column;
   gap: 3.4rem;
@@ -364,6 +366,10 @@ const WrapperWriter = styled.div`
   align-items: center;
 `;
 const WrapperImg = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   width: 17.3rem;
   height: 20.5rem;
 `;
@@ -372,8 +378,7 @@ const Img = styled.img`
   width: 5.8rem;
   height: 5.8rem;
 
-  background: url('<path-to-image>') lightgray 50% / cover no-repeat;
-  border-radius: 82.857px;
+  border-radius: 50%;
 `;
 
 const WrapperContent = styled.div`

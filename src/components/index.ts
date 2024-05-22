@@ -9,6 +9,7 @@ import LikedBook from './libraryPage/likedBook';
 import RecentArticle from './libraryPage/recentArticle';
 import RecentBook from './libraryPage/recentBook';
 import Logo from './Logo';
+import NTag from './NTag';
 
 export {
   Article,
@@ -22,4 +23,5 @@ export {
   RecentBook,
   Footer,
   BookImgForm,
+  NTag,
 };
