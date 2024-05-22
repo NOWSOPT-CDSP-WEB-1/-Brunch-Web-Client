@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-type Article_type = {
+export type Article_type = {
   title: string;
   content: string;
   authorName: string;
