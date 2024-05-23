@@ -1,6 +1,6 @@
 import { postLikeBook } from '@apis/books';
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 interface HoverLikeProps {
   id: number;
@@ -10,7 +10,8 @@ interface HoverLikeProps {
 const HoverLike = ({ id, isLiked = false }: HoverLikeProps) => {
   const [isLike, setIsLike] = useState(isLiked);
 
-  const handleClickLike = async () => {
+  const handleClickLike = async (e: React.MouseEvent<HTMLImageElement>) => {
+    e.stopPropagation();
     if (!isLike) {
       // const response = await postLikeBook(id);
       await postLikeBook(id);
@@ -18,7 +19,13 @@ const HoverLike = ({ id, isLiked = false }: HoverLikeProps) => {
     }
   };
 
-  return <Image src={isLike ? 'icon/heart-fill.svg' : 'icon/heart.svg'} onClick={handleClickLike} alt={'like'} />;
+  return (
+    <Image
+      src={isLike ? '/src/assets/heart-fill.svg' : '/src/assets/heart.svg'}
+      onClick={handleClickLike}
+      alt={'like'}
+    />
+  );
 };
 
 export default HoverLike;

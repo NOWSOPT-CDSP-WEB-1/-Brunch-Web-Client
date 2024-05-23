@@ -33,9 +33,9 @@ const ArticleList = ({ article }: ArticleListProps) => {
 export default ArticleList;
 
 const Container = styled.section`
-  margin-top: 6rem;
   display: flex;
   justify-content: center;
+  margin-top: 6rem;
 `;
 
 const Wrapper = styled.section`

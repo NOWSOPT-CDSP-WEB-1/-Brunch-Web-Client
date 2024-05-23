@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
-import ArrowLeftIcon from 'public/icon/arrow-left.svg?react';
-import ArrowRightIcon from 'public/icon/arrow-right.svg?react';
-import Polygon from 'public/icon/polygon.svg';
+
+import ArrowLeftIcon from '/src/assets/arrow-left.svg?react';
+import ArrowRightIcon from '/src/assets/arrow-right.svg?react';
+import Polygon from '/src/assets/polygon.svg';
+
 import { Link } from 'react-router-dom';
 
 export type ArrowType = 'left' | 'right';
@@ -46,16 +48,16 @@ export default NavigateHeader;
 
 const NavigationWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
   padding: 1rem 9.5rem 1rem 5.5rem;
 `;
 
 const NavigationTextBox = styled.div`
   display: flex;
-  align-items: center;
   gap: 0.8rem;
+  align-items: center;
 `;
 
 const NavigationText = styled.span`

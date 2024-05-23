@@ -22,7 +22,7 @@ export default function FocusBook(book: Recent_book_type) {
         <Title>{book.title}</Title>
 
         <Infos>
-          <VolImage src="volume.svg" alt="volumeImg" />
+          <VolImage src="/src/assets/volume.svg" alt="volumeImg" />
           <Details>{`${book.episode}화`}</Details>
           <Icon icon={icons.schedule} size="1rem" color={theme.color.gray04} />
           <Details>{`${book.requiredTime}분`}</Details>

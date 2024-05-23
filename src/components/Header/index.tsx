@@ -52,7 +52,7 @@ const index = () => {
         <WriteButton>
           <WriteContent>글쓰기</WriteContent>
         </WriteButton>
-        <ProfileImg src="/public/img_profile.png" alt="profileImg" />
+        <ProfileImg src="/img_profile.png" alt="profileImg" />
         <IconWrapper>
           <Icon icon={icons.search} />
         </IconWrapper>

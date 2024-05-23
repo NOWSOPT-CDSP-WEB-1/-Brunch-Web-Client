@@ -3,9 +3,11 @@ import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
 import axios from 'axios';
-import BlackLike from 'public/icon/black_heart.svg?react';
-import Like from 'public/icon/heart.svg?react';
-import Volume from 'public/icon/volume.svg?react';
+
+import BlackLike from '/src/assets/black_heart.svg?react';
+import Like from '/src/assets/heart.svg?react';
+import Volume from '/src/assets/volume.svg?react';
+
 import { useEffect, useState } from 'react';
 
 export interface BookDetailProps {
@@ -149,30 +151,32 @@ const slideIn = (count: number) => keyframes`
 
 const Container = styled.div<{ $isShadowApplied: boolean }>`
   display: flex;
+
   box-shadow: ${({ $isShadowApplied }) => ($isShadowApplied ? '0px 0px 14px 0px rgba(0, 0, 0, 0.15)' : '')};
 `;
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 23.3rem;
   height: 32rem;
   padding: 19px 20px;
-  flex-direction: column;
-  justify-content: space-between;
+
   border-right: 1px solid ${({ theme }) => theme.color.gray02};
-  position: relative;
 
   &:nth-child(2) {
     transform: translateX(-100%);
-    animation: ${slideIn(1)} 0.5s ease-in-out forwards;
 
+    animation: ${slideIn(1)} 0.5s ease-in-out forwards;
     animation-delay: 0.5s;
   }
 
   &:nth-child(3) {
     transform: translateX(-200%);
-    animation: ${slideIn(2)} 0.5s ease-in-out forwards;
 
+    animation: ${slideIn(2)} 0.5s ease-in-out forwards;
     animation-delay: 0.5s;
   }
 `;
@@ -190,18 +194,18 @@ const TitleBox = styled.div`
 
 const Title = styled.p`
   color: ${({ theme }) => theme.color.gray09};
-  font-family: 'Noto Sans';
-  font-size: 18px;
-  font-style: normal;
   font-weight: 300;
+  font-size: 18px;
+  font-family: 'Noto Sans';
+  font-style: normal;
   line-height: 136.241%; /* 24.523px */
   letter-spacing: 0.54px;
 `;
 
 const RowBox = styled.div`
   display: flex;
-  align-items: center;
   gap: 3px;
+  align-items: center;
 `;
 
 const TitleInfoBox = styled.div`
@@ -217,26 +221,25 @@ const RequiredTime = styled.span`
 const LikeWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-  justify-content: space-between;
   align-items: center;
-
+  justify-content: space-between;
   height: 4.1rem;
 `;
 
 const LikeBox = styled.button`
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 5px 5px 5px 5.5px;
 
-  border-radius: 30px;
   border: 0.5px solid ${({ theme }) => theme.color.gray07};
+  border-radius: 30px;
 `;
 
 const LikeIcon = styled(Like)<{ $isLiked: boolean }>`
   path {
     stroke-width: 1px;
+
     stroke: ${({ theme }) => theme.color.gray11};
   }
 `;
@@ -283,6 +286,7 @@ const TagWrapper = styled.div`
 
 const Tag = styled.div`
   padding: 4px 7px;
+
   border-radius: 10px;
   border: 1px solid ${({ theme }) => theme.color.gray05};
 
@@ -294,17 +298,16 @@ const Tag = styled.div`
 const BookCover = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 12px;
   align-items: center;
-
+  justify-content: center;
   width: 23.3rem;
   height: 32rem;
   padding: 6.3rem;
-  gap: 12px;
 
   background: ${({ theme }) => theme.color.gray07};
-
   transform: translateX(-300%);
+
   animation: ${slideIn(3)} 0.5s ease-in-out forwards;
   animation-delay: 0.5s;
 `;
@@ -313,6 +316,7 @@ const BuyBtn = styled.button`
   width: 8.3rem;
   height: 23px;
   padding: 4px 6px;
+
   border-radius: 30px;
   border: 1px solid ${({ theme }) => theme.color.gray02};
 
@@ -326,8 +330,8 @@ const AuthorWrapper = styled.div`
   flex-direction: column;
 
   transform: translateX(-200%);
-  animation: ${slideIn(2)} 0.5s ease-in-out forwards;
 
+  animation: ${slideIn(2)} 0.5s ease-in-out forwards;
   animation-delay: 0.5s;
 `;
 
@@ -346,6 +350,7 @@ const AuthorInfoWrapper = styled.div`
 
 const AuthorName = styled.p`
   margin-bottom: 5px;
+
   color: ${({ theme }) => theme.color.gray11};
 
   ${({ theme }) => theme.font.body4_regular};
@@ -353,6 +358,7 @@ const AuthorName = styled.p`
 
 const AuthorDescription = styled.p`
   width: 19.1rem;
+
   color: ${({ theme }) => theme.color.gray10};
 
   ${({ theme }) => theme.font.detail4_183_0};
@@ -365,8 +371,8 @@ const Job = styled.p`
 
 const SubscribeBox = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const Subscriber = styled.span`
@@ -383,6 +389,5 @@ const SubscribeBtn = styled.button`
   ${({ theme }) => theme.font.detail2};
   border-radius: 30px;
   border: 1px solid ${({ theme }) => theme.color.mint01};
-
   background: ${({ theme }) => theme.color.white01};
 `;

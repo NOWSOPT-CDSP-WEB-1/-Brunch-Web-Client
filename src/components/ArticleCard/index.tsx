@@ -84,6 +84,7 @@ const RuntimeWrapper = styled.div`
 
 const RuntimeText = styled.span`
   margin-left: 0.3rem;
+
   color: ${({ theme }) => theme.color.gray04};
 
   ${({ theme }) => theme.font.detail4_3};
@@ -93,6 +94,7 @@ const Dot = styled.span`
   width: 1px;
   height: 1px;
   margin: 0 0.7rem;
+
   background: var(--gray07, #a8a8a8);
 `;
 

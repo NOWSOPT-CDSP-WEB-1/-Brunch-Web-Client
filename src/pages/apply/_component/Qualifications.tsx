@@ -93,13 +93,6 @@ const DisplayWrapper = styled.div`
   margin-top: 8rem;
 `;
 
-// const DisplayText = styled.pre`
-//   display: inline-block;
-
-//   ${({ theme }) => theme.font.display1};
-//   color: ${({ color }) => color};
-// `;
-
 const ContentText = styled.p`
   width: 56.5rem;
   margin-top: 3rem;

@@ -5,7 +5,7 @@ interface BookCoverProps {
 }
 
 const BookCover = ({ image }: BookCoverProps) => {
-  return <Container src={image} alt="" />;
+  return <Container src={image} alt="book_cover" />;
 };
 
 export default BookCover;
