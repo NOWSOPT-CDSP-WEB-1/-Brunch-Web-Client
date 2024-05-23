@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import ArticleList, { ArticleProps } from './_component/ArticleList';
 import BookDetail from './_component/BookDetail';
@@ -8,6 +9,7 @@ import { BookDetailProps } from './_component/BookInfo';
 import NavigateHeader, { ArrowType } from './_component/NavigateHeader';
 
 const Book = () => {
+  const { id } = useParams();
   const [position, setPosition] = useState(0);
   const [bookDetail, setBookDetail] = useState<BookDetailProps>();
   const [article, setArticle] = useState<ArticleProps[]>();
@@ -26,7 +28,7 @@ const Book = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/books/6`);
+        const { data } = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/books/${id}`);
 
         setBookDetail(data.data.bookOverview[0]);
         setArticle(data.data.bookChapter);
@@ -40,7 +42,7 @@ const Book = () => {
 
   return (
     <div>
-      <NavigateHeader position={position} onArrowClick={onArrowClick} title={bookDetail?.title as string} />
+      <NavigateHeader position={position} onArrowClick={onArrowClick} title={bookDetail?.title ?? ''} />
 
       {bookDetail && article && (
         <>
