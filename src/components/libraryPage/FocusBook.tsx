@@ -2,25 +2,13 @@ import { Icon } from '@components';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
 import theme from '@styles/theme';
-import { Book_size } from 'src/interface/Book_size';
-import { Liked_book_type } from 'src/interface/Liked_book_type';
 import { Recent_book_type } from 'src/interface/Recent_book_type';
 
-import BookImgForm from './BookImgForm';
-
 export default function FocusBook(book: Recent_book_type) {
-  const boxSize: Book_size = { x: '15.3rem', y: '21.3rem' };
-  const toLikedBookType: Liked_book_type = {
-    id: book.id,
-    title: book.title,
-    authorName: book.authorName,
-    bookImage: book.bookImage,
-  };
-
   return (
     <Container>
       <ImgContaier>
-        <BookImgForm likedBook={toLikedBookType} size={boxSize} />
+        <BookImg src={book.bookImage} />
         <ProgressBar>
           <GreenBar progress={book.progress}></GreenBar>
         </ProgressBar>
@@ -65,6 +53,13 @@ const ImgContaier = styled.div`
   flex-direction: column;
   gap: 1.3rem;
   align-items: center;
+`;
+const BookImg = styled.img`
+  min-width: 15.3rem;
+  max-width: 15.3rem;
+  height: 21.3rem;
+
+  border-radius: 1.4px;
 `;
 const ProgressBar = styled.div`
   width: 8.4rem;
