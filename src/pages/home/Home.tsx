@@ -1,8 +1,13 @@
+import { Footer } from '@components';
 import styled from '@emotion/styled';
 
+import Apply from './_components/Apply';
+import Article from './_components/Aricle';
+import DayArticle from './_components/DayArticle';
 import KeywordTable from './_components/KeywordTable';
 import MainCarousel from './_components/MainCarousel';
 import MainIntro from './_components/MainIntro';
+import MainWriter from './_components/MainWriter';
 
 const Home = () => {
   return (
@@ -11,12 +16,16 @@ const Home = () => {
         <BannerImg src="banner.svg" alt="banner" />
         <BannerCloseImg src="banner-close.svg" alt="banner-close" />
       </BannerWrapper>
-
       <MainContainer>
         <MainIntro />
         <MainCarousel />
         <KeywordTable />
+        <DayArticle />
+        <MainWriter />
+        <Apply />
+        <Article />
       </MainContainer>
+      <Footer />
     </Homecontainer>
   );
 };

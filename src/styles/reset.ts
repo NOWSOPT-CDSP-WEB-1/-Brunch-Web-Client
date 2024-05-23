@@ -174,8 +174,9 @@ video {
   }
 
   :root {
-    width: 136.6rem;
+    max-width: 136.6rem;
     min-height: 100vh;
+    overflow-x: hidden;
   }
 `;
 

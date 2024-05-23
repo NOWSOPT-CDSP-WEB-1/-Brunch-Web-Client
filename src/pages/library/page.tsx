@@ -7,27 +7,40 @@ export default function LibraryPage() {
     <>
       <LibraryHeader1 />
       <LibraryHeader2 />
-      <Main>
-        <div id="recentBook">
-          <RecentBook />
-        </div>
-        <div id="recentArticle">
-          <Article sort={'recent'} />
-        </div>
+      <div id="recentBook">
+        <RecentBook />
+      </div>
+      <div id="recentArticle">
+        <Article sort={'recent'} />
+      </div>
+      <HeartImgWrapper>
+        <HeartImg src="heart.svg" alt="heart" />
+      </HeartImgWrapper>
+      <GrayBg>
         <div id="likedBook">
           <LikedBook />
         </div>
         <div id="likedArticle">
           <Article sort={'liked'} />
         </div>
-      </Main>
+      </GrayBg>
     </>
   );
 }
-
-const Main = styled.div`
+const HeartImgWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+const HeartImg = styled.img`
+  position: relative;
+  top: 2rem;
+  left: 33.5rem;
+`;
+const GrayBg = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  width: 100%;
+
+  background: var(--gray01, #f8f8f8);
 `;

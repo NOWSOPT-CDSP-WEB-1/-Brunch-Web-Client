@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-type Article_type = {
+export type Article_type = {
   title: string;
   content: string;
   authorName: string;
@@ -41,13 +41,13 @@ const Title = styled.p`
   color: ${({ theme }) => theme.color.gray09};
 `;
 const Content = styled.p`
-  flex-wrap: wrap;
-  height: 3rem;
+  display: -webkit-box;
   overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 
   color: ${({ theme }) => theme.color.gray08};
   ${({ theme }) => theme.font.detail2};
-  white-space: pre-wrap;
 `;
 //white-space는 공백이나 엔터있을 때 줄바꿈하도록
 //flex-wrap은 줄넘어갔을때 띄워쓰기에 따라 밑으로 넘어옴
@@ -65,5 +65,6 @@ const AuthorName = styled.p`
   color: ${({ theme }) => theme.color.gray05};
 `;
 const PostImage = styled.img`
+  width: 7.2rem;
   height: 7.2rem;
 `;
