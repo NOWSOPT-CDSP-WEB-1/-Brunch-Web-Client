@@ -221,6 +221,7 @@ const WrapperFont = styled.div`
 const WrpperImg = styled.img`
   width: 56px;
   height: 58px;
+  object-fit: cover;
 `;
 
 const TitleWrapper = styled.div`
