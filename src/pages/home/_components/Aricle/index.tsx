@@ -16,7 +16,7 @@ interface ArticleImage {
 }
 
 const index = () => {
-  const [groupedImages, setGroupedImages] = useState<ArticleImage[]>([]);
+  const [groupedImages, setGroupedImages] = useState<ArticleImage[][]>([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
