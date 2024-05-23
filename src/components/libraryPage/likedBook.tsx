@@ -60,7 +60,7 @@ export default function LikedBook() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 65rem;
+  width: 68.4rem;
   margin-top: 2.6rem;
   margin-bottom: 4rem;
 `;
@@ -90,4 +90,5 @@ const BookIndex = styled.p`
 const LikedBooksContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
 `;

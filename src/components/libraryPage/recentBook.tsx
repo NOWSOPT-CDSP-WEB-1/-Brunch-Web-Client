@@ -173,6 +173,7 @@ const EachBookWrapper = styled.div<{ index: number; isRight: boolean }>`
   align-items: center;
 
   visibility: ${({ index }) => (index == 0 ? 'hidden' : 'visible')};
+  opacity: ${({ index }) => (index > 2 ? '0.5' : '1')};
 
   animation: ${({ isRight }) =>
     isRight
