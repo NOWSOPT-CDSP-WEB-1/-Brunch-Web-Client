@@ -48,7 +48,7 @@ const BookInfo = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsShadowApplied(true);
-    }, 700);
+    }, 900);
 
     return () => clearTimeout(timer);
   }, []);
