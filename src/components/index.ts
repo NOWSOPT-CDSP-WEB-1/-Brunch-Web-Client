@@ -11,4 +11,17 @@ import RecentBook from './libraryPage/recentBook';
 import Logo from './Logo';
 import NTag from './NTag';
 
-export { Article, ArticleCard, Icon, LibraryHeader2, LikedBook, Logo, RecentBook, Footer, BookImgForm, NTag, Header };
+export {
+  Article,
+  ArticleCard,
+  Icon,
+  LibraryHeader2,
+  LikedBook,
+  Logo,
+  RecentBook,
+  Footer,
+  BookImgForm,
+  NTag,
+  Header,
+  FloatingButton,
+};
