@@ -233,6 +233,7 @@ const TableCell = styled.div<{ rowIndex: number; cellIndex: number; isCheck: boo
   ${(props) =>
     props.isCheck &&
     `
+    color: ${props.theme.color.mint01};
     border-color: ${props.theme.color.mint01};
     z-index: 2;
   `}
