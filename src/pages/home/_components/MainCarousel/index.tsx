@@ -67,23 +67,23 @@ const Index = () => {
                         <div>
                           <OverlayHeader>
                             <OverlayTitle>{item.title}</OverlayTitle>
-                            <HoverLike id={1} />
+                            <HoverLike id={item.id} />
                           </OverlayHeader>
                           <OverlayBookData>
                             <OverlayBookEpisode>
                               <Icon icon={icons.segment} size="1rem" />
-                              <span>{`총 ${item.bookEpisode}화`}</span>
+                              <span>{`총 ${item.episode}화`}</span>
                             </OverlayBookEpisode>
                             <OverlayBookRuntime>
                               <Icon icon={icons.schedule} size="1rem" />
-                              <span>{`${item.bookRuntime}분`}</span>
+                              <span>{`${item.requiredTime}분`}</span>
                             </OverlayBookRuntime>
                           </OverlayBookData>
                           <OverlayDescription>{item.bookDescription}</OverlayDescription>
                         </div>
                         <OverlayRecommendation>
                           <RecommendationTitle>이런분께 추천드려요!</RecommendationTitle>
-                          <RecommendationContent>{item.bookRecommendation}</RecommendationContent>
+                          <RecommendationContent>{item.recommendation}</RecommendationContent>
                         </OverlayRecommendation>
                       </OverLayText>
                     </SlideOverlay>
