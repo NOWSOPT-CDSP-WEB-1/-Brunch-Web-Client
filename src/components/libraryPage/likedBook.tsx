@@ -1,43 +1,34 @@
-import { Icon } from '@components';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Liked_book_type } from 'src/interface/Liked_book_type';
 
 import EachLikedBook from './eachLikedBook';
+
+import Icon from '../Icon';
+
 //api -> get likedBooks id title authorName bookImage
-const likeBooks = [
-  {
-    id: 1,
-    title: '무용하고도 유용한 이야기',
-    authorName: '홍길동',
-    bookImage: 'brunch_logo_b.png',
-  },
-  {
-    id: 2,
-    title: 'title title 책 2',
-    authorName: '홍길동',
-    bookImage: 'brunch_logo_b.png',
-  },
-  {
-    id: 3,
-    title: 'title title 책 3',
-    authorName: '홍길동',
-    bookImage: 'brunch_logo_b.png',
-  },
-  {
-    id: 4,
-    title: 'title title 책 4',
-    authorName: '홍길동',
-    bookImage: 'brunch_logo_b.png',
-  },
-  {
-    id: 5,
-    title: 'title5',
-    authorName: '홍길동',
-    bookImage: 'brunch_logo_b.png',
-  },
-];
 
 export default function LikedBook() {
+  const [likeBooks, setLikeBooks] = useState<Liked_book_type[]>([]);
+
+  useEffect(() => {
+    axios
+      .get('https://www.sopt-brunch.p-e.kr/api/v1/books', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((res) => {
+        //likeBooks에 추가되게
+        setLikeBooks(res.data.data.likedBooks);
+      })
+      .catch((err) => {
+        alert(err.data.message);
+      });
+  }, []);
+
   return (
     <Container>
       <TitleWrapper>
@@ -49,15 +40,18 @@ export default function LikedBook() {
         <Icon icon={icons.arrow_forward_ios} size="1.2rem" color="#3D3D3D" />
       </BookIndexWrapper>
       <LikedBooksContainer>
-        {likeBooks.map((eachBook) => (
-          <EachLikedBook
-            key={eachBook.id}
-            id={eachBook.id}
-            title={eachBook.title}
-            authorName={eachBook.authorName}
-            bookImage={eachBook.bookImage}
-          />
-        ))}
+        {likeBooks.map((eachBook, index) => {
+          if (index < 5)
+            return (
+              <EachLikedBook
+                key={eachBook.id}
+                id={eachBook.id}
+                title={eachBook.title}
+                authorName={eachBook.authorName}
+                bookImage={eachBook.bookImage}
+              />
+            );
+        })}
       </LikedBooksContainer>
     </Container>
   );
@@ -66,7 +60,7 @@ export default function LikedBook() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 65rem;
+  width: 68.4rem;
   margin-top: 2.6rem;
   margin-bottom: 4rem;
 `;
@@ -77,8 +71,8 @@ const TitleWrapper = styled.div`
   margin-bottom: 3.6rem;
 `;
 const LikedTitle1 = styled.p`
-  ${({ theme }) => theme.font.head4};
   color: ${({ theme }) => theme.color.gray11};
+  ${({ theme }) => theme.font.head4};
 `;
 const LikedTitle2 = styled.p`
   ${({ theme }) => theme.font.head4};
@@ -96,4 +90,5 @@ const BookIndex = styled.p`
 const LikedBooksContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
 `;

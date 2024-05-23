@@ -1,17 +1,14 @@
 import styled from '@emotion/styled';
+import { Book_size } from 'src/interface/Book_size';
 import { Liked_book_type } from 'src/interface/Liked_book_type';
 
-import { BookImgForm } from '..';
+import BookImgForm from './BookImgForm';
 
 export default function EachLikedBook(likedBook: Liked_book_type) {
+  const boxSize: Book_size = { x: '12rem', y: '15.7rem' };
   return (
     <Container>
-      <BookImgForm
-        id={likedBook.id}
-        title={likedBook.title}
-        authorName={likedBook.authorName}
-        bookImage={likedBook.bookImage}
-      />
+      <BookImgForm likedBook={likedBook} size={boxSize} />
       <Title>{likedBook.title}</Title>
       <AuthorWrapper>
         <ByText>by</ByText>
