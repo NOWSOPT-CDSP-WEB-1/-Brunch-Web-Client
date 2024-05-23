@@ -2,8 +2,11 @@ import { Icon } from '@components';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
+import axios from 'axios';
+import BlackLike from 'public/icon/black_heart.svg?react';
 import Like from 'public/icon/heart.svg?react';
 import Volume from 'public/icon/volume.svg?react';
+import { useEffect, useState } from 'react';
 
 export interface BookDetailProps {
   id: number;
@@ -23,6 +26,7 @@ export interface BookDetailProps {
 }
 
 const BookInfo = ({
+  id,
   title,
   bookImage,
   authorName,
@@ -37,8 +41,29 @@ const BookInfo = ({
   bookDescription,
   tag,
 }: BookDetailProps) => {
+  const [isShadowApplied, setIsShadowApplied] = useState(false);
+  const [isLike, setIsLike] = useState(isLiked);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsShadowApplied(true);
+    }, 700);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleLike = async () => {
+    try {
+      const { data } = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/books/${id}/likes`);
+
+      if (data.success) setIsLike(!isLike);
+    } catch (error) {
+      console.error('네트워크 에러가 발생했습니다.', error);
+    }
+  };
+
   return (
-    <Container>
+    <Container $isShadowApplied={isShadowApplied}>
       <Wrapper>
         <TitleWrapper>
           <TitleBox>
@@ -58,9 +83,7 @@ const BookInfo = ({
           </TitleBox>
 
           <LikeWrapper>
-            <LikeBox>
-              <LikeIcon isLiked={isLiked} />
-            </LikeBox>
+            <LikeBox onClick={handleLike}>{isLike ? <LikeIconBlack /> : <LikeIcon $isLiked={isLike} />}</LikeBox>
 
             <LikeCnt>{likeCount}</LikeCnt>
           </LikeWrapper>
@@ -77,7 +100,9 @@ const BookInfo = ({
         <BookDescription>{bookDescription}</BookDescription>
 
         <TagWrapper>
-          {Array.isArray(tag) ? tag.map((tag: string, i: number) => <Tag key={`tag-${i}`}>{tag}</Tag>) : []}
+          {tag.split(', ').map((tag: string, i: number) => (
+            <Tag key={`tag-${i}`}>{tag.trim()}</Tag>
+          ))}
         </TagWrapper>
       </Wrapper>
 
@@ -91,7 +116,7 @@ const BookInfo = ({
           <AuthorDescription>{authorDescription}</AuthorDescription>
 
           <SubscribeBox>
-            <Subscriber>{subscriber}명</Subscriber>
+            <Subscriber>{subscriber.toLocaleString()}명</Subscriber>
             <SubscribeBtn>구독하기</SubscribeBtn>
           </SubscribeBox>
         </AuthorInfoWrapper>
@@ -116,8 +141,9 @@ const slideIn = (count: number) => keyframes`
   }
 `;
 
-const Container = styled.div`
+const Container = styled.div<{ $isShadowApplied: boolean }>`
   display: flex;
+  box-shadow: ${({ $isShadowApplied }) => ($isShadowApplied ? '0px 0px 14px 0px rgba(0, 0, 0, 0.15)' : '')};
 `;
 
 const Wrapper = styled.div`
@@ -127,7 +153,7 @@ const Wrapper = styled.div`
   padding: 19px 20px;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid ${({ theme }) => theme.color.gray07};
+  border-right: 1px solid ${({ theme }) => theme.color.gray02};
   position: relative;
 
   &:nth-child(2) {
@@ -174,7 +200,6 @@ const RowBox = styled.div`
 
 const TitleInfoBox = styled.div`
   display: flex;
-  justify-content: space-between;
   gap: 11px;
 `;
 
@@ -195,19 +220,20 @@ const LikeWrapper = styled.div`
 
 const LikeBox = styled.button`
   display: flex;
-  padding: 5.25px 3.5px;
+  padding: 5px 3px;
 
   border-radius: 30px;
   border: 0.5px solid ${({ theme }) => theme.color.gray07};
 `;
 
-const LikeIcon = styled(Like)<{ isLiked: boolean }>`
+const LikeIcon = styled(Like)<{ $isLiked: boolean }>`
   path {
     stroke-width: 1px;
-    ${({ isLiked, theme }) =>
-      isLiked ? `fill: ${theme.color.mint01}; stroke:${theme.color.mint01}` : `stroke:${theme.color.gray11}`};
+    stroke: ${({ theme }) => theme.color.gray11};
   }
 `;
+
+const LikeIconBlack = styled(BlackLike)``;
 
 const LikeCnt = styled.span`
   color: ${({ theme }) => theme.color.gray09};
