@@ -2,13 +2,20 @@ import { Icon } from '@components';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
 import theme from '@styles/theme';
+import { useNavigate } from 'react-router-dom';
 import { Recent_book_type } from 'src/interface/Recent_book_type';
 
 export default function FocusBook(book: Recent_book_type) {
+  const navi = useNavigate();
   return (
     <Container>
       <ImgContaier>
-        <BookImg src={book.bookImage} />
+        <BookImg
+          src={book.bookImage}
+          onClick={() => {
+            navi(`/book/${book.id}`);
+          }}
+        />
         <ProgressBar>
           <GreenBar progress={book.progress}></GreenBar>
         </ProgressBar>

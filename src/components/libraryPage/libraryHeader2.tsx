@@ -39,7 +39,7 @@ const Container = styled.div`
   top: 0;
   left: 3rem;
   display: inline-flex;
-  gap: 15rem;
+  gap: 14.8rem;
   align-items: flex-end;
   justify-content: center;
   width: 100%;
@@ -53,12 +53,12 @@ const IntroFrame = styled.div`
   white-space: nowrap;
 `;
 const Intro1 = styled.p`
-  ${({ theme }) => theme.font.head4}
-  color: ${({ theme }) => theme.color.gray11}
+  ${({ theme }) => theme.font.head4};
+  color: ${({ theme }) => theme.color.gray11};
 `;
 const Intro2 = styled.p`
-  ${({ theme }) => theme.font.head4}
-  color: ${({ theme }) => theme.color.gray08}
+  ${({ theme }) => theme.font.head4};
+  color: ${({ theme }) => theme.color.gray08};
 `;
 const NavButtons = styled.div`
   display: flex;

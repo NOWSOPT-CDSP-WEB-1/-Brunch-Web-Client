@@ -35,11 +35,9 @@ export default function Article(sort: Sort) {
       })
       .then((res) => {
         if (sort.sort == 'recent') {
-          console.log(res.data.data.recentPostings);
           setPostings(res.data.data.recentPostings);
         }
         if (sort.sort == 'liked') {
-          console.log(res.data.data.likePostings);
           setPostings(res.data.data.likePostings);
         }
         //likeBooks에 추가되게
