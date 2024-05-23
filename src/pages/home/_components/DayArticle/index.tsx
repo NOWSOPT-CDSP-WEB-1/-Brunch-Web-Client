@@ -5,7 +5,7 @@ import { icons } from '@styles/icons';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-type dayType = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY' | string;
+export type dayType = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY' | string;
 type sortType = '최신순' | '라이킷순';
 type Article = {
   bookTitle: string;

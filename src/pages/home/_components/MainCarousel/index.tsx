@@ -1,22 +1,44 @@
+import { getBanner } from '@apis/books';
 import { Icon } from '@components';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
+import { useEffect, useState } from 'react';
 import { Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { data } from './config';
 import { BannerImage } from './types';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import HoverLike from '../HoverLike/HoverLike';
+
+interface SlideWrapperProps {
+  bgColor: string;
+}
+
+const generateSlideBgColor = () => {
+  const hue = Math.floor(Math.random() * 360); // 0에서 360 사이의 무작위 색상
+  const saturation = Math.floor(Math.random() * 20) + 20; // 채도 20%에서 40% 사이
+  const lightness = Math.floor(Math.random() * 20) + 20; // 밝기 20%에서 40% 사이
+  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+};
 
 const Index = () => {
-  const groupedImages: BannerImage[][] = [];
+  const [groupedList, setGroupedList] = useState<BannerImage[][]>([]);
 
-  for (let i = 0; i < data.length; i += 2) {
-    groupedImages.push(data.slice(i, i + 2));
-  }
+  useEffect(() => {
+    const fetchBanner = async () => {
+      const bannerData = await getBanner();
+      const bannerList = bannerData.data;
+      const groupedImages: BannerImage[][] = [];
+      for (let i = 0; i < bannerList.length; i += 2) {
+        groupedImages.push(bannerList.slice(i, i + 2));
+      }
+      setGroupedList(groupedImages);
+    };
+    fetchBanner();
+  }, []);
 
   const pagination = {
     clickable: true,
@@ -33,19 +55,19 @@ const Index = () => {
         pagination={pagination}
         modules={[Pagination, Navigation]}
         className="my-swiper">
-        {groupedImages.slice(0, 10).map((group, index) => {
+        {groupedList.slice(0, 10).map((group, index) => {
           return (
             <SwiperSlideWrapper key={index}>
-              {group.map((item) => {
+              {group.map((item, index) => {
                 return (
-                  <SlideWrapper key={item.id}>
+                  <SlideWrapper key={item.id} bgColor={index === 0 ? generateSlideBgColor() : ''}>
                     <SlideImage src={item.bannerImage} alt={`Slide ${item.id}`} />
                     <SlideOverlay className="overlay">
                       <OverLayText>
                         <div>
                           <OverlayHeader>
                             <OverlayTitle>{item.title}</OverlayTitle>
-                            <img src="icon/heart.svg" alt="like" />
+                            <HoverLike id={1} />
                           </OverlayHeader>
                           <OverlayBookData>
                             <OverlayBookEpisode>
@@ -145,17 +167,20 @@ const SwiperSlideWrapper = styled(SwiperSlide)`
   justify-content: center;
   width: 34.2rem;
   height: 37.1rem;
-
-  background: linear-gradient(180deg, #f1f1f1 0%, #b9b9b9 71.99%, #d0d0d0 72%, #b7b7b7 100%);
 `;
 
-const SlideWrapper = styled.div`
+const SlideWrapper = styled.div<SlideWrapperProps>`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+
+  ${(props) =>
+    props.bgColor
+      ? `background-color: ${props.bgColor}`
+      : `background: linear-gradient(180deg, #f1f1f1 0%, #b9b9b9 71.99%, #d0d0d0 72%, #b7b7b7 100%)`};
 
   &:hover .overlay {
     visibility: visible;
@@ -199,7 +224,7 @@ const OverLayText = styled.section`
 
 const OverlayHeader = styled.header`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 `;
 
