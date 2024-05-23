@@ -109,7 +109,8 @@ const Img = styled.img`
   gap: 0.8rem;
   align-items: flex-start;
   width: 100%;
-  height: 8.7rem;
+  max-height: 22rem;
+  object-fit: cover;
 `;
 
 const Gap = styled.div`
