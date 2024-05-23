@@ -61,5 +61,6 @@ export default Book;
 
 const DetailWrapper = styled.section<{ position: number }>`
   transform: translateX(${({ position }) => position * -15}%);
+
   transition: transform 0.5s;
 `;
