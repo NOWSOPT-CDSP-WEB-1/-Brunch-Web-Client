@@ -91,7 +91,7 @@ const BookInfo = ({
           <LikeWrapper>
             <LikeBox onClick={handleLike}>{isLike ? <LikeIconBlack /> : <LikeIcon $isLiked={isLike} />}</LikeBox>
 
-            <LikeCnt>{likeCnt}</LikeCnt>
+            <LikeCnt>{likeCnt.toLocaleString()}</LikeCnt>
           </LikeWrapper>
         </TitleWrapper>
 
@@ -226,7 +226,9 @@ const LikeWrapper = styled.div`
 
 const LikeBox = styled.button`
   display: flex;
-  padding: 5px 3px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px 5px 5.5px;
 
   border-radius: 30px;
   border: 0.5px solid ${({ theme }) => theme.color.gray07};
