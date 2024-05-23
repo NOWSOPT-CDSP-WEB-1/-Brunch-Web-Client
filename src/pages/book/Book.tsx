@@ -1,3 +1,4 @@
+import { Header } from '@components';
 import styled from '@emotion/styled';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -28,7 +29,7 @@ const Book = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios.get(`${import.meta.env.VITE_BASE_URL}/api/v1/books/${id}`);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/books/${id}`);
 
         setBookDetail(data.data.bookOverview[0]);
         setArticle(data.data.bookChapter);
@@ -42,6 +43,7 @@ const Book = () => {
 
   return (
     <div>
+      <Header />
       <NavigateHeader position={position} onArrowClick={onArrowClick} title={bookDetail?.title ?? ''} />
 
       {bookDetail && article && (
@@ -61,6 +63,6 @@ export default Book;
 
 const DetailWrapper = styled.section<{ position: number }>`
   transform: translateX(${({ position }) => position * -15}%);
-  
+
   transition: transform 0.5s;
 `;

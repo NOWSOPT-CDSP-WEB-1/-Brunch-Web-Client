@@ -55,7 +55,7 @@ const BookInfo = ({
 
   const handleLike = async () => {
     try {
-      const { data } = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/books/${id}/likes`);
+      const { data } = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/books/${id}/likes`);
 
       if (data.success) {
         setIsLike((prev) => {

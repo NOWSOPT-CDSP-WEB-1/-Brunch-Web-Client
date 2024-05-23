@@ -1,4 +1,4 @@
-import { Header, Article, LibraryHeader2, LikedBook, RecentBook } from '@components';
+import { Article, Header, LibraryHeader2, LikedBook, RecentBook } from '@components';
 import styled from '@emotion/styled';
 
 export default function LibraryPage() {

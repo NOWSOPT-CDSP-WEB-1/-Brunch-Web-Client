@@ -45,7 +45,6 @@ const NavigateHeader = ({ position, onArrowClick, title }: NavigateHeaderProps) 
 export default NavigateHeader;
 
 const NavigationWrapper = styled.div`
-  margin-top: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

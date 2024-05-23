@@ -31,7 +31,7 @@ const index = () => {
     <Header>
       <LeftContainer>
         <LogoContainer onClick={() => navigate('/')}>
-          <img src="brunch_logo_small.svg" alt="logo_blackbar" />
+          <img src="/brunch_logo_small.svg" alt="logo_blackbar" />
         </LogoContainer>
         <HeaderMenu type="button" name="UPLOAD" onClick={handleClickMenu}>
           최근 업로드 글
@@ -52,7 +52,7 @@ const index = () => {
         <WriteButton>
           <WriteContent>글쓰기</WriteContent>
         </WriteButton>
-        <ProfileImg src="img_profile.png" alt="profileImg" />
+        <ProfileImg src="/public/img_profile.png" alt="profileImg" />
         <IconWrapper>
           <Icon icon={icons.search} />
         </IconWrapper>
