@@ -103,7 +103,6 @@ const CommentText = styled.span`
 `;
 
 const BookThumbnail = styled.img`
-  height: 100%;
+  width: 11rem;
   height: 8.5rem;
-  object-fit: cover;
 `;
