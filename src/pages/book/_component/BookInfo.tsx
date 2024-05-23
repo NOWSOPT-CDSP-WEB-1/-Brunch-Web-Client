@@ -43,6 +43,7 @@ const BookInfo = ({
 }: BookDetailProps) => {
   const [isShadowApplied, setIsShadowApplied] = useState(false);
   const [isLike, setIsLike] = useState(isLiked);
+  const [likeCnt, setLikeCnt] = useState(likeCount);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -56,7 +57,12 @@ const BookInfo = ({
     try {
       const { data } = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/books/${id}/likes`);
 
-      if (data.success) setIsLike(!isLike);
+      if (data.success) {
+        setIsLike((prev) => {
+          prev ? setLikeCnt(likeCnt - 1) : setLikeCnt(likeCnt + 1);
+          return !prev;
+        });
+      }
     } catch (error) {
       console.error('네트워크 에러가 발생했습니다.', error);
     }
@@ -85,7 +91,7 @@ const BookInfo = ({
           <LikeWrapper>
             <LikeBox onClick={handleLike}>{isLike ? <LikeIconBlack /> : <LikeIcon $isLiked={isLike} />}</LikeBox>
 
-            <LikeCnt>{likeCount}</LikeCnt>
+            <LikeCnt>{likeCnt}</LikeCnt>
           </LikeWrapper>
         </TitleWrapper>
 
