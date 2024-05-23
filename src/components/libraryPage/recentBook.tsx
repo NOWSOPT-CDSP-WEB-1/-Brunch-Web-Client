@@ -106,6 +106,9 @@ export default function RecentBook() {
               return (
                 <EachBookWrapper key={Math.random()} index={index} isRight={isRight}>
                   <BookImgForm likedBook={eachBook} size={boxSize} />
+                  <ProgressBar>
+                    <GreenBar progress={eachBook.progress}></GreenBar>
+                  </ProgressBar>
                 </EachBookWrapper>
               );
             })}
@@ -167,6 +170,7 @@ const EachBookWrapper = styled.div<{ index: number; isRight: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
+  align-items: center;
 
   visibility: ${({ index }) => (index == 0 ? 'hidden' : 'visible')};
 
@@ -218,4 +222,17 @@ const EachBookWrapper = styled.div<{ index: number; isRight: boolean }>`
       opacity: 1;
     }
   }
+`;
+
+const ProgressBar = styled.div`
+  width: 6.3rem;
+  height: 2px;
+
+  background-color: ${({ theme }) => theme.color.gray05};
+`;
+const GreenBar = styled.div<{ progress: number }>`
+  width: ${({ progress }) => progress}%;
+  height: 2px;
+
+  background-color: ${({ theme }) => theme.color.mint01};
 `;

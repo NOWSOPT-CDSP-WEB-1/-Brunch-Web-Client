@@ -19,9 +19,15 @@ export default function FocusBook(book: Recent_book_type) {
 
   return (
     <Container>
-      <BookImgForm likedBook={toLikedBookType} size={boxSize} />
+      <ImgContaier>
+        <BookImgForm likedBook={toLikedBookType} size={boxSize} />
+        <ProgressBar>
+          <GreenBar progress={book.progress}></GreenBar>
+        </ProgressBar>
+      </ImgContaier>
       <Content>
         <Title>{book.title}</Title>
+
         <Infos>
           <VolImage src="volume.svg" alt="volumeImg" />
           <Details>{`${book.episode}화`}</Details>
@@ -38,7 +44,7 @@ const Container = styled.div`
   z-index: 10;
   display: flex;
   gap: 2rem;
-  height: 21.3rem;
+  height: 25.4rem;
 
   transition: all;
   animation: fadein 1s;
@@ -53,6 +59,26 @@ const Container = styled.div`
     }
   }
 `;
+
+const ImgContaier = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  align-items: center;
+`;
+const ProgressBar = styled.div`
+  width: 8.4rem;
+  height: 2px;
+
+  background-color: ${({ theme }) => theme.color.gray05};
+`;
+const GreenBar = styled.div<{ progress: number }>`
+  width: ${({ progress }) => progress}%;
+  height: 2px;
+
+  background-color: ${({ theme }) => theme.color.mint01};
+`;
+
 const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -64,6 +90,7 @@ const Title = styled.p`
   color: ${({ theme }) => theme.color.gray09};
   ${({ theme }) => theme.font.body3};
 `;
+
 const Infos = styled.div`
   display: flex;
   gap: 1px;
