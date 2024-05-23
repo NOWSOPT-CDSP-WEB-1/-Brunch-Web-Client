@@ -5,7 +5,7 @@ import { icons } from '@styles/icons';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-type dayType = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY' | string;
+export type dayType = 'MONDAY' | 'TUESDAY' | 'WEDNESDAY' | 'THURSDAY' | 'FRIDAY' | 'SATURDAY' | 'SUNDAY' | string;
 type sortType = '최신순' | '라이킷순';
 type Article = {
   bookTitle: string;
@@ -117,7 +117,7 @@ const index = () => {
 export default index;
 
 const DayArticleContainer = styled.section`
-  margin-top: 8.4rem;
+  margin-top: 33.7rem;
 `;
 
 const DayHeaderWrapper = styled.div`
@@ -221,6 +221,7 @@ const WrapperFont = styled.div`
 const WrpperImg = styled.img`
   width: 56px;
   height: 58px;
+  object-fit: cover;
 `;
 
 const TitleWrapper = styled.div`
