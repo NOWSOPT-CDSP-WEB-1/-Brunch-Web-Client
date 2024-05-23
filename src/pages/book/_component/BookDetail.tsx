@@ -20,4 +20,6 @@ export default BookDetail;
 
 const Container = styled.div`
   display: flex;
+  margin-left: 22.8rem;
+  gap: 1.2rem;
 `;
