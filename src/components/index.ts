@@ -1,5 +1,6 @@
 import ArticleCard from './ArticleCard';
 import Footer from './Footer';
+import Header from './Header';
 import Icon from './Icon';
 import Article from './libraryPage/Article';
 import BookImgForm from './libraryPage/BookImgForm';
@@ -24,4 +25,5 @@ export {
   Footer,
   BookImgForm,
   NTag,
+  Header,
 };
