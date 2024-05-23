@@ -117,7 +117,7 @@ const index = () => {
 export default index;
 
 const DayArticleContainer = styled.section`
-  margin-top: 8.4rem;
+  margin-top: 33.7rem;
 `;
 
 const DayHeaderWrapper = styled.div`
