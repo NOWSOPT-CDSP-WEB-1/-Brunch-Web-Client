@@ -2,11 +2,14 @@ import LogoBig from '@assets/logo_big.svg?react';
 import { Icon } from '@components';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <Container>
-      <StyledLogo />
+      <Link to="/">
+        <StyledLogo />
+      </Link>
       <Icon icon={icons.search} />
     </Container>
   );

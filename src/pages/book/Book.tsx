@@ -1,4 +1,4 @@
-import { Header } from '@components';
+import { FloatingButton, Header } from '@components';
 import styled from '@emotion/styled';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -55,6 +55,7 @@ const Book = () => {
           <ArticleList article={article} />
         </>
       )}
+      <FloatingButton />
     </div>
   );
 };

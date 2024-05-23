@@ -1,4 +1,4 @@
-import { Header, Footer } from '@components';
+import { FloatingButton, Footer, Header } from '@components';
 import styled from '@emotion/styled';
 
 import Apply from './_components/Apply';
@@ -27,6 +27,7 @@ const Home = () => {
         <Article />
       </MainContainer>
       <Footer />
+      <FloatingButton />
     </Homecontainer>
   );
 };

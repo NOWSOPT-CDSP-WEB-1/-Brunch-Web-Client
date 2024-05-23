@@ -1,4 +1,5 @@
 import ArticleCard from './ArticleCard';
+import FloatingButton from './FloatingButton';
 import Footer from './Footer';
 import Header from './Header';
 import Icon from './Icon';
@@ -15,15 +16,16 @@ import NTag from './NTag';
 export {
   Article,
   ArticleCard,
+  BookImgForm,
+  FloatingButton,
+  Footer,
+  Header,
   Icon,
   LibraryHeader2,
   LikedArticle,
   LikedBook,
   Logo,
+  NTag,
   RecentArticle,
   RecentBook,
-  Footer,
-  BookImgForm,
-  NTag,
-  Header,
 };
