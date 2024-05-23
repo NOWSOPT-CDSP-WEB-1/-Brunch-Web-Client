@@ -8,14 +8,12 @@ import { Recent_book_type } from 'src/interface/Recent_book_type';
 export default function FocusBook(book: Recent_book_type) {
   const navi = useNavigate();
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        navi(`/book/${book.id}`);
+      }}>
       <ImgContaier>
-        <BookImg
-          src={book.bookImage}
-          onClick={() => {
-            navi(`/book/${book.id}`);
-          }}
-        />
+        <BookImg src={book.bookImage} />
         <ProgressBar>
           <GreenBar progress={book.progress}></GreenBar>
         </ProgressBar>
@@ -41,6 +39,7 @@ const Container = styled.div`
   gap: 2rem;
   height: 25.4rem;
 
+  cursor: pointer;
   transition: all;
   animation: fadein 1s;
 
