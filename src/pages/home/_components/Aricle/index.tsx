@@ -1,19 +1,43 @@
 import styled from '@emotion/styled';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-import { data } from './config';
-import { ArticleImage } from './types';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-const index = () => {
-  const groupedImages: ArticleImage[][] = [];
+interface ArticleImage {
+  id: number;
+  title: string;
+  authorName: string;
+  imageUrl: string;
+  content: string;
+}
 
-  for (let i = 0; i < data.length; i += 4) {
-    groupedImages.push(data.slice(i, i + 4));
-  }
+const index = () => {
+  const [groupedImages, setGroupedImages] = useState<ArticleImage[][]>([]);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await axios.get('https://www.sopt-brunch.p-e.kr/api/v1/postings/recommended');
+
+        const data = response.data.data.recommendedPostings;
+
+        const BigGroupedImages = [];
+        for (let i = 0; i < data.length; i += 4) {
+          BigGroupedImages.push(data.slice(i, i + 4));
+        }
+
+        setGroupedImages(BigGroupedImages);
+      } catch (error) {
+        console.error('에러:', error);
+      }
+    };
+
+    fetchArticles();
+  }, []);
 
   return (
     <BBigWrapperCard>
@@ -29,7 +53,7 @@ const index = () => {
                 <BigWrapperCard key={article.id}>
                   <WrapperCard>
                     <WrapperContent>
-                      <Img src={article.articleImage} alt={`Article ${article.id}`} />
+                      <Img src={article.imageUrl} alt={`Article ${article.id}`} />
                       <Gap>
                         <WrapperText>
                           <Text>{article.title}</Text>
@@ -85,7 +109,8 @@ const Img = styled.img`
   gap: 0.8rem;
   align-items: flex-start;
   width: 100%;
-  height: 8.7rem;
+  max-height: 22rem;
+  object-fit: cover;
 `;
 
 const Gap = styled.div`
