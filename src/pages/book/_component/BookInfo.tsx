@@ -5,7 +5,7 @@ import { icons } from '@styles/icons';
 import axios from 'axios';
 
 import BlackLike from '/src/assets/black_heart.svg?react';
-import Like from '/src/assets/heart.svg?react';
+import Like from '/src/assets/small_heart.svg?react';
 import Volume from '/src/assets/volume.svg?react';
 
 import { useEffect, useState } from 'react';
@@ -91,7 +91,7 @@ const BookInfo = ({
           </TitleBox>
 
           <LikeWrapper>
-            <LikeBox onClick={handleLike}>{isLike ? <LikeIconBlack /> : <LikeIcon $isLiked={isLike} />}</LikeBox>
+            <LikeBox onClick={handleLike}>{isLike ? <LikeIconBlack /> : <LikeIcon />}</LikeBox>
 
             <LikeCnt>{likeCnt.toLocaleString()}</LikeCnt>
           </LikeWrapper>
@@ -236,13 +236,7 @@ const LikeBox = styled.button`
   border-radius: 30px;
 `;
 
-const LikeIcon = styled(Like)<{ $isLiked: boolean }>`
-  path {
-    stroke-width: 1px;
-
-    stroke: ${({ theme }) => theme.color.gray11};
-  }
-`;
+const LikeIcon = styled(Like)``;
 
 const LikeIconBlack = styled(BlackLike)``;
 
