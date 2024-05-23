@@ -35,9 +35,23 @@ export default function FocusBook(book: Recent_book_type) {
   );
 }
 const Container = styled.div`
+  z-index: 10;
   display: flex;
   gap: 2rem;
   height: 21.3rem;
+
+  transition: all;
+  animation: fadein 1s;
+
+  @keyframes fadein {
+    from {
+      opacity: 0.3;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 `;
 const Content = styled.div`
   display: flex;
@@ -67,6 +81,7 @@ const Details = styled.p`
 `;
 const Description = styled.p`
   display: -webkit-box;
+  max-width: 20rem;
   margin-top: 1.5rem;
   overflow: hidden;
   -webkit-line-clamp: 3;

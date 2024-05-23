@@ -13,40 +13,14 @@ import FocusBook from './FocusBook';
 export default function RecentBook() {
   const boxSize: Book_size = { x: '12rem', y: '15.7rem' };
   const [recentBooks, setRecentBooks] = useState<Recent_book_type[]>();
-  const [focusIndex, setFocusIndex] = useState<number>(0);
-  //여기서 최근 읽었던 책 목록 조회 -> recentBooks get
-  /*
-  const recentBooks = [
-    {
-      id: 10,
-      title: '칼 든 괴한에게 쫓긴 밤',
-      authorName: '노마드',
-      bookImage: 'null',
-      description:
-        '새벽 4시, 밀라노를 걷다 칼 든 괴한에게 쫓겼습니다. 밀라노에 이르기까지의 여정, 그 밤, 그리고 하루하루를 살아가며 트라우마를 극복해가는 과정을 담았습니다. 죽을 위기를 넘기며 맞이한 가치관의 변화와 배운 교훈, 그리고 이후의 삶에 대해, 이제서야 써내릴 수 있어 글로 풀어냅니다.',
-      episode: 8,
-      requiredTime: 15,
-      progress: 70,
-      lastViewed: '2024-01-17T11:19:06',
-    },
-    {
-      id: 9,
-      title: '씁!! 가만히 좀 있어',
-      authorName: '노란콩',
-      bookImage: 'null',
-      description: '가만히 쉬는게 너무 어려운 사람이 살아가는 법.',
-      episode: 6,
-      requiredTime: 30,
-      progress: 50,
-      lastViewed: '2024-02-17T11:19:03',
-    },
-  ];*/
+  const [focusIndex, setFocusIndex] = useState(0);
+  const [isRight, setIsRight] = useState(true);
+
   useEffect(() => {
     axios
       .get('https://www.sopt-brunch.p-e.kr/api/v1/books')
       .then((res) => {
-        //recentBooks 추가되게
-        console.log(res.data);
+        //recentBooks 추가 되게
         setRecentBooks(res.data.data.recentBooks);
       })
       .catch((err) => {
@@ -56,9 +30,43 @@ export default function RecentBook() {
   }, []);
 
   //focusIndex는 가운데 크게 나올 친구 인덱스지정
-
   //그리고 옆에 돌아가는거는 이 focusIndex를 기준으로 원형으로 만들어서 돌리기
 
+  function handleLeftButton() {
+    setIsRight(false);
+
+    if (recentBooks) {
+      if (focusIndex > 0) {
+        setFocusIndex((focusIndex) => focusIndex - 1);
+      } else if (focusIndex == 0) {
+        setFocusIndex(() => recentBooks.length - 1);
+      }
+
+      //recentBooks마지막에 있는애를 맨앞으로 데려와야함
+      const lastBook = recentBooks[recentBooks.length - 1];
+      setRecentBooks(
+        recentBooks.filter((each) => {
+          return each.title !== lastBook.title;
+        })
+      );
+      setRecentBooks((prevBooks) => (prevBooks ? [lastBook, ...prevBooks] : [lastBook]));
+    }
+  }
+
+  function handleRightButton() {
+    setIsRight(true);
+
+    if (recentBooks) {
+      if (focusIndex == recentBooks.length - 1) {
+        setFocusIndex(() => 0);
+      } else {
+        setFocusIndex((prev) => prev + 1);
+      }
+      const [firstBook, ...restBooks] = recentBooks;
+      setRecentBooks(restBooks);
+      setRecentBooks((prevBooks) => (prevBooks ? [...prevBooks, firstBook] : [firstBook]));
+    }
+  }
   return (
     <Container>
       <LeftBody>
@@ -68,26 +76,27 @@ export default function RecentBook() {
         </TitleContainer>
         {recentBooks && (
           <FocusBook
-            id={recentBooks[focusIndex].id}
-            title={recentBooks[focusIndex].title}
-            authorName={recentBooks[focusIndex].authorName}
-            bookImage={recentBooks[focusIndex].bookImage}
-            description={recentBooks[focusIndex].description}
-            episode={recentBooks[focusIndex].episode}
-            requiredTime={recentBooks[focusIndex].requiredTime}
-            progress={recentBooks[focusIndex].progress}
-            lastViewed={recentBooks[focusIndex].lastViewed}
+            key={focusIndex}
+            id={recentBooks[0].id}
+            title={recentBooks[0].title}
+            authorName={recentBooks[0].authorName}
+            bookImage={recentBooks[0].bookImage}
+            description={recentBooks[0].description}
+            episode={recentBooks[0].episode}
+            requiredTime={recentBooks[0].requiredTime}
+            progress={recentBooks[0].progress}
+            lastViewed={recentBooks[0].lastViewed}
           />
         )}
       </LeftBody>
       <RightBody>
         <BookNavi>
-          <button onClick={() => {}}>
+          <button onClick={handleLeftButton}>
             <Icon icon={icons.arrow_back_ios} color={theme.color.gray07} />
           </button>
           <NowNbr>{focusIndex + 1}</NowNbr>
           {recentBooks && `/${recentBooks.length}`}
-          <button>
+          <button onClick={handleRightButton}>
             <Icon icon={icons.arrow_forward_ios} color={theme.color.gray07} />
           </button>
         </BookNavi>
@@ -95,7 +104,7 @@ export default function RecentBook() {
           {recentBooks &&
             recentBooks.map((eachBook, index) => {
               return (
-                <EachBookWrapper key={index + 1}>
+                <EachBookWrapper key={Math.random()} index={index} isRight={isRight}>
                   <BookImgForm likedBook={eachBook} size={boxSize} />
                 </EachBookWrapper>
               );
@@ -112,6 +121,7 @@ const Container = styled.div`
   height: 28.4rem;
   padding-top: 3.2rem;
   padding-bottom: 3.2rem;
+  padding-left: 6.5rem;
 `;
 
 const LeftBody = styled.div`
@@ -130,14 +140,14 @@ const Title = styled.p`
 `;
 const RightBody = styled.div`
   width: 31rem;
-  padding: 1.2rem;
-  overflow: hidden;
+  overflow: visible;
 `;
 const BookNavi = styled.div`
   display: flex;
   align-items: center;
-  width: 12.2rem;
+  max-width: 12.2rem;
   height: 4.8rem;
+  margin-left: auto;
 
   ${({ theme }) => theme.font.detail1};
   color: ${({ theme }) => theme.color.gray07};
@@ -146,12 +156,66 @@ const NowNbr = styled.p`
   color: ${({ theme }) => theme.color.gray08};
 `;
 const BookList = styled.div`
+  position: relative;
+  left: -14rem;
   display: inline-flex;
   gap: 2.1rem;
   overflow: visible;
 `;
-const EachBookWrapper = styled.div`
+//여기다가 css 첨에 옆 (-얼마) 에서 transform오게끔?
+const EachBookWrapper = styled.div<{ index: number; isRight: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
+
+  visibility: ${({ index }) => (index == 0 ? 'hidden' : 'visible')};
+
+  animation: ${({ isRight }) =>
+    isRight
+      ? ({ index }) => (index > 0 ? 'rightmove 1s' : ({ index }) => (index == 0 ? 'rightfadeout 1s' : 'none'))
+      : ({ index }) => (index > 1 ? 'leftmove 1s' : ({ index }) => (index == 1 ? 'leftfadeout 1s' : 'none'))};
+
+  @keyframes rightmove {
+    0% {
+      transform: translateX(14rem);
+    }
+
+    100% {
+      transform: translate(0);
+    }
+  }
+
+  @keyframes leftmove {
+    0% {
+      transform: translateX(-14rem);
+    }
+
+    100% {
+      transform: translate(0);
+    }
+  }
+
+  @keyframes rightfadeout {
+    0% {
+      transform: translateX(14rem);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateX(14rem);
+      opacity: 0;
+    }
+  }
+
+  @keyframes leftfadeout {
+    0% {
+      visibility: visible;
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 `;

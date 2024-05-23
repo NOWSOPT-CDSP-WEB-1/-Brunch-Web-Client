@@ -4,7 +4,7 @@ import { Liked_book_type } from 'src/interface/Liked_book_type';
 
 function BookImgForm({ likedBook, size }: { likedBook: Liked_book_type; size: Book_size }) {
   return (
-    <Container boxSize={size}>
+    <Container boxSize={size} bookImg={likedBook.bookImage}>
       <InfoContainer>
         <Title>{likedBook.title}</Title>
         <Author>{likedBook.authorName}</Author>
@@ -15,15 +15,16 @@ function BookImgForm({ likedBook, size }: { likedBook: Liked_book_type; size: Bo
 }
 
 export default BookImgForm;
-const Container = styled.div<{ boxSize: Book_size }>`
+
+const Container = styled.div<{ boxSize: Book_size; bookImg: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: ${(props) => props.boxSize.x};
-  min-height: ${(props) => props.boxSize.y};
+  min-width: ${({ boxSize }) => boxSize.x};
+  min-height: ${({ boxSize }) => boxSize.y};
 
-  background: url('brunch_logo_b.png') lightgray 50% / cover no-repeat;
+  background: url(${(props) => props.bookImg}) lightgray 50% / cover no-repeat;
   border-radius: 5px;
 `;
 const InfoContainer = styled.p`
