@@ -1,4 +1,5 @@
 import { FloatingButton } from '@components';
+import styled from '@emotion/styled';
 
 import ApplyBtn from './_component/ApplyBtn';
 import EssentialData from './_component/EssentialData';
@@ -9,7 +10,7 @@ import SignificantMatters from './_component/SignificantMatters';
 
 const Apply = () => {
   return (
-    <div>
+    <ApplyWrapper>
       <Header />
       <Qualifications />
       <EssentialData />
@@ -17,8 +18,13 @@ const Apply = () => {
       <Footer />
       <ApplyBtn />
       <FloatingButton />
-    </div>
+    </ApplyWrapper>
   );
 };
 
 export default Apply;
+
+const ApplyWrapper = styled.section`
+  position: relative;
+  width: 136.6rem;
+`;
