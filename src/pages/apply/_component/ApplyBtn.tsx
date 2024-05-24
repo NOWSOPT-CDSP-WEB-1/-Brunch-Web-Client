@@ -18,7 +18,7 @@ export default ScrollFollowButton;
 const BtnContainer = styled.button`
   position: fixed;
   top: 58rem;
-  right: 20rem;
+  right: calc(100vw - 136.6rem - (100vw - 136.6rem) / 2 + 22rem);
   display: flex;
   flex-direction: column;
   width: 14.2rem;

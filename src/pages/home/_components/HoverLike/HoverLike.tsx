@@ -19,13 +19,7 @@ const HoverLike = ({ id, isLiked = false }: HoverLikeProps) => {
     }
   };
 
-  return (
-    <Image
-      src={isLike ? '/src/assets/heart-fill.svg' : '/src/assets/heart.svg'}
-      onClick={handleClickLike}
-      alt={'like'}
-    />
-  );
+  return <Image src={isLike ? '/like-heart-fill.svg' : '/like-heart.svg'} onClick={handleClickLike} alt={'like'} />;
 };
 
 export default HoverLike;

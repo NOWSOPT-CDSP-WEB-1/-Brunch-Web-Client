@@ -64,6 +64,8 @@ const index = () => {
 export default index;
 
 const Header = styled.header`
+  /* stylelint-disable-next-line value-no-vendor-prefix */
+  position: -webkit-sticky; /* Safari 지원을 위해 */
   position: sticky;
   top: 0;
   left: 0;

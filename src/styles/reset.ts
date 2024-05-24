@@ -88,9 +88,6 @@ video {
     margin: 0;
     padding: 0;
 
-    /* font-size: 100%; */
-
-    /* font: inherit; */
     vertical-align: baseline;
 
     border: 0;
@@ -141,6 +138,9 @@ video {
   }
 
   body {
+    display: flex;
+    justify-content: center;
+
     font-size: 1.6rem;
     font-family:
       'Pretendard Variable',
@@ -160,6 +160,8 @@ video {
       sans-serif;
     line-height: 1;
 
+    background-color: lightgray;
+
     button {
       margin: 0;
 
@@ -173,10 +175,12 @@ video {
     box-sizing: border-box;
   }
 
-  :root {
+  #root {
+    position: relative;
     max-width: 136.6rem;
-    min-height: 100vh;
-    overflow-x: hidden;
+    height: auto;
+
+    background-color: white;
   }
 `;
 

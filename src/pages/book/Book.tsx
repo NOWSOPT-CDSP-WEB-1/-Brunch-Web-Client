@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import ApplyAuthorBox from './_component/ApplyAuthorBox';
 import ArticleList, { ArticleProps } from './_component/ArticleList';
 import BookDetail from './_component/BookDetail';
 import { BookDetailProps } from './_component/BookInfo';
@@ -53,6 +54,7 @@ const Book = () => {
           </DetailWrapper>
 
           <ArticleList article={article} />
+          <ApplyAuthorBox authorName={bookDetail.authorName} />
         </>
       )}
       <FloatingButton />
