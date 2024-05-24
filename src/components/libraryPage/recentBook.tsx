@@ -117,11 +117,10 @@ export default function RecentBook() {
     </Container>
   );
 }
-
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  height: 28.4rem;
+  min-height: 28.4rem;
   padding-top: 3.2rem;
   padding-bottom: 3.2rem;
   padding-left: 6.5rem;
@@ -133,7 +132,7 @@ const LeftBody = styled.div`
   flex-direction: column;
   gap: 1.2rem;
   width: 41.4rem;
-  height: 100%;
+  height: 25.4rem;
 `;
 const TitleContainer = styled.div`
   display: flex;
@@ -144,6 +143,7 @@ const Title = styled.p`
 `;
 const RightBody = styled.div`
   width: 31rem;
+  margin-top: auto;
   overflow: visible;
 `;
 const BookNavi = styled.div`
