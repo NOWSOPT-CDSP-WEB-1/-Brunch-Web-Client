@@ -76,12 +76,12 @@ const Container = styled.div`
   width: 100%;
   padding-top: 3rem;
   padding-bottom: 3rem;
-  padding-left: 3rem;
+  padding-left: 2rem;
 `;
 const ArticleIndexWrapper = styled.div`
   display: flex;
   align-items: center;
-  padding-right: 61.5rem;
+  padding-right: 62rem;
 `;
 const ArticleIndex = styled.p`
   ${({ theme }) => theme.font.detail2};
