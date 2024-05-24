@@ -1,7 +1,6 @@
-import { Icon, NTag } from '@components';
+import { NTag } from '@components';
 import styled from '@emotion/styled';
 import { WeekdaysData } from '@pages/home/HomeDay';
-import { icons } from '@styles/icons';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -107,7 +106,7 @@ const index = () => {
       <WrapperDiv>
         <ButtonWrapper>
           <FooterText>연재 작품 전체 보기</FooterText>
-          <Icon icon={icons.arrow_forward_ios} size="1.2rem" />
+          <FrameImg src="Frame 160.svg" alt="frame" />
         </ButtonWrapper>
       </WrapperDiv>
     </DayArticleContainer>
@@ -285,6 +284,9 @@ const FooterText = styled.span`
   font-weight: 400;
   font-size: 9px;
   ${({ theme }) => theme.font.detail4_3};
+`;
+const FrameImg = styled.img`
+  margin-top: 2.5px;
 `;
 
 const DayArticleWrapper = styled.div`
