@@ -47,17 +47,19 @@ const Book = () => {
       <Header />
       <NavigateHeader position={position} onArrowClick={onArrowClick} title={bookDetail?.title ?? ''} />
 
-      {bookDetail && article && (
-        <>
-          <DetailWrapper position={position}>
-            <BookDetail bookOverview={bookDetail} />
-          </DetailWrapper>
+      <OverflowBox>
+        {bookDetail && article && (
+          <>
+            <DetailWrapper position={position}>
+              <BookDetail bookOverview={bookDetail} />
+            </DetailWrapper>
 
-          <ArticleList article={article} />
-          <ApplyAuthorBox authorName={bookDetail.authorName} />
-        </>
-      )}
-      <FloatingButton />
+            <ArticleList article={article} />
+            <ApplyAuthorBox authorName={bookDetail.authorName} />
+          </>
+        )}
+        <FloatingButton />
+      </OverflowBox>
     </div>
   );
 };
@@ -66,7 +68,10 @@ export default Book;
 
 const DetailWrapper = styled.section<{ position: number }>`
   transform: translateX(${({ position }) => position * -15}%);
-  overflow: hidden;
 
   transition: transform 0.5s;
+`;
+
+const OverflowBox = styled.div`
+  overflow: hidden;
 `;
