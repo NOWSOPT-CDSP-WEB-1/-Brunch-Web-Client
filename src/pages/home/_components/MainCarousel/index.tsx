@@ -107,8 +107,7 @@ const CarouselContainer = styled.div`
   left: 0;
   gap: 1rem;
   width: 100%;
-  max-width: 136.6rem;
-  height: 43.7rem;
+  height: 100%;
 
   .my-swiper {
     position: relative;

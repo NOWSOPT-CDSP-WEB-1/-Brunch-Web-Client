@@ -160,6 +160,8 @@ video {
       sans-serif;
     line-height: 1;
 
+    background-color: lightgray;
+
     button {
       margin: 0;
 
@@ -174,9 +176,12 @@ video {
   }
 
   #root {
+    position: relative;
     max-width: 136.6rem;
-    min-height: 100vh;
-    overflow-x: hidden;
+    height: auto;
+    overflow: hidden;
+
+    background-color: white;
   }
 `;
 
