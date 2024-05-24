@@ -88,9 +88,6 @@ video {
     margin: 0;
     padding: 0;
 
-    /* font-size: 100%; */
-
-    /* font: inherit; */
     vertical-align: baseline;
 
     border: 0;
@@ -141,6 +138,9 @@ video {
   }
 
   body {
+    display: flex;
+    justify-content: center;
+
     font-size: 1.6rem;
     font-family:
       'Pretendard Variable',
@@ -173,7 +173,7 @@ video {
     box-sizing: border-box;
   }
 
-  :root {
+  #root {
     max-width: 136.6rem;
     min-height: 100vh;
     overflow-x: hidden;

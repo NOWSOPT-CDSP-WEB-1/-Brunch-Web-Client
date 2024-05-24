@@ -95,6 +95,7 @@ const Text = styled.div`
 
   color: ${({ theme }) => theme.color.gray06};
   ${({ theme }) => theme.font.detail4_183_0};
+  text-align: center;
 `;
 
 const Category = styled.div`
