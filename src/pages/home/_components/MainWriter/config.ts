@@ -43,7 +43,7 @@ export const memberDataList: MemberData = {
       part: '디자인',
       description: '7-8시간은 자야 건강하다는데.. 종강시켜주세요..졸전 더서울라이티움 11월 20일 더보기..',
       tags: ['OB', 'DMFJ', '캔디팟'],
-      imgUrl: '/img/profile/design-minseo.png',
+      imgUrl: '/img/profile/design-minseo.jpg',
     },
     {
       name: '이윤민',
@@ -89,8 +89,7 @@ export const memberDataList: MemberData = {
       part: '서버',
       description: '사랑하는 사람 이름 부르고 하강! 합세 웹1조야!',
       tags: ['YB', 'BMLJ', '기디웹서짱'],
-      imgUrl:
-        'https://github-production-user-asset-6210df.s3.amazonaws.com/84909012/333190253-0b413dfe-a006-49e5-831e-79620f4842ce.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240524%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240524T050440Z&X-Amz-Expires=300&X-Amz-Signature=bde405d4c758df2ea54704217d9d2beb8e6bec31fd84f557109372b680039b26&X-Amz-SignedHeaders=host&actor_id=59465914&key_id=0&repo_id=796982740',
+      imgUrl: '/img/profile/chaeyeong.jpg',
     },
     {
       name: '남궁찬',

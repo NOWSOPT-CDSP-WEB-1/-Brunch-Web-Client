@@ -144,7 +144,7 @@ const CarouselContainer = styled.div`
     width: 7.2rem;
     height: 7.2rem;
 
-    background: url('/src/assets/arrow-left.svg') no-repeat center center;
+    background: url('/arrow-left.svg') no-repeat center center;
     background-color: ${({ theme }) => theme.color.white01};
     opacity: 0.56;
     border-radius: 50%;
@@ -154,7 +154,7 @@ const CarouselContainer = styled.div`
     width: 7.2rem;
     height: 7.2rem;
 
-    background: url('/src/assets/arrow-right.svg') no-repeat center center;
+    background: url('/arrow-right.svg') no-repeat center center;
     background-color: ${({ theme }) => theme.color.white01};
     opacity: 0.56;
     border-radius: 50%;
