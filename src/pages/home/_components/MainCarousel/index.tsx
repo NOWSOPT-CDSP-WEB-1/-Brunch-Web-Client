@@ -184,7 +184,7 @@ const SlideWrapper = styled.div<SlideWrapperProps>`
 
   &:hover .overlay {
     visibility: visible;
-    opacity: 0.5;
+    opacity: 0.8;
   }
 `;
 
