@@ -78,9 +78,9 @@ export const memberDataList: MemberData = {
     {
       name: '정보운',
       part: '웹',
-      description: '너가 축제에 뉴진스오는 팀플때문에 못가는 심정을 알아?',
+      description: '너가 축제에 뉴진스오는데 팀플때문에 못가는 심정을 알아?',
       tags: ['YB', 'BMFP'],
-      imgUrl: '',
+      imgUrl: '/img/profile/bowoon.jpeg',
     },
   ],
   server: [

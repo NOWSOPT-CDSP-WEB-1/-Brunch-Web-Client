@@ -309,6 +309,7 @@ const ButtonWrapper = styled.div`
   width: 12.9rem;
   height: 28px;
 
+  cursor: pointer;
   border: 1px solid ${({ theme }) => theme.color.gray04};
   border-radius: 30px;
 `;

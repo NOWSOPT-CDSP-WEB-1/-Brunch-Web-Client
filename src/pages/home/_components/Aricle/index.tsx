@@ -175,6 +175,8 @@ const BigWrapperCard = styled.div`
   justify-content: flex-start;
   width: 17.3rem;
   height: 43rem;
+
+  cursor: pointer;
 `;
 
 const BBigWrapperCard = styled.section`
