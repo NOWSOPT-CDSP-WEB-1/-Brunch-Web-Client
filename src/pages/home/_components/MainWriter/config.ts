@@ -25,7 +25,7 @@ export const memberDataList: MemberData = {
     {
       name: '박록주',
       part: '기획',
-      description: '',
+      description: '축제에 에스파 옴',
       tags: ['YB', 'DNFJ'],
       imgUrl: '/img/profile/rokju.jpeg',
     },
