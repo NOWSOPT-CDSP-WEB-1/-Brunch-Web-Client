@@ -152,7 +152,7 @@ const NTagWrapper = styled.div`
 `;
 
 const KeywordLabel = styled.span`
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 
   text-align: center;
 `;
