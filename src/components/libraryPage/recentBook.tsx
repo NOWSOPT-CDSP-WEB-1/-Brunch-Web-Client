@@ -14,7 +14,7 @@ export default function RecentBook() {
   const boxSize: Book_size = { x: '12rem', y: '15.7rem' };
   const [recentBooks, setRecentBooks] = useState<Recent_book_type[]>();
   const [focusIndex, setFocusIndex] = useState(0);
-  const [isRight, setIsRight] = useState(true);
+  const [isRight, setIsRight] = useState(0);
 
   useEffect(() => {
     axios
@@ -33,7 +33,7 @@ export default function RecentBook() {
   //그리고 옆에 돌아가는거는 이 focusIndex를 기준으로 원형으로 만들어서 돌리기
 
   function handleLeftButton() {
-    setIsRight(false);
+    setIsRight(-1);
 
     if (recentBooks) {
       if (focusIndex > 0) {
@@ -54,7 +54,7 @@ export default function RecentBook() {
   }
 
   function handleRightButton() {
-    setIsRight(true);
+    setIsRight(1);
 
     if (recentBooks) {
       if (focusIndex == recentBooks.length - 1) {
@@ -95,7 +95,7 @@ export default function RecentBook() {
             <Icon icon={icons.arrow_back_ios} color={theme.color.gray07} />
           </button>
           <NowNbr>{focusIndex + 1}</NowNbr>
-          {recentBooks && `/${recentBooks.length}`}
+          {recentBooks && <TotalBookNum>/{recentBooks.length}</TotalBookNum>}
           <button onClick={handleRightButton}>
             <Icon icon={icons.arrow_forward_ios} color={theme.color.gray07} />
           </button>
@@ -166,7 +166,7 @@ const BookList = styled.div`
   overflow: visible;
 `;
 //여기다가 css 첨에 옆 (-얼마) 에서 transform오게끔?
-const EachBookWrapper = styled.div<{ index: number; isRight: boolean }>`
+const EachBookWrapper = styled.div<{ index: number; isRight: number }>`
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
@@ -176,9 +176,11 @@ const EachBookWrapper = styled.div<{ index: number; isRight: boolean }>`
   opacity: ${({ index }) => (index > 2 ? '0.5' : '1')};
 
   animation: ${({ isRight }) =>
-    isRight
+    isRight === 1
       ? ({ index }) => (index > 0 ? 'rightmove 1s' : ({ index }) => (index == 0 ? 'rightfadeout 1s' : 'none'))
-      : ({ index }) => (index > 1 ? 'leftmove 1s' : ({ index }) => (index == 1 ? 'leftfadeout 1s' : 'none'))};
+      : isRight === -1
+        ? ({ index }) => (index > 1 ? 'leftmove 1s' : ({ index }) => (index == 1 ? 'leftfadeout 1s' : 'none'))
+        : 'none'};
 
   @keyframes rightmove {
     0% {
@@ -236,4 +238,8 @@ const GreenBar = styled.div<{ progress: number }>`
   height: 2px;
 
   background-color: ${({ theme }) => theme.color.mint01};
+`;
+
+const TotalBookNum = styled.span`
+  margin-right: 4px;
 `;

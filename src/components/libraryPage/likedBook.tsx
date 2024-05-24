@@ -63,6 +63,7 @@ const Container = styled.div`
   width: 68.4rem;
   margin-top: 2.6rem;
   margin-bottom: 4rem;
+  margin-left: 3rem;
 `;
 const TitleWrapper = styled.div`
   display: flex;

@@ -1,4 +1,4 @@
-import { Footer } from '@components';
+import { FloatingButton, Footer, Header } from '@components';
 import styled from '@emotion/styled';
 
 import Apply from './_components/Apply';
@@ -16,6 +16,7 @@ const Home = () => {
         <BannerImg src="banner.svg" alt="banner" />
         <BannerCloseImg src="banner-close.svg" alt="banner-close" />
       </BannerWrapper>
+      <Header />
       <MainContainer>
         <MainIntro />
         <MainCarousel />
@@ -26,6 +27,7 @@ const Home = () => {
         <Article />
       </MainContainer>
       <Footer />
+      <FloatingButton />
     </Homecontainer>
   );
 };
@@ -57,5 +59,6 @@ const BannerCloseImg = styled.img`
 `;
 
 const MainContainer = styled.main`
+  margin-top: 1rem;
   padding: 0 33.9rem;
 `;

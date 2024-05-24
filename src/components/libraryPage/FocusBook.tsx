@@ -8,14 +8,12 @@ import { Recent_book_type } from 'src/interface/Recent_book_type';
 export default function FocusBook(book: Recent_book_type) {
   const navi = useNavigate();
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        navi(`/book/${book.id}`);
+      }}>
       <ImgContaier>
-        <BookImg
-          src={book.bookImage}
-          onClick={() => {
-            navi(`/book/${book.id}`);
-          }}
-        />
+        <BookImg src={book.bookImage} />
         <ProgressBar>
           <GreenBar progress={book.progress}></GreenBar>
         </ProgressBar>
@@ -24,7 +22,7 @@ export default function FocusBook(book: Recent_book_type) {
         <Title>{book.title}</Title>
 
         <Infos>
-          <VolImage src="volume.svg" alt="volumeImg" />
+          <VolImage src="/src/assets/volume.svg" alt="volumeImg" />
           <Details>{`${book.episode}화`}</Details>
           <Icon icon={icons.schedule} size="1rem" color={theme.color.gray04} />
           <Details>{`${book.requiredTime}분`}</Details>
@@ -40,6 +38,8 @@ const Container = styled.div`
   display: flex;
   gap: 2rem;
   height: 25.4rem;
+
+  cursor: pointer;
 
   transition: all;
   animation: fadein 1s;

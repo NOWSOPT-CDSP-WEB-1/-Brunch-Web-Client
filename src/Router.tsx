@@ -18,7 +18,7 @@ const Router = () => {
       path: '/apply',
       element: <Apply />,
     },
-    { path: '/book', element: <Book /> },
+    { path: '/book/:id', element: <Book /> },
   ];
 
   return (

@@ -3,6 +3,7 @@ import { Icon } from '@components';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -25,6 +26,7 @@ const generateSlideBgColor = () => {
 };
 
 const Index = () => {
+  const navigate = useNavigate();
   const [groupedList, setGroupedList] = useState<BannerImage[][]>([]);
 
   useEffect(() => {
@@ -62,7 +64,7 @@ const Index = () => {
                 return (
                   <SlideWrapper key={item.id} bgColor={index === 0 ? generateSlideBgColor() : ''}>
                     <SlideImage src={item.bannerImage} alt={`Slide ${item.id}`} />
-                    <SlideOverlay className="overlay">
+                    <SlideOverlay className="overlay" onClick={() => navigate(`/book/${item.id}`)}>
                       <OverLayText>
                         <div>
                           <OverlayHeader>
@@ -144,7 +146,7 @@ const CarouselContainer = styled.div`
     width: 7.2rem;
     height: 7.2rem;
 
-    background: url('/icon/arrow-left.svg') no-repeat center center;
+    background: url('/src/assets/arrow-left.svg') no-repeat center center;
     background-color: ${({ theme }) => theme.color.white01};
     opacity: 0.56;
     border-radius: 50%;
@@ -154,7 +156,7 @@ const CarouselContainer = styled.div`
     width: 7.2rem;
     height: 7.2rem;
 
-    background: url('/icon/arrow-right.svg') no-repeat center center;
+    background: url('/src/assets/arrow-right.svg') no-repeat center center;
     background-color: ${({ theme }) => theme.color.white01};
     opacity: 0.56;
     border-radius: 50%;
@@ -206,6 +208,7 @@ const SlideOverlay = styled.div`
 
   background: ${({ theme }) => theme.color.black};
   visibility: hidden;
+  cursor: pointer;
   opacity: 0;
 
   transition:

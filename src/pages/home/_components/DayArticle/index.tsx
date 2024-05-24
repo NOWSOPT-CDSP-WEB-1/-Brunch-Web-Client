@@ -206,8 +206,6 @@ const WrapperUl = styled.span`
   align-items: center;
   width: 688px;
   margin-top: 4px;
-
-  border-bottom: 1px solid #eee;
 `;
 
 const WrapperFont = styled.div`

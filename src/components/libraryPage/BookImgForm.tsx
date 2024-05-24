@@ -27,7 +27,7 @@ const Container = styled.div<{ boxSize: Book_size; bookImg: string }>`
   background: url(${(props) => props.bookImg}) lightgray 50% / cover no-repeat;
   border-radius: 5px;
 `;
-const InfoContainer = styled.p`
+const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

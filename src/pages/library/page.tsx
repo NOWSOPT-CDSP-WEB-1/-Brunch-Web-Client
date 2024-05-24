@@ -1,11 +1,10 @@
-import { Article, LibraryHeader2, LikedBook, RecentBook } from '@components';
+import { Article, FloatingButton, Header, LibraryHeader2, LikedBook, RecentBook } from '@components';
 import styled from '@emotion/styled';
-import LibraryHeader1 from 'src/components/libraryHeader1';
 
 export default function LibraryPage() {
   return (
     <>
-      <LibraryHeader1 />
+      <Header />
       <LibraryHeader2 />
       <div id="recentBook">
         <RecentBook />
@@ -24,6 +23,7 @@ export default function LibraryPage() {
           <Article sort={'liked'} />
         </div>
       </GrayBg>
+      <FloatingButton />
     </>
   );
 }

@@ -1,3 +1,5 @@
+import { FloatingButton } from '@components';
+
 import ApplyBtn from './_component/ApplyBtn';
 import EssentialData from './_component/EssentialData';
 import Footer from './_component/Footer';
@@ -14,6 +16,7 @@ const Apply = () => {
       <SignificantMatters />
       <Footer />
       <ApplyBtn />
+      <FloatingButton />
     </div>
   );
 };
