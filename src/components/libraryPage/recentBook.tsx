@@ -67,7 +67,6 @@ export default function RecentBook() {
       setRecentBooks((prevBooks) => (prevBooks ? [...prevBooks, firstBook] : [firstBook]));
     }
   }
-
   return (
     <Container>
       <LeftBody>

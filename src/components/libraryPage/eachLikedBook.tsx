@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
 import { Book_size } from 'src/interface/Book_size';
 import { Liked_book_type } from 'src/interface/Liked_book_type';
 
@@ -6,8 +7,12 @@ import BookImgForm from './BookImgForm';
 
 export default function EachLikedBook(likedBook: Liked_book_type) {
   const boxSize: Book_size = { x: '12rem', y: '15.7rem' };
+  const navi = useNavigate();
   return (
-    <Container>
+    <Container
+      onClick={() => {
+        navi(`/book/${likedBook.id}`);
+      }}>
       <BookImgForm likedBook={likedBook} size={boxSize} />
       <Title>{likedBook.title}</Title>
       <AuthorWrapper>
