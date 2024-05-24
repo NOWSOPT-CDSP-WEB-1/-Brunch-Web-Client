@@ -179,7 +179,6 @@ video {
     position: relative;
     max-width: 136.6rem;
     height: auto;
-    overflow: hidden;
 
     background-color: white;
   }

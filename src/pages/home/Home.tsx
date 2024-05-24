@@ -59,6 +59,7 @@ const BannerCloseImg = styled.img`
 `;
 
 const MainContainer = styled.main`
-  margin-top: 1rem;
-  padding: 0 33.9rem;
+  /* margin-top: 2rem; */
+  padding: 1rem 33.9rem 0;
+  overflow-x: hidden;
 `;
