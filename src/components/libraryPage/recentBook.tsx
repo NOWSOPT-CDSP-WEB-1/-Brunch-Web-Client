@@ -126,6 +126,7 @@ const Container = styled.div`
   padding-top: 3.2rem;
   padding-bottom: 3.2rem;
   padding-left: 6.5rem;
+  overflow: hidden;
 `;
 
 const LeftBody = styled.div`

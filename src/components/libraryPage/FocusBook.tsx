@@ -40,6 +40,7 @@ const Container = styled.div`
   height: 25.4rem;
 
   cursor: pointer;
+
   transition: all;
   animation: fadein 1s;
 

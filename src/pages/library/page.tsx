@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 export default function LibraryPage() {
   return (
-    <>
+    <RouterPageWrapper>
       <Header />
       <LibraryHeader2 />
       <div id="recentBook">
@@ -24,9 +24,13 @@ export default function LibraryPage() {
         </div>
       </GrayBg>
       <FloatingButton />
-    </>
+    </RouterPageWrapper>
   );
 }
+const RouterPageWrapper = styled.section`
+  width: 136.6rem;
+`;
+
 const HeartImgWrapper = styled.div`
   display: flex;
   justify-content: center;
