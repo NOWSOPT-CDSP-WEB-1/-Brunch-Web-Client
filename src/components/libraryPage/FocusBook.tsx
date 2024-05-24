@@ -1,11 +1,13 @@
-import { Icon } from '@components';
+import { BookImgForm, Icon } from '@components';
 import styled from '@emotion/styled';
 import { icons } from '@styles/icons';
 import theme from '@styles/theme';
 import { useNavigate } from 'react-router-dom';
+import { Book_size } from 'src/interface/Book_size';
 import { Recent_book_type } from 'src/interface/Recent_book_type';
 
 export default function FocusBook(book: Recent_book_type) {
+  const boxSize: Book_size = { x: '15.2rem', y: '21.3rem' };
   const navi = useNavigate();
   return (
     <Container
@@ -13,7 +15,7 @@ export default function FocusBook(book: Recent_book_type) {
         navi(`/book/${book.id}`);
       }}>
       <ImgContaier>
-        <BookImg src={book.bookImage} />
+        <BookImgForm likedBook={book} size={boxSize} />
         <ProgressBar>
           <GreenBar progress={book.progress}></GreenBar>
         </ProgressBar>
@@ -37,7 +39,7 @@ const Container = styled.div`
   z-index: 10;
   display: flex;
   gap: 2rem;
-  height: 25.4rem;
+  height: 25.5rem;
 
   cursor: pointer;
 
@@ -58,15 +60,8 @@ const Container = styled.div`
 const ImgContaier = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
+  gap: 1.2rem;
   align-items: center;
-`;
-const BookImg = styled.img`
-  min-width: 15.3rem;
-  max-width: 15.3rem;
-  height: 21.3rem;
-
-  border-radius: 1.4px;
 `;
 const ProgressBar = styled.div`
   width: 8.4rem;
