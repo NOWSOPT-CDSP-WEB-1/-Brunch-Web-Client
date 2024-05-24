@@ -50,7 +50,7 @@ export default FloatingButton;
 
 const FloatingContainer = styled.div<{ isVisible: boolean }>`
   position: fixed;
-  right: 20px;
+  right: calc(${window.innerWidth > 1366 ? '100vw - 136.6rem - (100vw - 136.6rem) / 2 + 2rem' : '2rem'});
   bottom: 30px;
   z-index: 10;
   display: flex;
