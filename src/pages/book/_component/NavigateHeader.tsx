@@ -48,6 +48,8 @@ export default NavigateHeader;
 
 const NavigationWrapper = styled.div`
   display: flex;
+  width: 136.6rem;
+
   gap: 0.8rem;
   align-items: center;
   justify-content: space-between;
