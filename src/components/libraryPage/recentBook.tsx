@@ -4,6 +4,7 @@ import { icons } from '@styles/icons';
 import theme from '@styles/theme';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import useBookNavi from 'src/hooks/useBookNavi';
 import { Book_size } from 'src/interface/Book_size';
 import { Recent_book_type } from 'src/interface/Recent_book_type';
 
@@ -14,7 +15,12 @@ export default function RecentBook() {
   const boxSize: Book_size = { x: '12rem', y: '15.7rem' };
   const [recentBooks, setRecentBooks] = useState<Recent_book_type[]>();
   const [focusIndex, setFocusIndex] = useState(0);
-  const [isRight, setIsRight] = useState(0);
+  const { isRight, handleLeftButton, handleRightButton } = useBookNavi(
+    recentBooks,
+    setRecentBooks,
+    focusIndex,
+    setFocusIndex
+  );
 
   useEffect(() => {
     axios
@@ -32,41 +38,6 @@ export default function RecentBook() {
   //focusIndex는 가운데 크게 나올 친구 인덱스지정
   //그리고 옆에 돌아가는거는 이 focusIndex를 기준으로 원형으로 만들어서 돌리기
 
-  function handleLeftButton() {
-    setIsRight(-1);
-
-    if (recentBooks) {
-      if (focusIndex > 0) {
-        setFocusIndex((focusIndex) => focusIndex - 1);
-      } else if (focusIndex == 0) {
-        setFocusIndex(() => recentBooks.length - 1);
-      }
-
-      //recentBooks마지막에 있는애를 맨앞으로 데려와야함
-      const lastBook = recentBooks[recentBooks.length - 1];
-      setRecentBooks(
-        recentBooks.filter((each) => {
-          return each.title !== lastBook.title;
-        })
-      );
-      setRecentBooks((prevBooks) => (prevBooks ? [lastBook, ...prevBooks] : [lastBook]));
-    }
-  }
-
-  function handleRightButton() {
-    setIsRight(1);
-
-    if (recentBooks) {
-      if (focusIndex == recentBooks.length - 1) {
-        setFocusIndex(() => 0);
-      } else {
-        setFocusIndex((prev) => prev + 1);
-      }
-      const [firstBook, ...restBooks] = recentBooks;
-      setRecentBooks(restBooks);
-      setRecentBooks((prevBooks) => (prevBooks ? [...prevBooks, firstBook] : [firstBook]));
-    }
-  }
   return (
     <Container>
       <LeftBody>
